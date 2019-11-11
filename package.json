@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "shadow-cljs": "2.8.69"
+  },
+  "dependencies": {
+    "create-react-class": "15.6.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "semantic-ui-react": "0.88.1",
+    "react-transition-group": "4.3.0"
+  }
+}
