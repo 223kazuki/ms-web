@@ -1,13 +1,11 @@
 (ns ms-web.routes
   (:require-macros [secretary.core :refer [defroute]])
+  (:require  [goog.events :as gevents]
+             [ms-web.events :as events]
+             [re-frame.core :as re-frame]
+             [secretary.core :as secretary])
   (:import [goog History]
-           [goog.history EventType])
-  (:require
-   [secretary.core :as secretary]
-   [goog.events :as gevents]
-   [re-frame.core :as re-frame]
-   [ms-web.events :as events]
-   ))
+           [goog.history EventType]))
 
 (defn hook-browser-navigation! []
   (doto (History.)
@@ -19,15 +17,10 @@
 
 (defn app-routes []
   (secretary/set-config! :prefix "#")
-  ;; --------------------
-  ;; define routes here
-  (defroute "/" []
-    (re-frame/dispatch [::events/set-active-panel :home-panel])
-    )
 
+  (defroute "/" []
+    (re-frame/dispatch [::events/set-active-panel :home-panel]))
   (defroute "/about" []
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
 
-
-  ;; --------------------
   (hook-browser-navigation!))

@@ -7,23 +7,14 @@
                  [reagent "0.8.1"]
                  [re-frame "0.10.9"]
                  [secretary "1.2.3"]]
-
-  :plugins [
-            [lein-shell "0.5.0"]]
-
+  :plugins [[lein-shell "0.5.0"]]
   :min-lein-version "2.5.3"
-
   :jvm-opts ["-Xmx1G"]
-
   :source-paths ["src/clj" "src/cljs"]
-
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
-
-
   :shell {:commands {"open" {:windows ["cmd" "/c" "start"]
                              :macosx  "open"
                              :linux   "xdg-open"}}}
-
   :aliases {"dev"          ["with-profile" "dev" "do"
                             ["clean"]
                             ["run" "-m" "shadow.cljs.devtools.cli" "watch" "app"]]
@@ -38,10 +29,7 @@
                             ["clean"]
                             ["run" "-m" "shadow.cljs.devtools.cli" "compile" "karma-test"]
                             ["shell" "karma" "start" "--single-run" "--reporters" "junit,dots"]]}
-
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.10"]]}
-
-   :prod { }
-   })
+   :prod {}})

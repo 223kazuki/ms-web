@@ -1,13 +1,10 @@
 (ns ms-web.core
-  (:require
-   [reagent.core :as reagent]
-   [re-frame.core :as re-frame]
-   [ms-web.events :as events]
-   [ms-web.routes :as routes]
-   [ms-web.views :as views]
-   [ms-web.config :as config]
-   ))
-
+  (:require [ms-web.config :as config]
+            [ms-web.events :as events]
+            [ms-web.routes :as routes]
+            [ms-web.views :as views]
+            [reagent.core :as reagent]
+            [re-frame.core :as re-frame]))
 
 (defn dev-setup []
   (when config/debug?

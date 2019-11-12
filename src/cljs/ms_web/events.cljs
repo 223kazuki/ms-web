@@ -1,8 +1,6 @@
 (ns ms-web.events
-  (:require
-   [re-frame.core :as re-frame]
-   [ms-web.db :as db]
-   ))
+  (:require [ms-web.db :as db]
+            [re-frame.core :as re-frame]))
 
 (re-frame/reg-event-db
  ::initialize-db
