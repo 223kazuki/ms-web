@@ -49,8 +49,8 @@
   [panels panel-name])
 
 (defn main-panel []
-  (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [:> ui/Container {:className "mainContainer" :style {:marginTop "7em"}}
+  (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
+    [:> ui/Container {:className "mainContainer"}
      [:> ui/Menu {:pointing true :secondary true}
       (for [{:keys [key] :as item} [{:name "ホーム" :key "home"}
                                     {:name "名大相撲部" :key "about"}
@@ -59,10 +59,36 @@
                                     {:name "戦績" :key "record"}
                                     {:name "問い合わせ" :key "inquiry"}]
             :let [panel (keyword (str key "-panel"))]]
-        [:> ui/Menu.Item (assoc item :active (= @active-panel panel)
+        ^{:key key}
+        [:> ui/Menu.Item (assoc item
+                                :active (= active-panel panel)
                                 :onClick #(re-frame/dispatch [::events/set-active-panel panel]))])]
      [:> tg/TransitionGroup {:className "transition"}
-      [:> tg/CSSTransition {:key @active-panel
-                            :classNames "transition"
-                            :timeout 300}
-       [show-panel @active-panel]]]]))
+      [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
+       [show-panel active-panel]]]]))
+
+(defn sidebar-panel []
+  (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
+    [:> ui/Container {:className "mainContainer" :style {:width "100%" :height "1000px"}}
+     [:> ui/Sidebar.Pushable {:as ui/Segment}
+      [:> ui/Sidebar {:as ui/Menu
+                      :animation "overlay"
+                      :icon "labeled"
+                      :inverted true
+                      ;; :onHide {()  > setVisible(false)}
+                      :vertical true
+                      :visible true
+                      :width "thin"}
+       [:> ui/Menu.Item {:as "a"}
+        [:> ui/Icon {:name "home"}]
+        "Home"]
+       [:> ui/Menu.Item {:as "a"}
+        [:> ui/Icon {:name "gamepad"}]
+        "Geme"]
+       [:> ui/Menu.Item {:as "a"}
+        [:> ui/Icon {:name "camera"}]
+        "Channels"]]
+      [:> ui/Sidebar.Pusher
+       [:> ui/Segment {:basic true}
+        [:> ui/Header {:as "h3"} "Application Content"]
+        [:> ui/Image {:src "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]]))
