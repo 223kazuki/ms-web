@@ -10,3 +10,8 @@
  ::active-panel
  (fn [db _]
    (:active-panel db)))
+
+(re-frame/reg-sub
+ ::menu-open?
+ (fn [db _]
+   (:menu-open? db)))

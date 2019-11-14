@@ -48,16 +48,18 @@
 (defn show-panel [panel-name]
   [panels panel-name])
 
-(defn main-panel []
+(def menu [{:name "ホーム" :key "home"}
+           {:name "名大相撲部" :key "about"}
+           {:name "部員一覧" :key "member"}
+           {:name "年間予定" :key "schedule"}
+           {:name "戦績" :key "record"}
+           {:name "問い合わせ" :key "inquiry"}])
+
+(defn pc-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
     [:> ui/Container {:className "mainContainer"}
      [:> ui/Menu {:pointing true :secondary true}
-      (for [{:keys [key] :as item} [{:name "ホーム" :key "home"}
-                                    {:name "名大相撲部" :key "about"}
-                                    {:name "部員一覧" :key "member"}
-                                    {:name "年間予定" :key "schedule"}
-                                    {:name "戦績" :key "record"}
-                                    {:name "問い合わせ" :key "inquiry"}]
+      (for [{:keys [key] :as item} menu
             :let [panel (keyword (str key "-panel"))]]
         ^{:key key}
         [:> ui/Menu.Item (assoc item
@@ -67,28 +69,40 @@
       [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
        [show-panel active-panel]]]]))
 
-(defn sidebar-panel []
-  (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
-    [:> ui/Container {:className "mainContainer" :style {:width "100%" :height "1000px"}}
-     [:> ui/Sidebar.Pushable {:as ui/Segment}
-      [:> ui/Sidebar {:as ui/Menu
-                      :animation "overlay"
-                      :icon "labeled"
-                      :inverted true
-                      ;; :onHide {()  > setVisible(false)}
-                      :vertical true
-                      :visible true
-                      :width "thin"}
-       [:> ui/Menu.Item {:as "a"}
-        [:> ui/Icon {:name "home"}]
-        "Home"]
-       [:> ui/Menu.Item {:as "a"}
-        [:> ui/Icon {:name "gamepad"}]
-        "Geme"]
-       [:> ui/Menu.Item {:as "a"}
-        [:> ui/Icon {:name "camera"}]
-        "Channels"]]
-      [:> ui/Sidebar.Pusher
-       [:> ui/Segment {:basic true}
-        [:> ui/Header {:as "h3"} "Application Content"]
-        [:> ui/Image {:src "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]]))
+(defn main-container []
+  (let [menu-open? @(re-frame/subscribe [::subs/menu-open?])]
+    [:> ui/Segment.Group
+     [:> ui/Responsive {:minWidth 1201}
+      [pc-container menu]]
+     [:> ui/Responsive {:maxWidth 1200}
+      [:> ui/Container {:className "mainContainer"}
+       [:> ui/Sidebar.Pushable
+        [:> ui/Sidebar {:as ui/Menu
+                        :animation "push"
+                        :icon "labeled"
+                        :inverted true
+                        ;; :onHide {()  > setVisible(false)}
+                        :vertical true
+                        :visible menu-open?
+                        :width "thin"}
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "home"}]
+          "Home"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "gamepad"}]
+          "Geme"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "camera"}]
+          "Channels"]]
+        [:> ui/Sidebar.Pusher
+         [:> ui/Segment {:basic true}
+          [:a {:className (str "menuButton"
+                               (when menu-open? " active")) :href "#"
+               :onClick #(re-frame/dispatch [::events/toggl-menu-open])}
+           [:span]
+           [:span]
+           [:span]]
+          #_[:> ui/Icon {:name "bars"
+                         :onClick #(re-frame/dispatch [::events/toggl-menu-open])}]
+          [:> ui/Header {:as "h1"} "Application Content"]
+          [:> ui/Image {:src "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]]]]))

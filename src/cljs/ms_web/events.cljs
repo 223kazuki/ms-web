@@ -11,3 +11,8 @@
  ::set-active-panel
  (fn [db [_ active-panel]]
    (assoc db :active-panel active-panel)))
+
+(re-frame/reg-event-db
+ ::toggl-menu-open
+ (fn [db [_ _]]
+   (update db :menu-open? not)))
