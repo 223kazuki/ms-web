@@ -2,16 +2,43 @@
   (:require [ms-web.events :as events]
             [ms-web.subs :as subs]
             [re-frame.core :as re-frame]
+            [reagent.core :as r]
             ["react-transition-group" :as tg]
             ["semantic-ui-react" :as ui]))
 
+(def visibility (r/atom false))
+
 (defn home-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
+  (let []
     [:div
-     [:h1 (str "Hello from " @name ". This is the Home Page.")]
-     [:div
-      [:a {:href "#/about"}
-       "go to About Page"]]]))
+     [:> ui/Visibility {:onTopPassed #(reset! visibility true)}
+      [:> ui/Header {:as "h1"
+                     :inverted true
+                     :style {:width "100%"
+                             :height 200
+                             :display "inline-block"
+                             :opacity 0.5
+                             :backgroundImage "url(\"/img/top.jpg\")"
+                             :backgroundSize "cover"
+                             :background "center"
+                             :fontSize "3em"
+                             :fontWeight "normal"
+                             :textAlign "center"}}
+       "名古屋大学相撲部"]]
+     [:> ui/Transition {:visible @visibility :animation "scale" :duration 500}
+      [:> ui/Header {:as "h1"
+                     :inverted true
+                     :style {:width "100%"
+                             :height 200
+                             :display "inline-block"
+                             :opacity 0.5
+                             :backgroundImage "url(\"/img/top.jpg\")"
+                             :backgroundSize "cover"
+                             :background "center"
+                             :fontSize "3em"
+                             :fontWeight "normal"
+                             :textAlign "center"}}
+       "名古屋大学相撲部"]]]))
 
 (defn about-panel []
   [:div
@@ -48,61 +75,61 @@
 (defn show-panel [panel-name]
   [panels panel-name])
 
-(def menu [{:name "ホーム" :key "home"}
-           {:name "名大相撲部" :key "about"}
-           {:name "部員一覧" :key "member"}
-           {:name "年間予定" :key "schedule"}
-           {:name "戦績" :key "record"}
-           {:name "問い合わせ" :key "inquiry"}])
+(def menu [{:name "ホーム" :key "home" :icon "home"}
+           {:name "名大相撲部" :key "about" :icon "info"}
+           {:name "部員名簿" :key "member" :icon "users"}
+           {:name "年間予定" :key "schedule" :icon "calendar"}
+           {:name "戦績" :key "record" :icon "book"}
+           {:name "問い合わせ" :key "inquiry" :icon "mail"}])
 
 (defn pc-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
     [:> ui/Container {:className "mainContainer"}
      [:> ui/Menu {:pointing true :secondary true}
-      (for [{:keys [key] :as item} menu
+      (for [{:keys [key name] :as item} menu
             :let [panel (keyword (str key "-panel"))]]
         ^{:key key}
-        [:> ui/Menu.Item (assoc item
-                                :active (= active-panel panel)
-                                :onClick #(re-frame/dispatch [::events/set-active-panel panel]))])]
+        [:> ui/Menu.Item {:name name
+                          :active (= active-panel panel)
+                          :onClick #(re-frame/dispatch [::events/set-active-panel panel])}])]
      [:> tg/TransitionGroup {:className "transition"}
       [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
        [show-panel active-panel]]]]))
 
+(defn mobile-container []
+  (let [active-panel @(re-frame/subscribe [::subs/active-panel])
+        menu-open? @(re-frame/subscribe [::subs/menu-open?])]
+    [:> ui/Container {:className "mainContainer"}
+     [:> ui/Sidebar.Pushable
+      [:> ui/Sidebar {:as ui/Menu
+                      :animation "push"
+                      :icon "labeled"
+                      :vertical true
+                      :visible menu-open?
+                      :width "thin"}
+       (for [{:keys [key name icon] :as item} menu
+             :let [panel (keyword (str key "-panel"))]]
+         ^{:key key}
+         [:> ui/Menu.Item {:as "a"
+                           :active (= active-panel panel)
+                           :href (str "#/" key)}
+          [:> ui/Icon {:name icon}]
+          name])]
+      [:> ui/Sidebar.Pusher
+       [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0}}
+        [:> ui/Menu {:fixed "top" :className "noStyle"}
+         [:a {:className (str "menuButton" (when menu-open? " active"))
+              :onClick #(re-frame/dispatch [::events/toggl-menu-open])}
+          [:span]
+          [:span]
+          [:span]]]
+        [:> tg/TransitionGroup {:className "transition"}
+         [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
+          [show-panel active-panel]]]]]]]))
+
 (defn main-container []
-  (let [menu-open? @(re-frame/subscribe [::subs/menu-open?])]
-    [:> ui/Segment.Group
-     [:> ui/Responsive {:minWidth 1201}
-      [pc-container menu]]
-     [:> ui/Responsive {:maxWidth 1200}
-      [:> ui/Container {:className "mainContainer"}
-       [:> ui/Sidebar.Pushable
-        [:> ui/Sidebar {:as ui/Menu
-                        :animation "push"
-                        :icon "labeled"
-                        :inverted true
-                        ;; :onHide {()  > setVisible(false)}
-                        :vertical true
-                        :visible menu-open?
-                        :width "thin"}
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "home"}]
-          "Home"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "gamepad"}]
-          "Geme"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "camera"}]
-          "Channels"]]
-        [:> ui/Sidebar.Pusher
-         [:> ui/Segment {:basic true}
-          [:a {:className (str "menuButton"
-                               (when menu-open? " active")) :href "#"
-               :onClick #(re-frame/dispatch [::events/toggl-menu-open])}
-           [:span]
-           [:span]
-           [:span]]
-          #_[:> ui/Icon {:name "bars"
-                         :onClick #(re-frame/dispatch [::events/toggl-menu-open])}]
-          [:> ui/Header {:as "h1"} "Application Content"]
-          [:> ui/Image {:src "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]]]]))
+  [:<>
+   [:> ui/Responsive {:minWidth 1201}
+    [pc-container]]
+   [:> ui/Responsive {:maxWidth 1200}
+    [mobile-container]]])

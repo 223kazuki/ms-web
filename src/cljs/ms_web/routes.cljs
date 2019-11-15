@@ -20,7 +20,17 @@
 
   (defroute "/" []
     (re-frame/dispatch [::events/set-active-panel :home-panel]))
+  (defroute "/home" []
+    (re-frame/dispatch [::events/set-active-panel :home-panel]))
   (defroute "/about" []
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
+  (defroute "/member" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/schedule" []
+    (re-frame/dispatch [::events/set-active-panel :schedule-panel]))
+  (defroute "/record" []
+    (re-frame/dispatch [::events/set-active-panel :record-panel]))
+  (defroute "/inquiry" []
+    (re-frame/dispatch [::events/set-active-panel :inquiry-panel]))
 
   (hook-browser-navigation!))

@@ -10,7 +10,9 @@
 (re-frame/reg-event-db
  ::set-active-panel
  (fn [db [_ active-panel]]
-   (assoc db :active-panel active-panel)))
+   (assoc db
+          :active-panel active-panel
+          :menu-open? false)))
 
 (re-frame/reg-event-db
  ::toggl-menu-open
