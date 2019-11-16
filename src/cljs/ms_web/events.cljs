@@ -12,9 +12,15 @@
  (fn [db [_ active-panel]]
    (assoc db
           :active-panel active-panel
-          :menu-open? false)))
+          :menu-open? false
+          :sub-menu nil)))
 
 (re-frame/reg-event-db
  ::toggl-menu-open
  (fn [db [_ _]]
    (update db :menu-open? not)))
+
+(re-frame/reg-event-db
+ ::set-sub-menu
+ (fn [db [_ sub-menu]]
+   (assoc db :sub-menu sub-menu)))

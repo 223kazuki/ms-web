@@ -2,11 +2,6 @@
   (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
- ::name
- (fn [db]
-   (:name db)))
-
-(re-frame/reg-sub
  ::active-panel
  (fn [db _]
    (:active-panel db)))
@@ -15,3 +10,13 @@
  ::menu-open?
  (fn [db _]
    (:menu-open? db)))
+
+(re-frame/reg-sub
+ ::sub-menu
+ (fn [db _]
+   (:sub-menu db)))
+
+(re-frame/reg-sub
+ ::members
+ (fn [db _]
+   (:members db)))

@@ -22,8 +22,6 @@
     (re-frame/dispatch [::events/set-active-panel :home-panel]))
   (defroute "/home" []
     (re-frame/dispatch [::events/set-active-panel :home-panel]))
-  (defroute "/about" []
-    (re-frame/dispatch [::events/set-active-panel :about-panel]))
   (defroute "/member" []
     (re-frame/dispatch [::events/set-active-panel :member-panel]))
   (defroute "/schedule" []
@@ -32,5 +30,17 @@
     (re-frame/dispatch [::events/set-active-panel :record-panel]))
   (defroute "/inquiry" []
     (re-frame/dispatch [::events/set-active-panel :inquiry-panel]))
+  (defroute "/declation" []
+    (re-frame/dispatch [::events/set-active-panel :declation-panel]))
+  (defroute "/freshman" []
+    (re-frame/dispatch [::events/set-active-panel :freshman-panel]))
+  (defroute "/ob" []
+    (re-frame/dispatch [::events/set-active-panel :ob-panel]))
+  (defroute "/keiko" []
+    (re-frame/dispatch [::events/set-active-panel :keiko-panel]))
+  (defroute "/chanko" []
+    (re-frame/dispatch [::events/set-active-panel :chanko-panel]))
+  (defroute "/ibukioroshi" []
+    (re-frame/dispatch [::events/set-active-panel :ibukioroshi-panel]))
 
   (hook-browser-navigation!))
