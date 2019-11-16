@@ -17,7 +17,8 @@ jobs:
       run: npm i
     - name: Build
       run: lein prod
-    - uses: jakejarvis/s3-sync-action@master
+    - name: Deploy
+      uses: jakejarvis/s3-sync-action@v0.5.0
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
