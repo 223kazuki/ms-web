@@ -43,4 +43,23 @@
   (defroute "/ibukioroshi" []
     (re-frame/dispatch [::events/set-active-panel :ibukioroshi-panel]))
 
+  (defroute "/managers" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2017" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2016" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2015" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2014" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2013" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2012" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2011" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/obg2010" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+
   (hook-browser-navigation!))
