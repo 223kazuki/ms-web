@@ -43,7 +43,7 @@
        ^{:key name}
        [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
         (when image
-          [:> ui/Image {:src (str "https://dev.meidai-sumo.club/img/member/" image)}])
+          [:> ui/Image {:src (str "/img/member/" image)}])
         [:> ui/Card.Content
          [:> ui/Card.Header name]
          [:> ui/Card.Meta introduction1]
