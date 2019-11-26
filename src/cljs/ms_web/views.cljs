@@ -24,9 +24,54 @@
                            :fontSize "3em"
                            :fontWeight "normal"
                            :textAlign "center"}}]]
-   [:> ui/Segment {:basic true}
-    [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
-                                      :options {:height 500}}]]])
+   [:> ui/Segment {:basic true :textAlign "center"}
+    [:a {:href "https://twitter.com/nu_sumo"}
+     [:> ui/Icon {:name "twitter" :style {:color "#1EA1F2"} :size "big"}]]
+    [:a {:href "https://www.facebook.com/NUSUMOCLUB/"}
+     [:> ui/Icon {:name "facebook" :style {:color "#4267B2"} :size "big"}]]
+    [:a {:href "https://www.instagram.com/nu_sumosumo/"}
+     [:> ui/Icon {:name "instagram" :style {:color "#D12798"} :size "big"}]]]
+   [:> ui/Grid
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:basic true}
+      [:h2 "新入部員募集中！！"]
+      [:> ui/Segment {:basic true}
+       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+       "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+       "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+       "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
+       "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+       "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+      [:> ui/Image {:src "/img/bosyu.jpg"}]]]
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:basic true}
+      [:h2 "第５８回全国七大学総合体育大会相撲競技優勝"]
+      [:> ui/Segment {:basic true}
+       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+       "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+       "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+       "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
+       "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+       "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+      [:> ui/Image {:src "/img/shichiteisen.jpg"}]]]
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:basic true}
+      [:h2 "相撲部土俵改修プロジェクト"]
+      [:> ui/Segment {:basic true}
+       [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
+        "細谷先生還暦記念！ 名大相撲部の土俵を改修したい！ 名大相撲部創部以来、大切に作り使ってきた道場・土俵。 今後も後輩たちが引き続き使っていけるよう、細谷先生の60歳を機にOBも協力して改修をしていきたいです！"]
+       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+       "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+       "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+       "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
+       "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+       "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+      [:> ui/Image {:src "/img/dohyo.jpg"}]]]
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:basic true}
+      [:h2 "新着情報（Twitter）"]
+      [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
+                                        :options {:height 500}}]]]]])
 
 (defn member-panel []
   (let [members @(re-frame/subscribe [::subs/members])
@@ -208,21 +253,21 @@
                        {:key "obg2011" :name "2011年度卒業生"}
                        {:key "obg2010" :name "2010年度卒業生"}]}
            {:name "稽古・年間予定" :key "schedule" :icon "calendar"}
-           {:name "戦績" :key "record" :icon "book"}
-           {:name "問い合わせ" :key "inquiry" :icon "mail"}])
+           #_{:name "戦績" :key "record" :icon "book"}
+           #_{:name "問い合わせ" :key "inquiry" :icon "mail"}])
 
 (defn pc-container []
-(let [active-panel @(re-frame/subscribe [::subs/active-panel])]
-  [:> ui/Container {:className "mainContainer"}
-   [:> ui/Menu {:pointing true :secondary true}
-    (for [{:keys [key name] :as item} menu
-          :let [panel (keyword (str key "-panel"))]]
-      ^{:key key}
-      [:> ui/Menu.Item {:name name :as "a" :href (str "#/" key)
-                        :active (= active-panel panel)}])]
-   [:> tg/TransitionGroup {:className "transition"}
-    [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
-     [show-panel active-panel]]]]))
+  (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
+    [:> ui/Container {:className "mainContainer"}
+     [:> ui/Menu {:pointing true :secondary true}
+      (for [{:keys [key name] :as item} menu
+            :let [panel (keyword (str key "-panel"))]]
+        ^{:key key}
+        [:> ui/Menu.Item {:name name :as "a" :href (str "#/" key)
+                          :active (= active-panel panel)}])]
+     [:> tg/TransitionGroup {:className "transition"}
+      [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
+       [show-panel active-panel]]]]))
 
 (defn mobile-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])
