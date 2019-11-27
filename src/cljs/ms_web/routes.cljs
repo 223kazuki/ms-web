@@ -45,6 +45,8 @@
 
   (defroute "/managers" []
     (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/all" []
+    (re-frame/dispatch [::events/set-active-panel :member-panel]))
   (defroute "/obg2017" []
     (re-frame/dispatch [::events/set-active-panel :member-panel]))
   (defroute "/obg2016" []
