@@ -14,8 +14,8 @@
                             :member/image "hosokawa.jpg"
                             :member/introduction1 "経済学部経営学科\n出身：東京都大田区"
                             :member/introduction2 "イベントの手伝いを積極的に手伝ってくれる。。"
-                            :member/grade "3年"
-                            :member/grade-id "grade3"}
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
                            {:member/id 32
                             :member/name "打江泰介"
                             :member/image "uchie.jpg"
