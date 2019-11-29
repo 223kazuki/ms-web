@@ -30,38 +30,20 @@
     (re-frame/dispatch [::events/set-active-panel :record-panel]))
   (defroute "/inquiry" []
     (re-frame/dispatch [::events/set-active-panel :inquiry-panel]))
-  (defroute "/declation" []
+  (defroute "/about/declation" []
     (re-frame/dispatch [::events/set-active-panel :declation-panel]))
-  (defroute "/freshman" []
+  (defroute "/about/freshman" []
     (re-frame/dispatch [::events/set-active-panel :freshman-panel]))
-  (defroute "/ob" []
+  (defroute "/about/ob" []
     (re-frame/dispatch [::events/set-active-panel :ob-panel]))
-  (defroute "/keiko" []
+  (defroute "/about/keiko" []
     (re-frame/dispatch [::events/set-active-panel :keiko-panel]))
-  (defroute "/chanko" []
+  (defroute "/about/chanko" []
     (re-frame/dispatch [::events/set-active-panel :chanko-panel]))
-  (defroute "/ibukioroshi" []
+  (defroute "/about/ibukioroshi" []
     (re-frame/dispatch [::events/set-active-panel :ibukioroshi-panel]))
-
-  (defroute "/managers" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/all" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2017" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2016" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2015" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2014" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2013" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2012" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2011" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
-  (defroute "/obg2010" []
-    (re-frame/dispatch [::events/set-active-panel :member-panel]))
+  (defroute "/member/:filter" [filter]
+    (println "###" filter)
+    (re-frame/dispatch [::events/set-active-panel :member-panel filter]))
 
   (hook-browser-navigation!))

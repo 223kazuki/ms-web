@@ -75,22 +75,24 @@
 
 (defn member-panel []
   (let [members @(re-frame/subscribe [::subs/members])
+        grade-filter @(re-frame/subscribe [::subs/url-params])
         active-panel @(re-frame/subscribe [::subs/active-panel])]
-    (fn []
-      [:div
-       [:h1 "部員名簿"]
-       (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
-                     member/introduction3]} members]
-         ^{:key id}
-         [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
-          (when image
-            [:> ui/Image {:src (str "/img/member/" image)}])
-          [:> ui/Card.Content
-           [:> ui/Card.Header name]
-           [:> ui/Card.Meta introduction1]
-           (when introduction2 [:> ui/Card.Description introduction2])
-           (when introduction3 [:> ui/Card.Description introduction3])]])
-       [footer]])))
+    [:div
+     [:h1 "部員名簿"]
+     (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
+                   member/introduction3]} (if (= grade-filter "all")
+                                            members
+                                            (filter #(= (:member/grade-id %) grade-filter) members))]
+       ^{:key id}
+       [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
+        (when image
+          [:> ui/Image {:src (str "/img/member/" image) :fluid true}])
+        [:> ui/Card.Content
+         [:> ui/Card.Header name]
+         [:> ui/Card.Meta introduction1]
+         (when introduction2 [:> ui/Card.Description introduction2])
+         (when introduction3 [:> ui/Card.Description introduction3])]])
+     [footer]]))
 
 (defn schedule-panel []
   [:div
@@ -245,7 +247,10 @@
                        {:key "chanko" :name "ちゃんこ"}
                        {:key "ibukioroshi" :name "第八高等学校寮歌 伊吹おろし"}]}
            {:name "部員名簿" :key "member" :icon "users"
-            :sub-menu [{:key "all" :name "全て"}
+            :sub-menu [{:key "grade4" :name "四回生"}
+                       {:key "grade3" :name "三回生"}
+                       {:key "grade2" :name "二回生"}
+                       {:key "grade1" :name "一回生"}
                        {:key "managers" :name "首脳陣"}
                        {:key "obg2017" :name "2017年度卒業生"}
                        {:key "obg2016" :name "2016年度卒業生"}
@@ -254,7 +259,8 @@
                        {:key "obg2013" :name "2013年度卒業生"}
                        {:key "obg2012" :name "2012年度卒業生"}
                        {:key "obg2011" :name "2011年度卒業生"}
-                       {:key "obg2010" :name "2010年度卒業生"}]}
+                       {:key "obg2010" :name "2010年度卒業生"}
+                       {:key "all" :name "全て"}]}
            {:name "稽古・年間予定" :key "schedule" :icon "calendar"}
            #_{:name "戦績" :key "record" :icon "book"}
            #_{:name "問い合わせ" :key "inquiry" :icon "mail"}])
@@ -275,7 +281,8 @@
 (defn mobile-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])
         sub-menu @(re-frame/subscribe [::subs/sub-menu])
-        menu-open? @(re-frame/subscribe [::subs/menu-open?])]
+        menu-open? @(re-frame/subscribe [::subs/menu-open?])
+        parent @(re-frame/subscribe [::subs/parent])]
     [:> ui/Container {:className "mainContainer"}
      [:> ui/Sidebar.Pushable
       [:> ui/Sidebar {:as ui/Menu
@@ -290,7 +297,7 @@
          ^{:key key}
          [:> ui/Menu.Item (if sub-menu
                             {:active (= active-panel panel)
-                             :onClick #(re-frame/dispatch [::events/set-sub-menu sub-menu])}
+                             :onClick #(re-frame/dispatch [::events/set-sub-menu key sub-menu])}
                             {:as "a"
                              :active (= active-panel panel)
                              :href (str "#/" key)})
@@ -311,7 +318,7 @@
             ^{:key key}
             [:> ui/Menu.Item {:as "a"
                               :active (= active-panel panel)
-                              :href (str "#/" key)}
+                              :href (str "#/" parent "/" key)}
              name])]
          [:> ui/Sidebar.Pusher
           [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0}}

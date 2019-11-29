@@ -6,7 +6,7 @@
                  [thheller/shadow-cljs "2.8.69"]
                  [reagent "0.8.1"]
                  [re-frame "0.10.9"]
-                 [secretary "1.2.3"]]
+                 [clj-commons/secretary "1.2.4"]]
   :plugins [[lein-shell "0.5.0"]]
   :min-lein-version "2.5.3"
   :jvm-opts ["-Xmx1G"]

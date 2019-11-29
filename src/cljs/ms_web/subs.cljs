@@ -7,9 +7,19 @@
    (:active-panel db)))
 
 (re-frame/reg-sub
+ ::url-params
+ (fn [db _]
+   (:url-params db)))
+
+(re-frame/reg-sub
  ::menu-open?
  (fn [db _]
    (:menu-open? db)))
+
+(re-frame/reg-sub
+ ::parent
+ (fn [db _]
+   (:parent db)))
 
 (re-frame/reg-sub
  ::sub-menu

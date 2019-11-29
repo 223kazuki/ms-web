@@ -9,10 +9,12 @@
 
 (re-frame/reg-event-db
  ::set-active-panel
- (fn [db [_ active-panel]]
+ (fn [db [_ active-panel params]]
    (assoc db
           :active-panel active-panel
+          :url-params params
           :menu-open? false
+          :parent nil
           :sub-menu nil)))
 
 (re-frame/reg-event-db
@@ -22,5 +24,5 @@
 
 (re-frame/reg-event-db
  ::set-sub-menu
- (fn [db [_ sub-menu]]
-   (assoc db :sub-menu sub-menu)))
+ (fn [db [_ parent sub-menu]]
+   (assoc db :parent parent :sub-menu sub-menu)))
