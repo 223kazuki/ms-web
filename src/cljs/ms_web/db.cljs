@@ -300,28 +300,28 @@
                             :member/introduction2 "最近はまっているもの　オーガニック製品\n最近したいこと①　玉ねぎとかの草木染め\n最近したいこと②　沖縄の三線"
                             :member/grade "卒業生（2010年度卒）"
                             :member/grade-id "obg2010"}]
-                 :schedule [{:year "2019" :date "1/6/19" :event "初稽古"}
-                            {:year "2019" :date "1月22日～2月5日" :event "オフ"}
-                            {:year "2019" :date "3月3日～12日" :event "紋別合宿"}
-                            {:year "2019" :date "4/17/19" :event "加藤杯"}
-                            {:year "2019" :date "5/5/19" :event "東海近畿オープン"}
-                            {:year "2019" :date "5/19/19" :event "国公立大会"}
-                            {:year "2019" :date "6/2/19" :event "西日本インカレ"}
-                            {:year "2019" :date "6/6/19" :event "留学生交流会"}
-                            {:year "2019" :date "6/22/19" :event "高砂部屋激励会"}
-                            {:year "2019" :date "7/21/19" :event "西日本体重別"}
-                            {:year "2019" :date "8月9日～16日" :event "答志島合宿"}
-                            {:year "2019" :date "9/1/19" :event "全国体重別"}
-                            {:year "2019" :date "9/8/19" :event "七帝戦"}
-                            {:year "2019" :date "9月9日～15日" :event "大空町合宿"}
-                            {:year "2019" :date "9月16日～9月30日" :event "オフ"}
-                            {:year "2019" :date "10/5/19" :event "大須素人相撲大会"}
-                            {:year "2019" :date "11月2日、3日" :event "全国学生相撲選手権大会(インカレ)"}
-                            {:year "2019" :date "11/20/19" :event "細谷先生還暦パーティー＠名古屋"}
-                            {:year "2019" :date "11/22/19" :event "細谷先生還暦パーティー＠東京"}
-                            {:year "2019" :date "11月２３，２４日" :event "細谷先生還暦旅行"}
-                            {:year "2019" :date "12/28/19" :event "納稽古"}
-                            {:year "2019" :date "11月29日、30日" :event "納旅行"}]
+                 :schedule [{:year "2019" :date "1/6" :event "初稽古"}
+                            {:year "2019" :date "1/22 - 2/5" :event "オフ"}
+                            {:year "2019" :date "3/3 - 12" :event "紋別合宿"}
+                            {:year "2019" :date "4/17" :event "加藤杯"}
+                            {:year "2019" :date "5/5" :event "東海近畿オープン"}
+                            {:year "2019" :date "5/19" :event "国公立大会"}
+                            {:year "2019" :date "6/2" :event "西本インカレ"}
+                            {:year "2019" :date "6/6" :event "留学生交流会"}
+                            {:year "2019" :date "6/22" :event "高砂部屋激励会"}
+                            {:year "2019" :date "7/21" :event "西本体重別"}
+                            {:year "2019" :date "8/9 - 16" :event "答志島合宿"}
+                            {:year "2019" :date "9/1" :event "全国体重別"}
+                            {:year "2019" :date "9/8" :event "七帝戦"}
+                            {:year "2019" :date "9/9 - 15" :event "大空町合宿"}
+                            {:year "2019" :date "9/16 - 9/30" :event "オフ"}
+                            {:year "2019" :date "10/5" :event "大須素人相撲大会"}
+                            {:year "2019" :date "11/2, 3" :event "全国学生相撲選手権大会(インカレ)"}
+                            {:year "2019" :date "11/20" :event "細谷先生還暦パーティー＠名古屋"}
+                            {:year "2019" :date "11/22" :event "細谷先生還暦パーティー＠東京"}
+                            {:year "2019" :date "11/23, 24" :event "細谷先生還暦旅行"}
+                            {:year "2019" :date "12/28" :event "納稽古"}
+                            {:year "2019" :date "11/29, 30" :event "納旅行"}]
                  :keiko ["毎週火曜5時～"
                          "毎週木曜5時～"
                          "毎週土曜9時半～"]})
