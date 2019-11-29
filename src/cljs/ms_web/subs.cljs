@@ -30,3 +30,13 @@
  ::members
  (fn [db _]
    (:members db)))
+
+(re-frame/reg-sub
+ ::schedule
+ (fn [db _]
+   (:schedule db)))
+
+(re-frame/reg-sub
+ ::keiko
+ (fn [db _]
+   (:keiko db)))

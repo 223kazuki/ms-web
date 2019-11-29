@@ -95,8 +95,22 @@
      [footer]]))
 
 (defn schedule-panel []
-  [:div
-   [:h1 "This is the Schedule Page."]])
+  (let [schedule @(re-frame/subscribe [::subs/schedule])
+        keiko @(re-frame/subscribe [::subs/keiko])]
+    [:div
+     [:h1 "年間予定"]
+     [:table
+      (for [s schedule]
+        ^{:key (:date s)}
+        [:tr
+         [:th (:date s)]
+         [:td (:event s)]])]
+     [:h2 "稽古"]
+     [:ul]
+     (for [k keiko]
+       ^{:key k}
+       [:li k])
+     [footer]]))
 
 (defn record-panel []
   [:div
