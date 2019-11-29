@@ -166,34 +166,34 @@
                             :member/image "nishida.jpg"
                             :member/introduction1 "副将\n工学研究科　電子情報システム\n172cm\n83kg\n可児高校"
                             :member/introduction2 "剣道部を引退した後、相撲部にやってきた。\n相撲部に入った途端に筋トレに目覚める。\nそして無類の筋トレ好きになる。人生で後悔していることは剣道部時代に筋トレしてこなかったことらしい。\nそんな彼も今や相撲部のムードメーカー。\nちなみに彼には立派な生きがいがあるようだが…それを知るのは入部してからになるだろう。\n紹介者　舘"
-                            :member/grade "卒業生（2014年度卒）"
-                            :member/grade-id "obg2014"}
-                           {:member/id 12
-                            :member/name "棚橋 義和"
-                            :member/image "tanahashi.jpg"
-                            :member/introduction1 "主将\n農学部\n175cm\n85kg\n鳴海高校"
-                            :member/introduction2 "いつも部員の想像のはるか上を行く。だけど、ほんとは部活のことを一生懸命考えてる頑張り屋さん。\n空回りしちゃう時もあるよね、わかるよ！\n皆ツンデレだから伝わってないかもしれないけど、そんな棚橋が大好きです∩^ω^∩\n紹介者　魚形"
-                            :member/grade "卒業生（2015年度卒）"
-                            :member/grade-id "obg2015"}
-                           {:member/id 13
-                            :member/name "右田 雄基"
-                            :member/image "migita.jpg"
-                            :member/introduction1 "主務\n法学部\n東筑高校"
-                            :member/introduction2 "名前\nミギタユウキ\nタイプ\nどく・かくとう\nとくせい\n笑ってごまかす\n何か起こると　とりあえず笑う\nわざ\nはきだす　　食事中に口から何かをよく飛ばす\nさきおくり　物事に対して優柔不断\nオウムがえし　会話のリアクションがワンパターン\nぜったいれいど　ギャグを言うと必ず失敗する\nおくびょうな　性格\n九州地方からはるばるやってきたようだ\nなんでもそつなくこなす相撲部きっての働き者、上記の特徴から罵倒の対象としての座に君臨している。本人はまんざ らでもないようだ。紹介者とコンビを組ませると最強のムードブレイカーとして機能する。\n紹介者　棚橋"
-                            :member/grade "卒業生（2015年度卒）"
-                            :member/grade-id "obg2015"}
+                            :member/grade "卒業生（2017年度卒）"
+                            :member/grade-id "obg2017"}
                            {:member/id 14
                             :member/name "木村 光史郎"
                             :member/image "kimura.jpg"
                             :member/introduction1 "工学部　機械・航空工学科\n169cm\n69kg\n高津高校"
                             :member/introduction2 "かの有名な木村政彦と同じ名字を持つ男。通称、鬼の木村。\n笑いの国大阪からやってきたこともあり、笑いに関してはかなり厳しい。\n小さなことには動じない図太さを兼ね備えており、これが彼の魅力の一つであろう。\nこうしたことから末恐ろしい男であることは間違いない。"
-                            :member/grade "卒業生（2016年度卒）"
-                            :member/grade-id "obg2016"}
+                            :member/grade "卒業生（2017年度卒）"
+                            :member/grade-id "obg2017"}
                            {:member/id 15
                             :member/name "上島 裕実"
                             :member/image "kamishima.jpg"
                             :member/introduction1 "中部大学　現代教育学部\n日進西高校"
                             :member/introduction2 "ゆみちむ。中部大学からやって来た、今流行りの相撲女子。\nハイトーンボイスで繰り出される大相撲トークはその場の者を圧倒する。しかし他の部員は相撲ファンではないため、やや空回りしがち。\n絶賛彼氏募集中とのこと。\nマネージャーがんばって！\n紹介者　木村"
+                            :member/grade "卒業生（2017年度卒）"
+                            :member/grade-id "obg2017"}
+                           {:member/id 12
+                            :member/name "棚橋 義和"
+                            :member/image "tanahashi.jpg"
+                            :member/introduction1 "主将\n農学部\n175cm\n85kg\n鳴海高校"
+                            :member/introduction2 "いつも部員の想像のはるか上を行く。だけど、ほんとは部活のことを一生懸命考えてる頑張り屋さん。\n空回りしちゃう時もあるよね、わかるよ！\n皆ツンデレだから伝わってないかもしれないけど、そんな棚橋が大好きです∩^ω^∩\n紹介者　魚形"
+                            :member/grade "卒業生（2016年度卒）"
+                            :member/grade-id "obg2016"}
+                           {:member/id 13
+                            :member/name "右田 雄基"
+                            :member/image "migita.jpg"
+                            :member/introduction1 "主務\n法学部\n東筑高校"
+                            :member/introduction2 "名前\nミギタユウキ\nタイプ\nどく・かくとう\nとくせい\n笑ってごまかす\n何か起こると　とりあえず笑う\nわざ\nはきだす　　食事中に口から何かをよく飛ばす\nさきおくり　物事に対して優柔不断\nオウムがえし　会話のリアクションがワンパターン\nぜったいれいど　ギャグを言うと必ず失敗する\nおくびょうな　性格\n九州地方からはるばるやってきたようだ\nなんでもそつなくこなす相撲部きっての働き者、上記の特徴から罵倒の対象としての座に君臨している。本人はまんざ らでもないようだ。紹介者とコンビを組ませると最強のムードブレイカーとして機能する。\n紹介者　棚橋"
                             :member/grade "卒業生（2016年度卒）"
                             :member/grade-id "obg2016"}
                            {:member/id 16
@@ -201,20 +201,20 @@
                             :member/image "tachi.jpg"
                             :member/introduction1 "経済学部\n170cm\n76kg\n南山高校"
                             :member/introduction2 "顔、体型、雰囲気は少年そのものだが、時々猟奇的な発言が飛び出る。\n三重県から筋トレしながら通学している。先生によると最近立ち位置が分かってきたらしい。\n話し出したら止まらない。\n独り言はもっと止まらない。\n趣味は作詞とテレビとの会話。\n紹介者　西田"
-                            :member/grade "卒業生（2017年度卒）"
-                            :member/grade-id "obg2017"}
+                            :member/grade "卒業生（2015年度卒）"
+                            :member/grade-id "obg2015"}
                            {:member/id 17
                             :member/name "壹岐 英明"
                             :member/introduction1 "文学部\n175cm\n75kg"
                             :member/introduction2 "相撲部で唯一の大相撲好きで、よさこいサークルに所属し、アイドルの振りコピを日課とする、悲惨な趣味の方。\nイキポリスと呼ばれ、警察であるかのように振る舞いがちなのでこれまたやばい。\n得意技はイキドリル。\n紹介者　橋本"
-                            :member/grade "卒業生（2015年度卒）"
-                            :member/grade-id "obg2015"}
+                            :member/grade "卒業生（2014年度卒）"
+                            :member/grade-id "obg2014"}
                            {:member/id 18
                             :member/name "野澤 大輔"
                             :member/introduction1 "180cm\n83kg\n五条高校"
                             :member/introduction2 "顔だけどんどん太っていく強面のわんちゃん。\nたびたび洒落にならない不幸が彼に振りかかってくる。\n柔道経験者で相撲も結構強いが、なぜかいつも全身傷だらけ。\n怖い。\n紹介者　壱岐"
-                            :member/grade "卒業生（2015年度卒）"
-                            :member/grade-id "obg2015"}
+                            :member/grade "卒業生（2014年度卒）"
+                            :member/grade-id "obg2014"}
                            {:member/id 19
                             :member/name "長合 誠也"
                             :member/image "nagou.jpg"

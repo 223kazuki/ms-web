@@ -43,7 +43,6 @@
   (defroute "/about/ibukioroshi" []
     (re-frame/dispatch [::events/set-active-panel :ibukioroshi-panel]))
   (defroute "/member/:filter" [filter]
-    (println "###" filter)
     (re-frame/dispatch [::events/set-active-panel :member-panel filter]))
 
   (hook-browser-navigation!))
