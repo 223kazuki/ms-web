@@ -206,7 +206,20 @@
 (defn keiko-panel []
   [:div
    [:div
-    [:h1 "This is the Keiko Page."]]
+    [:h1 "稽古"]
+    [:> ui/Image {:src "/img/keiko.jpg"}]
+    [:ul
+     [:li "蹲踞礼"]
+     [:li "準備運動"]
+     [:li "四股八十八回"]
+     [:li "摺り足"]
+     [:li "押し"]
+     [:li "技術練"]
+     [:li "三番"]
+     [:li "ぶつかり"]
+     [:li "蹲踞礼"]
+     [:li "柔軟"]
+     [:li "掃除、風呂、ちゃんこ"]]]
    [footer]])
 
 (defn chanko-panel []
