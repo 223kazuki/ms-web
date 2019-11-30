@@ -1,4 +1,10 @@
 html, body {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, sans-serif;
+}
+
+h2, h3 {
+    border-left: solid 10px #0C6005;
+    padding-left: 10px;
 }
 
 footer {
@@ -6,6 +12,30 @@ footer {
     color: #ffd700;
     with: 100%;
     text-align: center;
+}
+
+.topHeader {
+    width: 100%;
+    display: inline-block;
+    background-image: url(/img/top.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.topHeader > div > h1 {
+    font-size: 70px;
+    padding-top: 60px;
+    padding-left: 20px;
+    color: #0C6005;
+}
+
+.contentsHeader {
+    width: 100%;
+    display: inline-block;
+    opacity: 0.8;
+    background-image: url(/img/ninomaru.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 /* Temporary*/
@@ -44,6 +74,15 @@ footer {
         margin-top: 20px;
     }
 
+    .topHeader {
+        height: 250px;
+        opacity: 0.8;
+    }
+
+    .contentsHeader {
+        height: 200px;
+    }
+
     /* 画面遷移配下の構成 */
     #contents > div {
         position: absolute!important;
@@ -55,8 +94,7 @@ footer {
         box-shadow: none!important;
         padding: 0!important;
     }
-    #contents > div > div#contentsInner {
-        padding-top: 70px;
+    #contents > div > div.contentsInner {
         padding-left: 8px;
         padding-right: 8px;
     }
@@ -137,13 +175,23 @@ footer {
 
 @media only screen and (min-width: 1201px) {
     footer {
-        font-size: 10px;
+        height: 50px;
+        font-size: 12px;
         margin-top: 20px;
+    }
+
+    .topHeader {
+        height: 400px;
+    }
+
+    .contentsHeader {
+        height: 200px;
     }
 
     /* Web メニュー(上部) */
     .mainMenu {
-        background-color: rgba(255, 255, 255, 0.8)!important;
+        background-color: rgba(255, 255, 255, 0.6)!important;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.6)!important;
     }
 
     /* 画面遷移配下の構成 */
@@ -152,8 +200,7 @@ footer {
         width: 100%;
         height: 100%;
     }
-    #contents > div > div#contentsInner {
-        padding-top: 100px;
+    #contents > div > div.contentsInner {
     }
 
 }

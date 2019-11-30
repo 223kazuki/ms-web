@@ -13,7 +13,8 @@
 
 (defn contents-wrapper [children]
   [:div
-   [:> ui/Container {:id "contentsInner"}
+   [:> ui/Header {:as "h1" :className "contentsHeader"}]
+   [:> ui/Container {:className "contentsInner"}
     [:> ui/Grid
      [:> ui/Grid.Column {:mobile 16 :computer 11 :style {:whiteSpace "pre-line"}}
       children]
@@ -23,23 +24,14 @@
         [:h2 "新着情報（Twitter）"]
         [:> ui/Segment {:basic true}
          [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
-                                           :options {:height 500}}]]]]]]]
+                                           :options {:height 550}}]]]]]]]
    [footer]])
 
 (defn home-panel []
   [:div
-   [:> ui/Header {:as "h1"
-                  :inverted true
-                  :style {:width "100%"
-                          :height 300
-                          :display "inline-block"
-                          :opacity 0.5
-                          :backgroundImage "url(\"/img/top.jpg\")"
-                          :backgroundSize "cover"
-                          :background "center"
-                          :fontSize "3em"
-                          :fontWeight "normal"
-                          :textAlign "center"}}]
+   [:> ui/Header {:as "div" :className "topHeader"}
+    [:> ui/Responsive {:minWidth 1201}
+     [:h1 "名古屋大学相撲部"]]]
    [:> ui/Segment {:basic true :textAlign "center"}
     [:a {:href "https://twitter.com/nu_sumo"}
      [:> ui/Icon {:name "twitter" :style {:color "#1EA1F2"} :size "big"}]]
@@ -49,7 +41,7 @@
      [:> ui/Icon {:name "instagram" :style {:color "#D12798"} :size "big"}]]]
    [:> ui/Container
     [:> ui/Grid
-     [:> ui/Grid.Column {:mobile 16 :computer 10}
+     [:> ui/Grid.Column {:mobile 16 :computer 10 :style {:padding 0}}
       [:> ui/Segment {:basic true}
        [:h2 "新入部員募集中！！"]
        [:> ui/Card {:style {:width "100%"}}
@@ -95,7 +87,20 @@
          grade-filter @(re-frame/subscribe [::subs/url-params])
          active-panel @(re-frame/subscribe [::subs/active-panel])]
      [:<>
-      [:h1 "部員名簿"]
+      [:h2 "部員名簿(" (get {"grade4" "四回生"
+                             "grade3" "三回生"
+                             "grade2" "二回生"
+                             "grade1" "一回生"
+                             "managers" "首脳陣"
+                             "obg2017" "2017年度卒業生"
+                             "obg2016" "2016年度卒業生"
+                             "obg2015" "2015年度卒業生"
+                             "obg2014" "2014年度卒業生"
+                             "obg2013" "2013年度卒業生"
+                             "obg2012" "2012年度卒業生"
+                             "obg2011" "2011年度卒業生"
+                             "obg2010" "2010年度卒業生"
+                             "all" "全て"} grade-filter) ")"]
       [:> ui/Grid
        (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
                      member/introduction3]} (if (= grade-filter "all")
@@ -117,38 +122,39 @@
    (let [schedule @(re-frame/subscribe [::subs/schedule])
          keiko @(re-frame/subscribe [::subs/keiko])]
      [:<>
-      [:h1 "年間予定"]
+      [:h2 "年間予定"]
       [:table
        [:tbody
         (for [s schedule]
           ^{:key (:date s)}
-          [:tr
+          [:tr {:style {:textAlign "left"}}
            [:th (:date s)]
            [:td (:event s)]])]]
       [:h2 "稽古"]
+      "下記の曜日に行ってます。"
       [:ul
        (for [k keiko]
          ^{:key k}
          [:li k])]
       [:h3 "稽古場所"]
       [:p "名古屋大学相撲部道場"]
+      [:p "武道場の前です。"]
       [:iframe {:src "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d203.88139249549874!2d136.9613073963299!3d35.1540698603814!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1575028143950!5m2!1sja!2sjp"
                 :frameBorder 0
                 :style {:border 0
                         :width "100%"
                         :height "300px"}
-                :allowFullScreen true}]
-      [footer]])])
+                :allowFullScreen true}]])])
 
 (defn record-panel []
   [contents-wrapper
    [:<>
-    [:h1 "This is the Record Page."]]])
+    [:h2 "This is the Record Page."]]])
 
 (defn inquiry-panel []
   [contents-wrapper
    [:<>
-    [:h1 "This is the Inquiry Page."]]])
+    [:h2 "This is the Inquiry Page."]]])
 
 (defn declation-panel []
   [contents-wrapper
@@ -225,8 +231,8 @@
 (defn keiko-panel []
   [contents-wrapper
    [:<>
-    [:h1 "稽古"]
-    [:> ui/Card {:style {:width "100%"}}
+    [:h2 "稽古"]
+    [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
      [:> ui/Image {:src "/img/keiko.jpg"}]]
     [:ul
      [:li "蹲踞礼"]
@@ -245,12 +251,8 @@
   [contents-wrapper
    [:<>
     [:h2 "名大相撲部ちゃんこ"]
-    [:> ui/Grid
-     [:> ui/Grid.Column {:mobile 0 :computer 3}]
-     [:> ui/Grid.Column {:mobile 16 :computer 10}
-      [:> ui/Card {:style {:width "100%"}}
-       [:> ui/Image {:src "/img/chanko.jpg"}]]]
-     [:> ui/Grid.Column {:mobile 0 :computer 3}]]
+    [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
+     [:> ui/Image {:src "/img/chanko.jpg"}]]
     [:h3 "材料"]
     [:ul
      [:li "昆布"]
@@ -303,7 +305,7 @@
     [:p "        瞬き(またたき)そめて我を待つ   地上の夢よいざ去らば"]
     [:p "六、 杳(よう)靄(あい)融(と)けし丘の上に   いづくともなく春をよぶ"]
     [:p "        歌やすらかに流れ来る   紺青(こんじょう)の月影濃けれ"]
-    [:> ui/Card {:style {:width "100%"}}
+    [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
      [:> ui/Image {:src "/img/ibukioroshi.jpg"}]]]])
 
 (defmulti panels identity)
