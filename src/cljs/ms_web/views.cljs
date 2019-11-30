@@ -356,7 +356,7 @@
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
     [:> ui/Container {:className "mainContainer"}
      [:> ui/Menu {:className "mainMenu" :secondary true :fixed "top" :size "large"}
-      (for [{:keys [key name sub-menu] :as item} menu
+      (for [{:keys [key name icon sub-menu] :as item} menu
             :let [panel (keyword (str key "-panel"))]]
         (if sub-menu
           ^{:key key}
@@ -367,8 +367,9 @@
               [:> ui/Dropdown.Item {:text (:name item)
                                     :as "a" :href (str "#/" key "/" (:key item))}])]]
           ^{:key key}
-          [:> ui/Menu.Item {:name name :as "a" :href (str "#/" key)
-                            :active (= active-panel panel)}]))]
+          [:> ui/Menu.Item {:as "a" :href (str "#/" key)
+                            :active (= active-panel panel)}
+           [:> ui/Icon {:name icon}] name]))]
      [:> tg/TransitionGroup {:id "contents" :className "transition"}
       [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
        [show-panel active-panel]]]]))
@@ -428,7 +429,7 @@
               [:span]
               [:span]]]
             [:div
-             [:h1 "名古屋大学相撲部"]]]
+             [:h1 [:a {:href "#/"} "名古屋大学相撲部"]]]]
            [:> tg/TransitionGroup {:id "contents" :className "transition"}
             [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
              [show-panel active-panel]]]]]]]]]]))

@@ -69,6 +69,12 @@ footer {
 
 /* Web, Mobile向け */
 @media only screen and (max-width: 1200px) {
+    h1 > a {
+        color : inherit;
+        text-decoration : none;
+        pointer-events: auto;
+    }
+
     footer {
         font-size: 10px;
         margin-top: 20px;
@@ -106,6 +112,8 @@ footer {
         justify-content: center!important;
         background-color: rgba(255, 255, 255, 0.8)!important;
         border-bottom: solid 1px black!important;
+        pointer-events: none;
+        z-index: 99!important;
     }
     .mobileMenu > div > h1 {
         font-size: 15px;
@@ -131,6 +139,7 @@ footer {
     }
     .menuButton {
         margin: 10px;
+        pointer-events: auto;
     }
     .menuButton,
     .menuButton span {
