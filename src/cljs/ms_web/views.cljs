@@ -11,6 +11,21 @@
   [:footer
    "Copyright 2019-2024 Nagoya University Sumo Club. All Rights Reserved."])
 
+(defn contents-wrapper [children]
+  [:div
+   [:> ui/Container {:id "contentsInner"}
+    [:> ui/Grid
+     [:> ui/Grid.Column {:mobile 16 :computer 11 :style {:whiteSpace "pre-line"}}
+      children]
+     [:> ui/Grid.Column {:mobile 16 :computer 5}
+      [:> ui/Responsive {:minWidth 1201}
+       [:> ui/Segment {:basic true}
+        [:h2 "新着情報（Twitter）"]
+        [:> ui/Segment {:basic true}
+         [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
+                                           :options {:height 500}}]]]]]]]
+   [footer]])
+
 (defn home-panel []
   [:div
    [:> ui/Header {:as "h1"
@@ -32,74 +47,76 @@
      [:> ui/Icon {:name "facebook" :style {:color "#4267B2"} :size "big"}]]
     [:a {:href "https://www.instagram.com/nu_sumosumo/"}
      [:> ui/Icon {:name "instagram" :style {:color "#D12798"} :size "big"}]]]
-   [:> ui/Segment {:basic true}
+   [:> ui/Container
     [:> ui/Grid
-     [:> ui/Grid.Column {:mobile 16 :computer 8}
-      [:h2 "新入部員募集中！！"]
-      [:> ui/Card {:style {:width "100%"}}
-       [:> ui/Image {:src "/img/bosyu.jpg"}]]
-      [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
-       "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-       "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-       "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
-       "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
-       "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
+     [:> ui/Grid.Column {:mobile 16 :computer 10}
+      [:> ui/Segment {:basic true}
+       [:h2 "新入部員募集中！！"]
+       [:> ui/Card {:style {:width "100%"}}
+        [:> ui/Image {:src "/img/bosyu.jpg"}]]
+       [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+        "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+        "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+        "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
+        "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+        "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
 
-     [:> ui/Grid.Column {:mobile 16 :computer 8}
-      [:h2 "第５８回全国七大学総合体育大会相撲競技優勝"]
-      [:> ui/Card {:style {:width "100%"}}
-       [:> ui/Image {:src "/img/shichiteisen.jpg"}]]
-      [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
-       "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-       "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-       "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
-       "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
-       "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
+      [:> ui/Segment {:basic true}
+       [:h2 "第５８回全国七大学総合体育大会相撲競技優勝"]
+       [:> ui/Card {:style {:width "100%"}}
+        [:> ui/Image {:src "/img/shichiteisen.jpg"}]]
+       [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+        "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+        "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+        "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
+        "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+        "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
 
-     [:> ui/Grid.Column {:mobile 16 :computer 8}
-      [:h2 "相撲部土俵改修プロジェクト"]
-      [:> ui/Card {:style {:width "100%"}}
-       [:> ui/Image {:src "/img/dohyo.jpg"}]]
-      [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-       [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
-        "細谷先生還暦記念！ 名大相撲部の土俵を改修したい！ 名大相撲部創部以来、大切に作り使ってきた道場・土俵。 今後も後輩たちが引き続き使っていけるよう、細谷先生の60歳を機にOBも協力して改修をしていきたいです！"]]]
-
-     [:> ui/Grid.Column {:mobile 16 :computer 8}
+      [:> ui/Segment {:basic true}
+       [:h2 "相撲部土俵改修プロジェクト"]
+       [:> ui/Card {:style {:width "100%"}}
+        [:> ui/Image {:src "/img/dohyo.jpg"}]]
+       [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+        [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
+         "細谷先生還暦記念！ 名大相撲部の土俵を改修したい！ 名大相撲部創部以来、大切に作り使ってきた道場・土俵。 今後も後輩たちが引き続き使っていけるよう、細谷先生の60歳を機にOBも協力して改修をしていきたいです！"]]]]
+     [:> ui/Grid.Column {:mobile 16 :computer 6}
       [:> ui/Segment {:basic true}
        [:h2 "新着情報（Twitter）"]
-       [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
-                                         :options {:height 500}}]]]]]
+       [:> ui/Segment {:basic true}
+        [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
+                                          :options {:height 500}}]]]]]]
    [footer]])
 
 (defn member-panel []
-  (let [members @(re-frame/subscribe [::subs/members])
-        grade-filter @(re-frame/subscribe [::subs/url-params])
-        active-panel @(re-frame/subscribe [::subs/active-panel])]
-    [:div
-     [:div
+  [contents-wrapper
+   (let [members @(re-frame/subscribe [::subs/members])
+         grade-filter @(re-frame/subscribe [::subs/url-params])
+         active-panel @(re-frame/subscribe [::subs/active-panel])]
+     [:<>
       [:h1 "部員名簿"]
-      (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
-                    member/introduction3]} (if (= grade-filter "all")
-                                             members
-                                             (filter #(= (:member/grade-id %) grade-filter) members))]
-        ^{:key id}
-        [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
-         (when image
-           [:> ui/Image {:src (str "/img/member/" image) :fluid true}])
-         [:> ui/Card.Content
-          [:> ui/Card.Header name]
-          [:> ui/Card.Meta introduction1]
-          (when introduction2 [:> ui/Card.Description introduction2])
-          (when introduction3 [:> ui/Card.Description introduction3])]])]
-     [footer]]))
+      [:> ui/Grid
+       (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
+                     member/introduction3]} (if (= grade-filter "all")
+                                              members
+                                              (filter #(= (:member/grade-id %) grade-filter) members))]
+         ^{:key id}
+         [:> ui/Grid.Column {:mobile 16 :computer 8}
+          [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
+           (when image
+             [:> ui/Image {:src (str "/img/member/" image) :fluid true}])
+           [:> ui/Card.Content
+            [:> ui/Card.Header name]
+            [:> ui/Card.Meta introduction1]
+            (when introduction2 [:> ui/Card.Description introduction2])
+            (when introduction3 [:> ui/Card.Description introduction3])]]])]])])
 
 (defn schedule-panel []
-  (let [schedule @(re-frame/subscribe [::subs/schedule])
-        keiko @(re-frame/subscribe [::subs/keiko])]
-    [:div
-     [:div
+  [contents-wrapper
+   (let [schedule @(re-frame/subscribe [::subs/schedule])
+         keiko @(re-frame/subscribe [::subs/keiko])]
+     [:<>
       [:h1 "年間予定"]
       [:table
        [:tbody
@@ -120,47 +137,47 @@
                 :style {:border 0
                         :width "100%"
                         :height "300px"}
-                :allowFullScreen true}]]
-     [footer]]))
+                :allowFullScreen true}]
+      [footer]])])
 
 (defn record-panel []
-  [:div
-   [:h1 "This is the Record Page."]])
+  [contents-wrapper
+   [:<>
+    [:h1 "This is the Record Page."]]])
 
 (defn inquiry-panel []
-  [:div
-   [:h1 "This is the Inquiry Page."]])
+  [contents-wrapper
+   [:<>
+    [:h1 "This is the Inquiry Page."]]])
 
 (defn declation-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h2 "また名大相撲部宣言"]
     [:p "我ら名古屋大学体育会相撲部は、経済と情報の急激なグローバリゼーションの進行する今日、人類社会の福祉の向上、国際間の平和、地球環境の保全をその使命とし、2000年4月、日本国愛知県名古屋市に設立された。"]
     [:p "我ら名古屋大学体育会相撲部は、地球というこの天体の地表で文化と経済のダイナミズム維持に貢献するために、日本列島が育んできた歴史を継承発展させることをその理想とし、相撲という文化の復興を目論見、研鑽を続けている。"]
     [:p "我ら名古屋大学体育会相撲部は、大量生産、大量消費の際限のない増殖から、循環経済への移行期にあり、物質によらない繁栄の一つの形式の発露として、相撲という文化を通じて遊び通すことに全力を傾注する。"]
     [:p "我ら名古屋大学体育会相撲部は、簡便であることや、コストパフォーマンスを尊ぶ風潮を下品であると断罪し、不必要なまでに格好をつけることに拘り続ける。"]
     [:p "我ら名古屋大学体育会相撲部は、「五層櫓のてっぺんに金のシャチホコ雨ざらし、ああこりゃこりゃ。」の精神を胸に秘め、日々偏見や陋習と戦い続ける。"]
-    [:p "我ら名古屋大学体育会相撲部は、何をおいても歌舞き、槍が降ろうが、生首が飛ぼうが、歌舞き続けることをここに宣言する、がや。"]]
-   [footer]])
+    [:p "我ら名古屋大学体育会相撲部は、何をおいても歌舞き、槍が降ろうが、生首が飛ぼうが、歌舞き続けることをここに宣言する、がや。"]]])
 
 (defn freshman-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h2 "新入部員に向けて"]
     [:h3 "『太らずして勝つ』、『人生とはネタである』"]
-    "この二つは我々名大相撲部の座右の銘である。日本の国技である相撲。それは天皇の御前でも行われる神聖な武道であり、その歴史は奈良時代以前にまで遡り、時と共に少しずつ形を変えながら現在へ至っている。そんな国技相撲に対して諸君が持っている印象は如何なるものであろうか？" [:br] [:br]
-    "廻しを巻くのが恥ずかしい？確かにそうかもしれない。しかし、最初は恥ずかしがっていた人が、時が経つと平気で人前で巻くようになるのだ。これは一体どういうことであろうか？そう、『慣れ』である。我々人類にはかくもありがたい機能が備わっているのだ。無論、君にも。" [:br] [:br]
-    "体が小さいから駄目？普通ならそうかもしれない。だが我々は違う。むしろ日々の稽古によって鍛えられた部員たちは、いわゆる『相撲取り体型』ではなく『やせマッチョ』ばかりである。意外に思うかもしれないが、相撲は他の格闘技ほど対格差によるハンディキャップがない。事実、７０kgのある部員が国技館の土俵で、１２０kgの巨漢を投げ転がしている。勿論、体格が大きい方が有利なのに違いはないが、これだけの体重差の相手とも張り合える格闘技は相撲以外にないのではないか。" [:br] [:br]
-    "とはいえ我々は決して弱いわけではない。戦績を見て頂ければ分かるとおり、華々しい結果を残している。しかし、我が部には小学校から高校まで相撲に打ち込んできたという相撲キャリアは一人もいない。皆、大学から相撲を始めた者ばかりである。それでも日々論理的な組み立てをした稽古を積み、日々精進している。" [:br] [:br]
-    "また、我が部が目指す者は強さだけではない。ノリの良さ、そしてかっこよさである。名大相撲部が主催する学内相撲大会には毎年１００人近い名大生が参加し、盛り上がりをみせている。また、部員たちによって企画された主催のイベントでは過去二回、名古屋最大のクラブであるOZONにいずれも１０００人を動員し、名古屋の夜に激震を走らせた。更に０６年からは４年連続で、名古屋城を貸し切って『どすこい！！名古屋城RAVE』を主催し、毎年２０００人を越える人々が集まり真夏の夜の夢を楽しんだ。また、秋にはJazzライブと相撲大会の融合により地域活性化に取り組んでいる。" [:br] [:br]
-    "イベントだけではない。夏合宿では鳥羽の離島で一週間相撲漬け。さらには遠征の帰りには温泉、グルメツアーを強行するなど、他の部活にはできない、いや日本中どこを探してもこんな貴重な経験ができる部活は存在しない。名大相撲部でしか体験できないことがここにはある。" [:br] [:br]
-    "さて、ここまで長々と書いてきたが、結局のところ言いたいことはただひとつ、" [:br] [:br]
-    [:strong "『名大生の諸君、悪いことは言わない、名大相撲部に入り給え！！』"]]
-   [footer]])
+    "この二つは我々名大相撲部の座右の銘である。日本の国技である相撲。それは天皇の御前でも行われる神聖な武道であり、その歴史は奈良時代以前にまで遡り、時と共に少しずつ形を変えながら現在へ至っている。そんな国技相撲に対して諸君が持っている印象は如何なるものであろうか？\n\n"
+    "廻しを巻くのが恥ずかしい？確かにそうかもしれない。しかし、最初は恥ずかしがっていた人が、時が経つと平気で人前で巻くようになるのだ。これは一体どういうことであろうか？そう、『慣れ』である。我々人類にはかくもありがたい機能が備わっているのだ。無論、君にも。\n\n"
+    "体が小さいから駄目？普通ならそうかもしれない。だが我々は違う。むしろ日々の稽古によって鍛えられた部員たちは、いわゆる『相撲取り体型』ではなく『やせマッチョ』ばかりである。意外に思うかもしれないが、相撲は他の格闘技ほど対格差によるハンディキャップがない。事実、７０kgのある部員が国技館の土俵で、１２０kgの巨漢を投げ転がしている。勿論、体格が大きい方が有利なのに違いはないが、これだけの体重差の相手とも張り合える格闘技は相撲以外にないのではないか。\n\n"
+    "とはいえ我々は決して弱いわけではない。戦績を見て頂ければ分かるとおり、華々しい結果を残している。しかし、我が部には小学校から高校まで相撲に打ち込んできたという相撲キャリアは一人もいない。皆、大学から相撲を始めた者ばかりである。それでも日々論理的な組み立てをした稽古を積み、日々精進している。\n\n"
+    "また、我が部が目指す者は強さだけではない。ノリの良さ、そしてかっこよさである。名大相撲部が主催する学内相撲大会には毎年１００人近い名大生が参加し、盛り上がりをみせている。また、部員たちによって企画された主催のイベントでは過去二回、名古屋最大のクラブであるOZONにいずれも１０００人を動員し、名古屋の夜に激震を走らせた。更に０６年からは４年連続で、名古屋城を貸し切って『どすこい！！名古屋城RAVE』を主催し、毎年２０００人を越える人々が集まり真夏の夜の夢を楽しんだ。また、秋にはJazzライブと相撲大会の融合により地域活性化に取り組んでいる。\n\n"
+    "イベントだけではない。夏合宿では鳥羽の離島で一週間相撲漬け。さらには遠征の帰りには温泉、グルメツアーを強行するなど、他の部活にはできない、いや日本中どこを探してもこんな貴重な経験ができる部活は存在しない。名大相撲部でしか体験できないことがここにはある。\n\n"
+    "さて、ここまで長々と書いてきたが、結局のところ言いたいことはただひとつ、\n\n"
+    [:strong "『名大生の諸君、悪いことは言わない、名大相撲部に入り給え！！』"]]])
 
 (defn ob-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h2 "OBの就職先"]
     [:h3 "あなたには履歴書に書ける「自己PR」がありますか？"]
     "就職氷河期で買い手市場となった今、旧帝大卒だからといって簡単に内定が貰える訳ではありません。" [:br]
@@ -170,6 +187,7 @@
     [:h3 "主な就職先（五十音順）"]
     [:ul
      [:li "愛知県庁"]
+     [:li "アクセンチュア"]
      [:li "旭化成"]
      [:li "朝日新聞社"]
      [:li "味の素"]
@@ -195,19 +213,21 @@
      [:li "名古屋市消防局"]
      [:li "名古屋鉄道"]
      [:li "日本ガイシ"]
+     [:li "日本相撲協会"]
      [:li "日本たばこ産業"]
      [:li "博報堂"]
      [:li "三井住友銀行"]
      [:li "三菱重工業"]
-     [:li "三菱東京UFJ銀行"]]
-    "などなど。"]
-   [footer]])
+     [:li "三菱UFJ銀行"]
+     [:li "リクルート"]]
+    "などなど。"]])
 
 (defn keiko-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h1 "稽古"]
-    [:> ui/Image {:src "/img/keiko.jpg"}]
+    [:> ui/Card {:style {:width "100%"}}
+     [:> ui/Image {:src "/img/keiko.jpg"}]]
     [:ul
      [:li "蹲踞礼"]
      [:li "準備運動"]
@@ -219,29 +239,47 @@
      [:li "ぶつかり"]
      [:li "蹲踞礼"]
      [:li "柔軟"]
-     [:li "掃除、風呂、ちゃんこ"]]]
-   [footer]])
+     [:li "掃除、風呂、ちゃんこ"]]]])
 
 (defn chanko-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h2 "名大相撲部ちゃんこ"]
-    [:> ui/Image {:src "/img/chanko.jpg"}]
+    [:> ui/Grid
+     [:> ui/Grid.Column {:mobile 0 :computer 3}]
+     [:> ui/Grid.Column {:mobile 16 :computer 10}
+      [:> ui/Card {:style {:width "100%"}}
+       [:> ui/Image {:src "/img/chanko.jpg"}]]]
+     [:> ui/Grid.Column {:mobile 0 :computer 3}]]
     [:h3 "材料"]
-    "昆布、鰹だし(顆粒)、鶏手羽先" [:br]
-    "豚こま切れ、鶏もも肉(むね肉はNG)、鶏レバー" [:br]
-    "白菜orキャベツ(安いほう）、大根、ニンジン、ゴボウ、しいたけ、こんにゃく、油揚げ、豆腐、水菜、その他季節に応じて。"
+    [:ul
+     [:li "昆布"]
+     [:li "鰹だし(顆粒)"]
+     [:li "鶏手羽先"]
+     [:li "豚こま切れ"]
+     [:li "鶏もも肉(むね肉はNG)"]
+     [:li "鶏レバー"]
+     [:li "白菜orキャベツ(安いほう）"]
+     [:li "大根"]
+     [:li "ニンジン"]
+     [:li "ゴボウ"]
+     [:li "しいたけ"]
+     [:li "こんにゃく"]
+     [:li "油揚げ"]
+     [:li "豆腐"]
+     [:li "水菜"]
+     [:li "その他季節に応じて。"]]
     [:h3 "作り方"]
-    "材料を適当な大きさに切り、鶏レバーの血抜き、こんにゃくと油揚げの湯通しをする。" [:br]
-    "大きな鍋にたっぷりの水と少量の酒を入れ、昆布、鶏手羽先、大根、ニンジン、ゴボウを加えて火を点ける。" [:br]
-    "沸騰したら、鶏もも肉、鶏レバー、しいたけ、こんにゃく、油揚げ、白菜、豚こま切れ、を順に加える。" [:br]
-    "アクを取り、鰹だし、塩、しょうゆで味を調える。" [:br]
-    "火を止め、豆腐、水菜を加えて出来上がり。"]
-   [footer]])
+    [:ul
+     [:li "材料を適当な大きさに切り、鶏レバーの血抜き、こんにゃくと油揚げの湯通しをする。"]
+     [:li "大きな鍋にたっぷりの水と少量の酒を入れ、昆布、鶏手羽先、大根、ニンジン、ゴボウを加えて火を点ける。"]
+     [:li "沸騰したら、鶏もも肉、鶏レバー、しいたけ、こんにゃく、油揚げ、白菜、豚こま切れ、を順に加える。"]
+     [:li "アクを取り、鰹だし、塩、しょうゆで味を調える。"]
+     [:li "火を止め、豆腐、水菜を加えて出来上がり。"]]]])
 
 (defn ibukioroshi-panel []
-  [:div
-   [:div
+  [contents-wrapper
+   [:<>
     [:h2 "第八高等学校寮歌 伊吹おろし"]
     [:h3 "前口上"]
     "富貴名門の子女に恋するを純情の恋と誰が云ふ" [:br]
@@ -265,8 +303,8 @@
     [:p "        瞬き(またたき)そめて我を待つ   地上の夢よいざ去らば"]
     [:p "六、 杳(よう)靄(あい)融(と)けし丘の上に   いづくともなく春をよぶ"]
     [:p "        歌やすらかに流れ来る   紺青(こんじょう)の月影濃けれ"]
-    [:> ui/Image {:src "/img/ibukioroshi.jpg"}]]
-   [footer]])
+    [:> ui/Card {:style {:width "100%"}}
+     [:> ui/Image {:src "/img/ibukioroshi.jpg"}]]]])
 
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
@@ -315,13 +353,21 @@
 (defn pc-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
     [:> ui/Container {:className "mainContainer"}
-     [:> ui/Menu {:pointing true :secondary true}
-      (for [{:keys [key name] :as item} menu
+     [:> ui/Menu {:className "mainMenu" :secondary true :fixed "top" :size "large"}
+      (for [{:keys [key name sub-menu] :as item} menu
             :let [panel (keyword (str key "-panel"))]]
-        ^{:key key}
-        [:> ui/Menu.Item {:name name :as "a" :href (str "#/" key)
-                          :active (= active-panel panel)}])]
-     [:> tg/TransitionGroup {:className "transition"}
+        (if sub-menu
+          ^{:key key}
+          [:> ui/Dropdown {:text name :pointing true :className "link item"}
+           [:> ui/Dropdown.Menu
+            (for [item sub-menu]
+              ^{:key (:key item)}
+              [:> ui/Dropdown.Item {:text (:name item)
+                                    :as "a" :href (str "#/" key "/" (:key item))}])]]
+          ^{:key key}
+          [:> ui/Menu.Item {:name name :as "a" :href (str "#/" key)
+                            :active (= active-panel panel)}]))]
+     [:> tg/TransitionGroup {:id "contents" :className "transition"}
       [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
        [show-panel active-panel]]]]))
 
@@ -381,12 +427,9 @@
               [:span]]]
             [:div
              [:h1 "名古屋大学相撲部"]]]
-           [:> tg/TransitionGroup {:className "transition"}
+           [:> tg/TransitionGroup {:id "contents" :className "transition"}
             [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
-             [show-panel active-panel]]]]]]
-        [:> tg/TransitionGroup {:className "transition"}
-         [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
-          [show-panel active-panel]]]]]]]))
+             [show-panel active-panel]]]]]]]]]]))
 
 (defn main-container []
   [:<>
