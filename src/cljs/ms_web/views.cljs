@@ -379,15 +379,16 @@
         sub-menu @(re-frame/subscribe [::subs/sub-menu])
         menu-open? @(re-frame/subscribe [::subs/menu-open?])
         parent @(re-frame/subscribe [::subs/parent])]
-    [:> ui/Container {:className "mainContainer"}
-     [:> ui/Sidebar.Pushable
+    [:> ui/Container {:className "mainContainer" :style {:height "100%"}}
+     [:> ui/Sidebar.Pushable {:style {:height "100%"}}
       [:> ui/Sidebar {:as ui/Menu
                       :className "mainMenu"
                       :animation "push"
                       :icon "labeled"
                       :vertical true
                       :visible menu-open?
-                      :width "thin"}
+                      :width "thin"
+                      :style {:height "100%"}}
        (for [{:keys [key name icon sub-menu] :as item} menu
              :let [panel (keyword (str key "-panel"))]]
          ^{:key key}
@@ -399,8 +400,8 @@
                              :href (str "#/" key)})
           [:> ui/Icon {:name icon}]
           name])]
-      [:> ui/Sidebar.Pusher
-       [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0}}
+      [:> ui/Sidebar.Pusher {:style {:height "100%"}}
+       [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0 :height "100%"}}
         [:> ui/Sidebar.Pushable
          [:> ui/Sidebar {:as ui/Menu
                          :className "subMenu"
@@ -408,7 +409,8 @@
                          :icon "labeled"
                          :vertical true
                          :visible (some? sub-menu)
-                         :width "thin"}
+                         :width "thin"
+                         :style {:height "100%"}}
           (for [{:keys [key name icon] :as item} sub-menu
                 :let [panel (keyword (str key "-panel"))]]
             ^{:key key}
@@ -416,8 +418,8 @@
                               :active (= active-panel panel)
                               :href (str "#/" parent "/" key)}
              name])]
-         [:> ui/Sidebar.Pusher
-          [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0}}
+         [:> ui/Sidebar.Pusher {:style {:height "100%"}}
+          [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0 :height "100%"}}
            [:> ui/Menu {:fixed "top" :className "noStyle mobileMenu"}
             [:div.menuButtonWrapper
              [:a {:className (str "menuButton" (when menu-open? " active"))
@@ -430,8 +432,10 @@
               [:span]]]
             [:div
              [:h1 [:a {:href "#/"} "名古屋大学相撲部"]]]]
-           [:> tg/TransitionGroup {:id "contents" :className "transition"}
-            [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300}
+           [:> tg/TransitionGroup {:id "contents" :className "transition"
+                                   :style {:height "100%"}}
+            [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300
+                                  :style {:height "100%"}}
              [show-panel active-panel]]]]]]]]]]))
 
 (defn main-container []
