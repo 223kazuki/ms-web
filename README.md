@@ -1,4 +1,4 @@
-# ms-web
+# 名古屋大学相撲部ホームページ
 
 A [re-frame](https://github.com/day8/re-frame) application designed to ... well, that part is up to you.
 
