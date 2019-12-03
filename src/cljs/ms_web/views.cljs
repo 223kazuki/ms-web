@@ -47,32 +47,30 @@
        [:> ui/Card {:style {:width "100%"}}
         [:> ui/Image {:src "/img/bosyu.jpg"}]]
        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
-        "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-        "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-        "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
-        "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
-        "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
+        "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
+        "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
+        "どんな人も歓迎します。\n"
+        "殆どの現役部員、OB/OGがそうであったように未経験者大歓迎です。\n"
+        "入部希望者は" [:a {:href "#/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "#/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
 
       [:> ui/Segment {:basic true}
-       [:h2 "第５８回全国七大学総合体育大会相撲競技優勝"]
+       [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
        [:> ui/Card {:style {:width "100%"}}
         [:> ui/Image {:src "/img/shichiteisen.jpg"}]]
        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
-        "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-        "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-        "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"
-        "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
-        "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]]
+        "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
+        "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
 
       [:> ui/Segment {:basic true}
        [:h2 "相撲部土俵改修プロジェクト"]
        [:> ui/Card {:style {:width "100%"}}
         [:> ui/Image {:src "/img/dohyo.jpg"}]]
        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+        "細谷師範の還暦を記念し、 名大相撲部の土俵改修プロジェクトを始動します。\n"
+        "相撲部創部以来、大切に作り使ってきた道場・土俵を今後後輩たちに引き継いで行くために、改修費用のクラウドファンディングを行います。"
+        "ご賛同していただける方は下記ページより応募をお願いいたします。\n\n"
         [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
-         "細谷先生還暦記念！ 名大相撲部の土俵を改修したい！ 名大相撲部創部以来、大切に作り使ってきた道場・土俵。 今後も後輩たちが引き続き使っていけるよう、細谷先生の60歳を機にOBも協力して改修をしていきたいです！"]]]]
+         "名大相撲部土俵改修費用クラウドファンディング"]]]]
      [:> ui/Grid.Column {:mobile 16 :computer 6}
       [:> ui/Segment {:basic true}
        [:h2 "新着情報（Twitter）"]
@@ -81,41 +79,48 @@
                                           :options {:height 500}}]]]]]]
    [footer]])
 
+(def grades {"grade4" {:name "四回生" :order 0}
+             "grade3" {:name "三回生" :order 1}
+             "grade2" {:name "二回生" :order 2}
+             "grade1" {:name "一回生" :order 3}
+             "managers" {:name "首脳陣" :order 4}
+             "obg2017" {:name "2017年度卒業生" :order 5}
+             "obg2016" {:name "2016年度卒業生" :order 6}
+             "obg2015" {:name "2015年度卒業生" :order 7}
+             "obg2014" {:name "2014年度卒業生" :order 8}
+             "obg2013" {:name "2013年度卒業生" :order 9}
+             "obg2012" {:name "2012年度卒業生" :order 10}
+             "obg2011" {:name "2011年度卒業生" :order 11}
+             "obg2010" {:name "2010年度卒業生" :order 12}})
+
 (defn member-panel []
   [contents-wrapper
    (let [members @(re-frame/subscribe [::subs/members])
          grade-filter @(re-frame/subscribe [::subs/url-params])
          active-panel @(re-frame/subscribe [::subs/active-panel])]
      [:<>
-      [:h2 "部員名簿(" (get {"grade4" "四回生"
-                             "grade3" "三回生"
-                             "grade2" "二回生"
-                             "grade1" "一回生"
-                             "managers" "首脳陣"
-                             "obg2017" "2017年度卒業生"
-                             "obg2016" "2016年度卒業生"
-                             "obg2015" "2015年度卒業生"
-                             "obg2014" "2014年度卒業生"
-                             "obg2013" "2013年度卒業生"
-                             "obg2012" "2012年度卒業生"
-                             "obg2011" "2011年度卒業生"
-                             "obg2010" "2010年度卒業生"
-                             "all" "全て"} grade-filter) ")"]
+      [:h2 "部員名簿"]
       [:> ui/Grid
-       (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
-                     member/introduction3]} (if (= grade-filter "all")
-                                              members
-                                              (filter #(= (:member/grade-id %) grade-filter) members))]
-         ^{:key id}
-         [:> ui/Grid.Column {:mobile 16 :computer 8}
-          [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
-           (when image
-             [:> ui/Image {:src (str "/img/member/" image) :fluid true}])
-           [:> ui/Card.Content
-            [:> ui/Card.Header name]
-            [:> ui/Card.Meta introduction1]
-            (when introduction2 [:> ui/Card.Description introduction2])
-            (when introduction3 [:> ui/Card.Description introduction3])]]])]])])
+       (for [[grade members] (cond->> members
+                               (not= grade-filter "all") (filter #(= (:member/grade-id %) grade-filter))
+                               true (group-by :member/grade-id)
+                               true (sort-by #(:order (get grades (first %)))))]
+         ^{:key grade}
+         [:<>
+          [:> ui/Grid.Column {:mobile 16 :computer 16}
+           [:h3 (:name (get grades grade))]]
+          (for [{:keys [member/id member/name member/image member/introduction1 member/introduction2
+                        member/introduction3]} members]
+            ^{:key id}
+            [:> ui/Grid.Column {:mobile 16 :computer 8}
+             [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
+              (when image
+                [:> ui/Image {:src (str "/img/member/" image) :fluid true}])
+              [:> ui/Card.Content
+               [:> ui/Card.Header name]
+               [:> ui/Card.Meta introduction1]
+               (when introduction2 [:> ui/Card.Description introduction2])
+               (when introduction3 [:> ui/Card.Description introduction3])]]])])]])])
 
 (defn schedule-panel []
   [contents-wrapper
@@ -154,7 +159,11 @@
 (defn inquiry-panel []
   [contents-wrapper
    [:<>
-    [:h2 "This is the Inquiry Page."]]])
+    [:h2 "連絡先"]
+    [:p "名古屋大学相撲部に関するお問い合わせは下記のアドレスまでお願いします。"]
+    [:> ui/Image {:src "/img/mail.jpg" :style {:maxWidth "500px"}}]
+    [:br]
+    [:p "（スパム対策のためアドレスは画像で表示させてあります。）"]]])
 
 (defn declation-panel []
   [contents-wrapper
@@ -350,7 +359,7 @@
                        {:key "all" :name "全て"}]}
            {:name "稽古・年間予定" :key "schedule" :icon "calendar"}
            #_{:name "戦績" :key "record" :icon "book"}
-           #_{:name "問い合わせ" :key "inquiry" :icon "mail"}])
+           {:name "問い合わせ" :key "inquiry" :icon "mail"}])
 
 (defn pc-container []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]

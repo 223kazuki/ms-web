@@ -114,7 +114,7 @@
                             :member/grade-id "managers"}
                            {:member/id 3
                             :member/name "高見秀樹"
-                            :member/introduction1 "部長"
+                            :member/introduction1 "部長\n名古屋大学医学部附属病院助教"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
                            #_{:member/id 4
@@ -239,13 +239,13 @@
                             :member/introduction3 "彼は入部当初は真面目で愛らしい黒人(黒い人)だったけど、\n彼の特徴は人の不幸に汚い声で爆笑して、髭が時間ごとに伸びていくタフな、さながら身を守るためにギャングに入るゲットーの黒人(黒い人)である。\nそして相撲が派手。そのエンターテイメント性は、ウィルスミスか、クリスタッカーか。\nしかし、高校時代のあだ名はアボリジニ。\n紹介者　河合"
                             :member/grade "卒業生（2012年度卒）"
                             :member/grade-id "obg2012"}
-                           {:member/id 22
-                            :member/name "福田 彩香"
-                            :member/image "fukuda.jpg"
-                            :member/introduction1 ""
-                            :member/introduction2 ""
-                            :member/grade "卒業生（2012年度卒）"
-                            :member/grade-id "obg2012"}
+                           #_{:member/id 22
+                              :member/name "福田 彩香"
+                              :member/image "fukuda.jpg"
+                              :member/introduction1 ""
+                              :member/introduction2 ""
+                              :member/grade "卒業生（2012年度卒）"
+                              :member/grade-id "obg2012"}
                            {:member/id 23
                             :member/name "大場 泉帆"
                             :member/image "ooba.jpg"
@@ -321,7 +321,7 @@
                             {:year "2019" :date "11/22" :event "細谷先生還暦パーティー＠東京"}
                             {:year "2019" :date "11/23, 24" :event "細谷先生還暦旅行"}
                             {:year "2019" :date "12/28" :event "納稽古"}
-                            {:year "2019" :date "11/29, 30" :event "納旅行"}]
+                            {:year "2019" :date "12/29, 30" :event "納旅行"}]
                  :keiko ["毎週火曜5時～"
                          "毎週木曜5時～"
                          "毎週土曜9時半～"]})
