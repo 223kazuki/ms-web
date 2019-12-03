@@ -33,11 +33,11 @@
     [:> ui/Responsive {:minWidth 1201}
      [:h1 "名古屋大学相撲部"]]]
    [:> ui/Segment {:basic true :textAlign "center"}
-    [:a {:href "https://twitter.com/nu_sumo"}
+    [:a {:href "https://twitter.com/nu_sumo" :target "_blank"}
      [:> ui/Icon {:name "twitter" :style {:color "#1EA1F2"} :size "big"}]]
-    [:a {:href "https://www.facebook.com/NUSUMOCLUB/"}
+    [:a {:href "https://www.facebook.com/NUSUMOCLUB/" :target "_blank"}
      [:> ui/Icon {:name "facebook" :style {:color "#4267B2"} :size "big"}]]
-    [:a {:href "https://www.instagram.com/nu_sumosumo/"}
+    [:a {:href "https://www.instagram.com/nu_sumosumo/" :target "_blank"}
      [:> ui/Icon {:name "instagram" :style {:color "#D12798"} :size "big"}]]]
    [:> ui/Container
     [:> ui/Grid
@@ -128,19 +128,19 @@
          keiko @(re-frame/subscribe [::subs/keiko])]
      [:<>
       [:h2 "年間予定"]
-      [:table
-       [:tbody
+      [:> ui/Table {:celled true}
+       [:> ui/Table.Body
         (for [s schedule]
           ^{:key (:date s)}
-          [:tr {:style {:textAlign "left"}}
-           [:th (:date s)]
-           [:td (:event s)]])]]
+          [:> ui/Table.Row {:style {:textAlign "left"}}
+           [:> ui/Table.Cell (:date s)]
+           [:> ui/Table.Cell (:event s)]])]]
       [:h2 "稽古"]
       "下記の曜日に行ってます。"
-      [:ul
+      [:> ui/List {:bulleted true}
        (for [k keiko]
          ^{:key k}
-         [:li k])]
+         [:> ui/List.Item k])]
       [:h3 "稽古場所"]
       [:p "名古屋大学相撲部道場"]
       [:p "武道場の前です。"]
@@ -200,41 +200,42 @@
     "履歴書（ES）や面接では主に「志望動機」「研究内容」「自己PR」を聞かれますが、企業が大手であればあるほど「志望動機」や「研究内容」よりも「自己PR」を重視する傾向があります。" [:br]
     "「自己PRをして下さい」「あなたの強みは何ですか」「学生時代に頑張ったことは何ですか」と聞かれた時に、アルバイトやサークルの話ではなく部活動の話をすることにより、満足のいく就職活動を終えることができるよう、心からお祈り申し上げます。" [:br]
     [:h3 "主な就職先（五十音順）"]
-    [:ul
-     [:li "愛知県庁"]
-     [:li "アクセンチュア"]
-     [:li "旭化成"]
-     [:li "朝日新聞社"]
-     [:li "味の素"]
-     [:li "伊藤忠商事"]
-     [:li "NTTドコモ"]
-     [:li "大垣共立銀行"]
-     [:li "岡崎信用金庫"]
-     [:li "鹿島建設"]
-     [:li "キリンビール"]
-     [:li "国際協力銀行"]
-     [:li "サントリー"]
-     [:li "新日本製鐵"]
-     [:li "中日新聞社"]
-     [:li "中部電力"]
-     [:li "電源開発"]
-     [:li "電通"]
-     [:li "デンソー"]
-     [:li "東海旅客鉄道"]
-     [:li "トヨタ自動車"]
-     [:li "豊田自動織機"]
-     [:li "豊田通商"]
-     [:li "名古屋市役所"]
-     [:li "名古屋市消防局"]
-     [:li "名古屋鉄道"]
-     [:li "日本ガイシ"]
-     [:li "日本相撲協会"]
-     [:li "日本たばこ産業"]
-     [:li "博報堂"]
-     [:li "三井住友銀行"]
-     [:li "三菱重工業"]
-     [:li "三菱UFJ銀行"]
-     [:li "リクルート"]]
+    [:> ui/List {:bulleted true}
+     [:> ui/List.Item "愛知県庁"]
+     [:> ui/List.Item "アクセンチュア"]
+     [:> ui/List.Item "旭化成"]
+     [:> ui/List.Item "朝日新聞社"]
+     [:> ui/List.Item "味の素"]
+     [:> ui/List.Item "伊藤忠商事"]
+     [:> ui/List.Item "NTTドコモ"]
+     [:> ui/List.Item "大垣共立銀行"]
+     [:> ui/List.Item "岡崎信用金庫"]
+     [:> ui/List.Item "鹿島建設"]
+     [:> ui/List.Item "キリンビール"]
+     [:> ui/List.Item "国際協力銀行"]
+     [:> ui/List.Item "サントリー"]
+     [:> ui/List.Item "新日本製鐵"]
+     [:> ui/List.Item "中日新聞社"]
+     [:> ui/List.Item "中部電力"]
+     [:> ui/List.Item "電源開発"]
+     [:> ui/List.Item "電通"]
+     [:> ui/List.Item "デンソー"]
+     [:> ui/List.Item "東海旅客鉄道"]
+     [:> ui/List.Item "トヨタ自動車"]
+     [:> ui/List.Item "豊田自動織機"]
+     [:> ui/List.Item "豊田通商"]
+     [:> ui/List.Item "名古屋市役所"]
+     [:> ui/List.Item "名古屋市消防局"]
+     [:> ui/List.Item "名古屋鉄道"]
+     [:> ui/List.Item "日本ガイシ"]
+     [:> ui/List.Item "日本相撲協会"]
+     [:> ui/List.Item "日本たばこ産業"]
+     [:> ui/List.Item "博報堂"]
+     [:> ui/List.Item "三井住友銀行"]
+     [:> ui/List.Item "三菱重工業"]
+     [:> ui/List.Item "三菱UFJ銀行"]
+     [:> ui/List.Item "リクルート"]]
+    [:br]
     "などなど。"]])
 
 (defn keiko-panel []
@@ -243,18 +244,16 @@
     [:h2 "稽古"]
     [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
      [:> ui/Image {:src "/img/keiko.jpg"}]]
-    [:ul
-     [:li "蹲踞礼"]
-     [:li "準備運動"]
-     [:li "四股八十八回"]
-     [:li "摺り足"]
-     [:li "押し"]
-     [:li "技術練"]
-     [:li "三番"]
-     [:li "ぶつかり"]
-     [:li "蹲踞礼"]
-     [:li "柔軟"]
-     [:li "掃除、風呂、ちゃんこ"]]]])
+    [:> ui/List {:ordered true }
+     [:> ui/List.Item  "蹲踞礼"]
+     [:> ui/List.Item  "準備運動"]
+     [:> ui/List.Item  "四股八十八回"]
+     [:> ui/List.Item  "摺り足"]
+     [:> ui/List.Item  "押し"]
+     [:> ui/List.Item  "三番"]
+     [:> ui/List.Item  "ぶつかり"]
+     [:> ui/List.Item  "蹲踞礼"]
+     [:> ui/List.Item  "掃除、風呂、ちゃんこ"]]]])
 
 (defn chanko-panel []
   [contents-wrapper
@@ -263,30 +262,30 @@
     [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
      [:> ui/Image {:src "/img/chanko.jpg"}]]
     [:h3 "材料"]
-    [:ul
-     [:li "昆布"]
-     [:li "鰹だし(顆粒)"]
-     [:li "鶏手羽先"]
-     [:li "豚こま切れ"]
-     [:li "鶏もも肉(むね肉はNG)"]
-     [:li "鶏レバー"]
-     [:li "白菜orキャベツ(安いほう）"]
-     [:li "大根"]
-     [:li "ニンジン"]
-     [:li "ゴボウ"]
-     [:li "しいたけ"]
-     [:li "こんにゃく"]
-     [:li "油揚げ"]
-     [:li "豆腐"]
-     [:li "水菜"]
-     [:li "その他季節に応じて。"]]
+    [:> ui/List {:bulleted true}
+     [:> ui/List.Item "昆布"]
+     [:> ui/List.Item "鰹だし(顆粒)"]
+     [:> ui/List.Item "鶏手羽先"]
+     [:> ui/List.Item "豚こま切れ"]
+     [:> ui/List.Item "鶏もも肉(むね肉はNG)"]
+     [:> ui/List.Item "鶏レバー"]
+     [:> ui/List.Item "白菜orキャベツ(安いほう）"]
+     [:> ui/List.Item "大根"]
+     [:> ui/List.Item "ニンジン"]
+     [:> ui/List.Item "ゴボウ"]
+     [:> ui/List.Item "しいたけ"]
+     [:> ui/List.Item "こんにゃく"]
+     [:> ui/List.Item "油揚げ"]
+     [:> ui/List.Item "豆腐"]
+     [:> ui/List.Item "水菜"]
+     [:> ui/List.Item "その他季節に応じて。"]]
     [:h3 "作り方"]
-    [:ul
-     [:li "材料を適当な大きさに切り、鶏レバーの血抜き、こんにゃくと油揚げの湯通しをする。"]
-     [:li "大きな鍋にたっぷりの水と少量の酒を入れ、昆布、鶏手羽先、大根、ニンジン、ゴボウを加えて火を点ける。"]
-     [:li "沸騰したら、鶏もも肉、鶏レバー、しいたけ、こんにゃく、油揚げ、白菜、豚こま切れ、を順に加える。"]
-     [:li "アクを取り、鰹だし、塩、しょうゆで味を調える。"]
-     [:li "火を止め、豆腐、水菜を加えて出来上がり。"]]]])
+    [:> ui/List {:ordered true}
+     [:> ui/List.Item "材料を適当な大きさに切り、鶏レバーの血抜き、こんにゃくと油揚げの湯通しをする。"]
+     [:> ui/List.Item "大きな鍋にたっぷりの水と少量の酒を入れ、昆布、鶏手羽先、大根、ニンジン、ゴボウを加えて火を点ける。"]
+     [:> ui/List.Item "沸騰したら、鶏もも肉、鶏レバー、しいたけ、こんにゃく、油揚げ、白菜、豚こま切れ、を順に加える。"]
+     [:> ui/List.Item "アクを取り、鰹だし、塩、しょうゆで味を調える。"]
+     [:> ui/List.Item "火を止め、豆腐、水菜を加えて出来上がり。"]]]])
 
 (defn ibukioroshi-panel []
   [contents-wrapper
