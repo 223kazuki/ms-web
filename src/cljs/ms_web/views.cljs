@@ -236,7 +236,9 @@
      [:> ui/List.Item "三菱UFJ銀行"]
      [:> ui/List.Item "リクルート"]]
     [:br]
-    "などなど。"]])
+    "などなど。"
+    [:br] [:br]
+    [:> ui/Image {:src "/img/obog.jpg"}]]])
 
 (defn keiko-panel []
   [contents-wrapper
