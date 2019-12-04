@@ -66,7 +66,7 @@
        [:> ui/Card {:style {:width "100%"}}
         [:> ui/Image {:src "/img/dohyo.jpg"}]]
        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-        "細谷師範の還暦を記念し、 名大相撲部の土俵改修プロジェクトを始動します。\n"
+        "細谷師範の還暦を記念し、名大相撲部の土俵改修プロジェクトを始動します。\n"
         "相撲部創部以来、大切に作り使ってきた道場・土俵を今後後輩たちに引き継いで行くために、改修費用のクラウドファンディングを行います。"
         "ご賛同していただける方は下記ページより応募をお願いいたします。\n\n"
         [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
