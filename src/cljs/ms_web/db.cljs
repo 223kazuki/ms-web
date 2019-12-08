@@ -302,24 +302,25 @@
                             :member/grade-id "obg2010"}]
                  :schedule [{:year "2019" :date "1/6" :event "初稽古"}
                             {:year "2019" :date "1/22 - 2/5" :event "オフ"}
-                            {:year "2019" :date "3/3 - 12" :event "紋別合宿"}
-                            {:year "2019" :date "4/17" :event "加藤杯"}
-                            {:year "2019" :date "5/5" :event "東海近畿オープン"}
-                            {:year "2019" :date "5/19" :event "国公立大会"}
-                            {:year "2019" :date "6/2" :event "西本インカレ"}
-                            {:year "2019" :date "6/6" :event "留学生交流会"}
-                            {:year "2019" :date "6/22" :event "高砂部屋激励会"}
-                            {:year "2019" :date "7/21" :event "西本体重別"}
-                            {:year "2019" :date "8/9 - 16" :event "答志島合宿"}
-                            {:year "2019" :date "9/1" :event "全国体重別"}
-                            {:year "2019" :date "9/8" :event "七帝戦"}
-                            {:year "2019" :date "9/9 - 15" :event "大空町合宿"}
+                            {:year "2019" :date "3/3 - 12" :event "紋別合宿" :tweet-id "1103286860267180034"}
+                            {:year "2019" :date "4/17" :event "加藤杯" :tweet-id "1118489509467832320"}
+                            {:year "2019" :date "5/5" :event "東海近畿オープン" :tweet-id "1125039258899632128"}
+                            {:year "2019" :date "5/19" :event "国公立大会" :tweet-id "1130117437007859712"}
+                            {:year "2019" :date "6/2" :event "西日本インカレ" :tweet-id "1135157431133065216"}
+                            {:year "2019" :date "6/6" :event "留学生交流会" :tweet-id "1136844554491973633"}
+                            {:year "2019" :date "6/22" :event "高砂部屋激励会" :tweet-id "1142448775572574209"}
+                            {:year "2019" :date "7/21" :event "西日本体重別"}
+                            {:year "2019" :date "8/9 - 16" :event "答志島合宿" :tweet-id "1160407210465189888"}
+                            {:year "2019" :date "9/1" :event "全国体重別" :tweet-id "1167960365478469632"}
+                            {:year "2019" :date "9/8" :event "七帝戦" :tweet-id "1170714652478590977"}
+                            {:year "2019" :date "9/9 - 15" :event "大空町合宿" :tweet-id "1171804679224713216"}
                             {:year "2019" :date "9/16 - 9/30" :event "オフ"}
-                            {:year "2019" :date "10/5" :event "大須素人相撲大会"}
-                            {:year "2019" :date "11/2, 3" :event "全国学生相撲選手権大会(インカレ)"}
+                            {:year "2019" :date "10/5" :event "大須素人相撲大会" :tweet-id "1179743052534956034"}
+                            {:year "2019" :date "10/19" :event "名防戦" :tweet-id "1185917453190103047"}
+                            {:year "2019" :date "11/2, 3" :event "全国学生相撲選手権大会(インカレ)" :tweet-id "1191168671571267584"}
                             {:year "2019" :date "11/20" :event "細谷先生還暦パーティー＠名古屋"}
                             {:year "2019" :date "11/22" :event "細谷先生還暦パーティー＠東京"}
-                            {:year "2019" :date "11/23, 24" :event "細谷先生還暦旅行"}
+                            {:year "2019" :date "11/23, 24" :event "細谷先生還暦旅行" :tweet-id "1198811313956220929"}
                             {:year "2019" :date "12/28" :event "納稽古"}
                             {:year "2019" :date "12/29, 30" :event "納旅行"}]
                  :keiko ["毎週火曜5時～"
