@@ -123,33 +123,47 @@
                (when introduction3 [:> ui/Card.Description introduction3])]]])])]])])
 
 (defn schedule-panel []
-  [contents-wrapper
-   (let [schedule @(re-frame/subscribe [::subs/schedule])
-         keiko @(re-frame/subscribe [::subs/keiko])]
-     [:<>
-      [:h2 "年間予定"]
-      [:> ui/Table {:celled true}
-       [:> ui/Table.Body
-        (for [s schedule]
-          ^{:key (:date s)}
-          [:> ui/Table.Row {:style {:textAlign "left"}}
-           [:> ui/Table.Cell (:date s)]
-           [:> ui/Table.Cell (:event s)]])]]
-      [:h2 "稽古"]
-      "下記の曜日に行ってます。"
-      [:> ui/List {:bulleted true}
-       (for [k keiko]
-         ^{:key k}
-         [:> ui/List.Item k])]
-      [:h3 "稽古場所"]
-      [:p "名古屋大学相撲部道場"]
-      [:p "武道場の前です。"]
-      [:iframe {:src "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d203.88139249549874!2d136.9613073963299!3d35.1540698603814!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1575028143950!5m2!1sja!2sjp"
-                :frameBorder 0
-                :style {:border 0
-                        :width "100%"
-                        :height "300px"}
-                :allowFullScreen true}]])])
+  (let [modal-content (r/atom nil)]
+    (fn []
+      [contents-wrapper
+       (let [schedule @(re-frame/subscribe [::subs/schedule])
+             keiko @(re-frame/subscribe [::subs/keiko])]
+         [:<>
+          (when-let [{:keys [event tweet-id]} @modal-content]
+            [:> ui/Modal {:open (some? @modal-content) :size "tiny"
+                          :onClose #(reset! modal-content nil)}
+             [:> ui/Modal.Header event]
+             [:> ui/Modal.Content
+              [:> twitter/TwitterTweetEmbed
+               {:tweetId tweet-id}]]])
+          [:h2 "年間予定(2019)"]
+          [:> ui/Table {:celled true}
+           [:> ui/Table.Body
+            (for [{:keys [date event tweet-id] :as s} schedule]
+              ^{:key date}
+              [:> ui/Table.Row {:style {:textAlign "left"}}
+               [:> ui/Table.Cell date]
+               [:> ui/Table.Cell
+                (if tweet-id
+                  [:a {:onClick #(reset! modal-content s)} event]
+                  event)]])]]
+          [:h2 "年間予定(2020)"]
+          [:p "Comming soon..."]
+          [:h2 "稽古"]
+          "下記の曜日に行ってます。"
+          [:> ui/List {:bulleted true}
+           (for [k keiko]
+             ^{:key k}
+             [:> ui/List.Item k])]
+          [:h3 "稽古場所"]
+          [:p "名古屋大学相撲部道場"]
+          [:p "武道場の前です。"]
+          [:iframe {:src "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d203.88139249549874!2d136.9613073963299!3d35.1540698603814!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1575028143950!5m2!1sja!2sjp"
+                    :frameBorder 0
+                    :style {:border 0
+                            :width "100%"
+                            :height "300px"}
+                    :allowFullScreen true}]])])))
 
 (defn record-panel []
   [contents-wrapper
