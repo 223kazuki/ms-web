@@ -44,5 +44,11 @@
     (re-frame/dispatch [::events/set-active-panel :ibukioroshi-panel]))
   (defroute "/member/:filter" [filter]
     (re-frame/dispatch [::events/set-active-panel :member-panel filter]))
+  (defroute "/monbetsu-gassyuku-2019" []
+    (re-frame/dispatch [::events/set-active-panel :monbetsu-gassyuku-2019-panel]))
+  (defroute "/ozoracho-gassyuku-2019" []
+    (re-frame/dispatch [::events/set-active-panel :ozoracho-gassyuku-2019-panel]))
+  (defroute "/toshijima-gassyuku-2019" []
+    (re-frame/dispatch [::events/set-active-panel :toshijima-gassyuku-2019-panel]))
 
   (hook-browser-navigation!))
