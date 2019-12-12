@@ -70,7 +70,21 @@
         "相撲部創部以来、大切に作り使ってきた道場・土俵を今後後輩たちに引き継いで行くために、改修費用のクラウドファンディングを行います。"
         "ご賛同していただける方は下記ページより応募をお願いいたします。\n\n"
         [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
-         "名大相撲部土俵改修費用クラウドファンディング"]]]]
+         "名大相撲部土俵改修費用クラウドファンディング"]]]
+
+      [:> ui/Segment {:basic true}
+       [:h2 "合宿紹介"]
+       [:> ui/Card {:style {:width "100%"}}
+        [:> ui/Image {:src "/img/gassyuku.jpg"}]]
+       [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+        "入部を検討している方向けに相撲部での生活がイメージできるように、2019年の合宿の様子をまとめました。"
+        "合宿は部員同士は元より、他大学とも交流し絆を深める場です。\n"
+        "2019年は北海道、三重県で３つの合宿を行いました。"
+        [:br]
+        [:> ui/List {:bulleted true}
+         [:> ui/List.Item [:a {:href "#/monbetsu-gassyuku-2019"} "紋別合宿"]]
+         [:> ui/List.Item [:a {:href "#/ozoracho-gassyuku-2019"} "大空町合宿"]]
+         [:> ui/List.Item [:a {:href "#/toshijima-gassyuku-2019"} "答志島合宿"]]]]]]
      [:> ui/Grid.Column {:mobile 16 :computer 6}
       [:> ui/Segment {:basic true}
        [:h2 "新着情報（Twitter）"]
@@ -139,13 +153,19 @@
           [:h2 "年間予定(2019)"]
           [:> ui/Table {:celled true}
            [:> ui/Table.Body
-            (for [{:keys [date event tweet-id] :as s} schedule]
+            (for [{:keys [date event link tweet-id] :as s} schedule]
               ^{:key date}
               [:> ui/Table.Row {:style {:textAlign "left"}}
                [:> ui/Table.Cell date]
                [:> ui/Table.Cell
-                (if tweet-id
-                  [:a {:onClick #(reset! modal-content s)} event]
+                (cond
+                  (some? link)
+                  [:a {:href link
+                       :style {:cursor "pointer"}} event]
+                  (some? tweet-id)
+                  [:a {:onClick #(reset! modal-content s)
+                       :style {:cursor "pointer"}} event]
+                  :else
                   event)]])]]
           [:h2 "年間予定(2020)"]
           [:p "Comming soon..."]
@@ -332,6 +352,92 @@
     [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
      [:> ui/Image {:src "/img/ibukioroshi.jpg"}]]]])
 
+(defn monbetsu-gassyuku-2019-panel []
+  [contents-wrapper
+   [:<>
+    [:h2 "紋別合宿2019"]
+    [:p "春休みにも北大相撲部と合宿を行います"]
+    [:> ui/Grid
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/monbetsu_2019_1.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "太平洋フェリー"]
+      "この合宿は名古屋からフェリーで向かいます\n甲板での一枚"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "観光①"]
+      "アザラシとのふれあい\nアザラシは僕たちの心を癒やしてくれました"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/monbetsu_2019_2.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/monbetsu_2019_3.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "観光②"]
+      "北海道に来たからにはスキーをせずにはいられません"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "食事風景"]
+      "名大と北大が交互に作ります"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/monbetsu_2019_4.jpg" :style {:width "100%"}}]]]]])
+
+(defn ozoracho-gassyuku-2019-panel []
+  [contents-wrapper
+   [:<>
+    [:h2 "大空町合宿2019"]
+    [:p "七帝戦の直後、同門の北大相撲部と合同合宿を行います"]
+    [:> ui/Grid
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/ozoracho_2019_1.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "稽古風景"]
+      "普段やらない相手との稽古はとても身になります"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "食事風景"]
+      "大人数でたくさんご飯を食べます"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/ozoracho_2019_2.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/ozoracho_2019_3.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "観光"]
+      "北海道の大自然もしっかり満喫"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "名北戦"]
+      "名大北大対抗戦も行います\n今年は名大の勝利"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/ozoracho_2019_4.jpg" :style {:width "100%"}}]]]]])
+
+(defn toshijima-gassyuku-2019-panel []
+  [contents-wrapper
+   [:<>
+    [:h2 "答志島合宿2019"]
+    [:p "毎年夏休みに三重県の答志島にて合宿を行います。"]
+    [:> ui/Grid
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/toshijima_2019_1.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "稽古風景①"]
+      "元々答志小学校にある土俵に加えて\n自分たちで耕して土俵を作り稽古に\n励みます"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "稽古風景②"]
+      "OBの方々も来て下さり胸を貸してくれます。"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/toshijima_2019_2.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/toshijima_2019_3.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "稽古風景③"]
+      "稽古後は海で泳いでアイシングします。"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "食事風景"]
+      "宿のご飯はずっと食べてしまうくらいとてもおいしいです"]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/toshijima_2019_4.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:> ui/Image {:src "/img/toshijima_2019_5.jpg" :style {:width "100%"}}]]
+     [:> ui/Grid.Column {:mobile 8 :computer 8 :style {:whiteSpace "pre-line"}}
+      [:h3 "盆踊り大会"]
+      "答志島の夏の風物詩\n相撲部も島民と一緒に踊り続けます"]]]])
+
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
 (defmethod panels :member-panel [] [member-panel])
@@ -344,6 +450,9 @@
 (defmethod panels :keiko-panel [] [keiko-panel])
 (defmethod panels :chanko-panel [] [chanko-panel])
 (defmethod panels :ibukioroshi-panel [] [ibukioroshi-panel])
+(defmethod panels :monbetsu-gassyuku-2019-panel [] [monbetsu-gassyuku-2019-panel])
+(defmethod panels :ozoracho-gassyuku-2019-panel [] [ozoracho-gassyuku-2019-panel])
+(defmethod panels :toshijima-gassyuku-2019-panel [] [toshijima-gassyuku-2019-panel])
 (defmethod panels :default [] [:div])
 
 (defn show-panel [panel-name]

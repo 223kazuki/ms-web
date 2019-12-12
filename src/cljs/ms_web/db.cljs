@@ -302,7 +302,8 @@
                             :member/grade-id "obg2010"}]
                  :schedule [{:year "2019" :date "1/6" :event "初稽古"}
                             {:year "2019" :date "1/22 - 2/5" :event "オフ"}
-                            {:year "2019" :date "3/3 - 12" :event "紋別合宿" :tweet-id "1103286860267180034"}
+                            {:year "2019" :date "3/3 - 12" :event "紋別合宿"
+                             :link "#/monbetsu-gassyuku-2019" :tweet-id "1103286860267180034"}
                             {:year "2019" :date "4/17" :event "加藤杯" :tweet-id "1118489509467832320"}
                             {:year "2019" :date "5/5" :event "東海近畿オープン" :tweet-id "1125039258899632128"}
                             {:year "2019" :date "5/19" :event "国公立大会" :tweet-id "1130117437007859712"}
@@ -310,10 +311,12 @@
                             {:year "2019" :date "6/6" :event "留学生交流会" :tweet-id "1136844554491973633"}
                             {:year "2019" :date "6/22" :event "高砂部屋激励会" :tweet-id "1142448775572574209"}
                             {:year "2019" :date "7/21" :event "西日本体重別"}
-                            {:year "2019" :date "8/9 - 16" :event "答志島合宿" :tweet-id "1160407210465189888"}
+                            {:year "2019" :date "8/9 - 16" :event "答志島合宿"
+                             :link "#/toshijima-gassyuku-2019" :tweet-id "1160407210465189888"}
                             {:year "2019" :date "9/1" :event "全国体重別" :tweet-id "1167960365478469632"}
                             {:year "2019" :date "9/8" :event "七帝戦" :tweet-id "1170714652478590977"}
-                            {:year "2019" :date "9/9 - 15" :event "大空町合宿" :tweet-id "1171804679224713216"}
+                            {:year "2019" :date "9/9 - 15" :event "大空町合宿"
+                             :link "#/ozoracho-gassyuku-2019" :tweet-id "1171804679224713216"}
                             {:year "2019" :date "9/16 - 9/30" :event "オフ"}
                             {:year "2019" :date "10/5" :event "大須素人相撲大会" :tweet-id "1179743052534956034"}
                             {:year "2019" :date "10/19" :event "名防戦" :tweet-id "1185917453190103047"}
