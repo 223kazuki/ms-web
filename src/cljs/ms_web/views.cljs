@@ -61,16 +61,16 @@
         "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
         "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
 
-      [:> ui/Segment {:basic true}
-       [:h2 "相撲部土俵改修プロジェクト"]
-       [:> ui/Card {:style {:width "100%"}}
-        [:> ui/Image {:src "/img/dohyo.jpg"}]]
-       [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-        "細谷師範の還暦を記念し、名大相撲部の土俵改修プロジェクトを始動します。\n"
-        "相撲部創部以来、大切に作り使ってきた道場・土俵を今後後輩たちに引き継いで行くために、改修費用のクラウドファンディングを行います。"
-        "ご賛同していただける方は下記ページより応募をお願いいたします。\n\n"
-        [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
-         "名大相撲部土俵改修費用クラウドファンディング"]]]
+      #_[:> ui/Segment {:basic true}
+         [:h2 "相撲部土俵改修プロジェクト"]
+         [:> ui/Card {:style {:width "100%"}}
+          [:> ui/Image {:src "/img/dohyo.jpg"}]]
+         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+          "細谷師範の還暦を記念し、名大相撲部の土俵改修プロジェクトを始動します。\n"
+          "相撲部創部以来、大切に作り使ってきた道場・土俵を今後後輩たちに引き継いで行くために、改修費用のクラウドファンディングを行います。"
+          "ご賛同していただける方は下記ページより応募をお願いいたします。\n\n"
+          [:a {:href "https://polca.jp/projects/MFaewo6Nl8I?fbclid=IwAR1aM09Zxhaxv4DfVSqHXSylX1ZP6i89wOot7QZ4iGc2Brz1rh3owa-10YY"}
+           "名大相撲部土俵改修費用クラウドファンディング"]]]
 
       [:> ui/Segment {:basic true}
        [:h2 "合宿紹介"]
