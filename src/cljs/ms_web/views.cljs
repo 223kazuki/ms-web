@@ -51,7 +51,7 @@
         "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
         "どんな人も歓迎します。\n"
         "殆どの現役部員、OB/OGがそうであったように未経験者大歓迎です。\n"
-        "入部希望者は" [:a {:href "#/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "#/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
+        "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
 
       [:> ui/Segment {:basic true}
        [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
@@ -82,9 +82,9 @@
         "2019年は北海道、三重県で３つの合宿を行いました。"
         [:br]
         [:> ui/List {:bulleted true}
-         [:> ui/List.Item [:a {:href "#/monbetsu-gassyuku-2019"} "紋別合宿"]]
-         [:> ui/List.Item [:a {:href "#/ozoracho-gassyuku-2019"} "大空町合宿"]]
-         [:> ui/List.Item [:a {:href "#/toshijima-gassyuku-2019"} "答志島合宿"]]]]]]
+         [:> ui/List.Item [:a {:href "/monbetsu-gassyuku-2019"} "紋別合宿"]]
+         [:> ui/List.Item [:a {:href "/ozoracho-gassyuku-2019"} "大空町合宿"]]
+         [:> ui/List.Item [:a {:href "/toshijima-gassyuku-2019"} "答志島合宿"]]]]]]
      [:> ui/Grid.Column {:mobile 16 :computer 6}
       [:> ui/Segment {:basic true}
        [:h2 "新着情報（Twitter）"]
@@ -498,9 +498,9 @@
             (for [item sub-menu]
               ^{:key (:key item)}
               [:> ui/Dropdown.Item {:text (:name item)
-                                    :as "a" :href (str "#/" key "/" (:key item))}])]]
+                                    :as "a" :href (str "/" key "/" (:key item))}])]]
           ^{:key key}
-          [:> ui/Menu.Item {:as "a" :href (str "#/" key)
+          [:> ui/Menu.Item {:as "a" :href (str "/" key)
                             :active (= active-panel panel)}
            [:> ui/Icon {:name icon}] name]))]
      [:> tg/TransitionGroup {:id "contents" :className "transition"}
@@ -530,7 +530,7 @@
                              :onClick #(re-frame/dispatch [::events/set-sub-menu key sub-menu])}
                             {:as "a"
                              :active (= active-panel panel)
-                             :href (str "#/" key)})
+                             :href (str "/" key)})
           [:> ui/Icon {:name icon}]
           name])]
       [:> ui/Sidebar.Pusher {:style {:height "100%"}}
@@ -549,7 +549,7 @@
             ^{:key key}
             [:> ui/Menu.Item {:as "a"
                               :active (= active-panel panel)
-                              :href (str "#/" parent "/" key)}
+                              :href (str "/" parent "/" key)}
              name])]
          [:> ui/Sidebar.Pusher {:style {:height "100%"}}
           [:> ui/Segment {:basic true :style {:min-height "100vh" :padding 0 :height "100%"}}
@@ -564,7 +564,7 @@
               [:span]
               [:span]]]
             [:div
-             [:h1 [:a {:href "#/"} "名古屋大学相撲部"]]]]
+             [:h1 [:a {:href "/"} "名古屋大学相撲部"]]]]
            [:> tg/TransitionGroup {:id "contents" :className "transition"
                                    :style {:height "100%"}}
             [:> tg/CSSTransition {:key active-panel :classNames "transition" :timeout 300
