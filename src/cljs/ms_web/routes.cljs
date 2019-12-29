@@ -1,22 +1,15 @@
 (ns ms-web.routes
   (:require-macros [secretary.core :refer [defroute]])
-  (:require  [goog.events :as gevents]
-             [ms-web.events :as events]
+  (:require  [ms-web.events :as events]
              [re-frame.core :as re-frame]
-             [secretary.core :as secretary])
-  (:import [goog History]
-           [goog.history EventType]))
+             [secretary.core :as secretary]
+             [pushy.core :as pushy]))
 
-(defn hook-browser-navigation! []
-  (doto (History.)
-    (gevents/listen
-     EventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
-    (.setEnabled true)))
+(def history (pushy/pushy secretary/dispatch!
+                          (fn [x] (when (secretary/locate-route x) x))))
 
 (defn app-routes []
-  (secretary/set-config! :prefix "#")
+  (secretary/set-config! :prefix "/")
 
   (defroute "/" []
     (re-frame/dispatch [::events/set-active-panel :home-panel]))
@@ -51,4 +44,4 @@
   (defroute "/toshijima-gassyuku-2019" []
     (re-frame/dispatch [::events/set-active-panel :toshijima-gassyuku-2019-panel]))
 
-  (hook-browser-navigation!))
+  (pushy/start! history))
