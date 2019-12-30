@@ -2,147 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <url>
   <loc>https://meidai-sumo.club/</loc>
-  <priority>1.0</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/home</loc>
-  <priority>1.0</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/grade4</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/grade3</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/grade2</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/grade1</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/managers</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2017</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2016</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2015</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2014</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2013</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2012</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2011</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2010</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/member/obg2010</loc>
-  <priority>0.7</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/schedule</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
-</url>
-<url>
-  <loc>https://meidai-sumo.club/record</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/inquiry</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/declation</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/freshman</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/ob</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/keiko</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/chanko</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/about/ibukioroshi</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
-</url>
-<url>
-  <loc>https://meidai-sumo.club/member/:filter</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/monbetsu-gassyuku-2019</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/ozoracho-gassyuku-2019</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 <url>
   <loc>https://meidai-sumo.club/toshijima-gassyuku-2019</loc>
-  <priority>0.8</priority>
-  <lastmod>2019-12-29T08:58:29+09:00</lastmod>
 </url>
 </urlset>
