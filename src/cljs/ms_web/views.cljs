@@ -178,7 +178,7 @@
           [:h3 "稽古場所"]
           [:p "名古屋大学相撲部道場"]
           [:p "武道場の前です。"]
-          [:iframe {:src "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d203.88139249549874!2d136.9613073963299!3d35.1540698603814!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1575028143950!5m2!1sja!2sjp"
+          [:iframe {:src "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.103562152197!2d136.95911871514335!3d35.15403788032058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037b809397c643%3A0x2b0022cf00051e20!2z55u45pKy5aC0!5e0!3m2!1sja!2sjp!4v1578043838702!5m2!1sja!2sjp"
                     :frameBorder 0
                     :style {:border 0
                             :width "100%"
