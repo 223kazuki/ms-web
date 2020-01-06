@@ -7,6 +7,15 @@ h2, h3 {
     padding-left: 10px;
 }
 
+div#app {
+    min-height: 100vh;
+    background: black;
+}
+
+div#app > div {
+    background: white;
+}
+
 footer {
     background-color: black;
     color: #ffd700;
@@ -20,6 +29,7 @@ footer {
     background-image: url(/img/top.jpg);
     background-size: cover;
     background-position: center;
+    margin: 0!important;
 }
 
 .topHeader > div > h1 {
@@ -36,6 +46,7 @@ footer {
     background-image: url(/img/ninomaru.jpg);
     background-size: cover;
     background-position: center;
+    margin-top: 0!important;
 }
 
 /* Temporary*/
@@ -61,6 +72,7 @@ footer {
     opacity: 0.01;
     transition: all 300ms;
 }
+
 .ui.container.mainContainer {
     width: 100%;
     margin-left: 0!important;
@@ -91,19 +103,15 @@ footer {
     }
 
     /* 画面遷移配下の構成 */
-    #contents > div {
-        position: absolute!important;
+    #contents {
         width: 100%;
-        height: 100%;
-        overflow-y: scroll;
-        background: none!important;
-        border: none!important;
-        box-shadow: none!important;
-        padding: 0!important;
+        display: grid;
+        grid-template-areas: "Transition";
     }
-    #contents > div > div.contentsInner {
-        padding-left: 8px;
-        padding-right: 8px;
+
+    #contents > div {
+        width: 100%;
+        grid-area: Transition;
     }
 
     /* Mobile メニュー(上部) */
@@ -205,12 +213,14 @@ footer {
     }
 
     /* 画面遷移配下の構成 */
-    #contents > div {
-        position: absolute!important;
+    #contents {
         width: 100%;
-        height: 100%;
-    }
-    #contents > div > div.contentsInner {
+        display: grid;
+        grid-template-areas: "Transition";
     }
 
+    #contents > div {
+        width: 100%;
+        grid-area: Transition;
+    }
 }
