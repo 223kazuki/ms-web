@@ -412,6 +412,13 @@
     [:a {:href "/monbetsu-gassyuku-2019" :style {:fontSize "20px"}}
      "> 紋別合宿2019"]]])
 
+(defn media-panel []
+  [:<>
+   [:h2 "メディア情報"]
+   [:> ui/Card {:style {:width "100%"}}
+    [:a {:href "https://mainichi.jp/articles/20170427/ddh/041/100/002000c"}
+     "名古屋大 相撲部、苦境うっちゃれ！！！！ 部員減、仲間求む"]]])
+
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
 (defmethod panels :member-panel [] [member-panel])
@@ -427,6 +434,7 @@
 (defmethod panels :monbetsu-gassyuku-2019-panel [] [monbetsu-gassyuku-2019-panel])
 (defmethod panels :ozoracho-gassyuku-2019-panel [] [ozoracho-gassyuku-2019-panel])
 (defmethod panels :toshijima-gassyuku-2019-panel [] [toshijima-gassyuku-2019-panel])
+(defmethod panels :media-panel [] [media-panel])
 (defmethod panels :default [] [:div])
 
 (defn show-panel [panel-name]
