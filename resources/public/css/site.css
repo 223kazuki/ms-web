@@ -222,5 +222,7 @@ footer {
     #contents > div {
         width: 100%;
         grid-area: Transition;
+        font-size: 16px;
+        line-height: 24px;
     }
 }
