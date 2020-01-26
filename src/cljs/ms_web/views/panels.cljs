@@ -93,10 +93,10 @@
             [:> ui/Modal.Content
              [:> twitter/TwitterTweetEmbed
               {:tweetId tweet-id}]]])
-         [:h2 "年間予定(2019)"]
+         [:h2 "年間予定(2020)"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
-           (for [{:keys [date event link tweet-id] :as s} schedule]
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2020" (:year %))  schedule)]
              ^{:key date}
              [:> ui/Table.Row {:style {:textAlign "left"}}
               [:> ui/Table.Cell date]
@@ -110,8 +110,23 @@
                       :style {:cursor "pointer"}} event]
                  :else
                  event)]])]]
-         [:h2 "年間予定(2020)"]
-         [:p "Comming soon..."]
+         [:h2 "年間予定(2019)"]
+         [:> ui/Table {:celled true}
+          [:> ui/Table.Body
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2019" (:year %))  schedule)]
+             ^{:key date}
+             [:> ui/Table.Row {:style {:textAlign "left"}}
+              [:> ui/Table.Cell date]
+              [:> ui/Table.Cell
+               (cond
+                 (some? link)
+                 [:a {:href link
+                      :style {:cursor "pointer"}} event]
+                 (some? tweet-id)
+                 [:a {:onClick #(reset! modal-content s)
+                      :style {:cursor "pointer"}} event]
+                 :else
+                 event)]])]]
          [:h2 "稽古"]
          "下記の曜日に行ってます。"
          [:> ui/List {:bulleted true}
