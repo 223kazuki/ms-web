@@ -1,5 +1,6 @@
 html, body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, sans-serif;
+    overflow-y: scroll;
 }
 
 h2, h3 {
