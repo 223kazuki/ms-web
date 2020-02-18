@@ -94,6 +94,11 @@ footer {
         margin-top: 20px;
     }
 
+    .image > div.imageLoader {
+        height: 188px;
+        margin: 0;
+    }
+
     .topHeader {
         height: 250px;
         opacity: 0.8;
@@ -194,9 +199,14 @@ footer {
 
 @media only screen and (min-width: 1201px) {
     footer {
-        height: 50px;
+        height: 100px;
         font-size: 12px;
         margin-top: 20px;
+    }
+
+    .image > div.imageLoader {
+        height: 383px;
+        margin: 0;
     }
 
     .topHeader {

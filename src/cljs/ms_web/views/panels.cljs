@@ -6,12 +6,24 @@
             ["semantic-ui-react" :as ui]
             ["react-twitter-embed" :as twitter]))
 
+(defn image [image-path alt]
+  (let [image (new js/Image)]
+    (aset image "src" image-path)
+    (let [load (r/atom nil)]
+      (aset image "onload" (fn [o] (reset! load o)))
+      (fn []
+        [:> ui/Card {:className "image" :style {:width "100%"}}
+         (if (nil? @load)
+           [:> ui/Segment {:className "imageLoader" :basic true}
+            [:> ui/Dimmer {:active true}
+             [:> ui/Loader]]]
+           [:img {:src image-path :className "ui image" :alt alt}])]))))
+
 (defn home-panel []
   [:<>
    [:div
     [:h2 "新入部員募集中！！"]
-    [:> ui/Card {:style {:width "100%"}}
-     [:img {:src "/img/bosyu.jpg" :className "ui image" :alt "新入部員募集中"}]]
+    [image "/img/bosyu.jpg" "新入部員募集中"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
      "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
      "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
@@ -20,15 +32,13 @@
      "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
    [:div
     [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
-    [:> ui/Card {:style {:width "100%"}}
-     [:img {:src "/img/shichiteisen.jpg" :className "ui image" :alt "第５８回全国七大学総合体育大会相撲競技団体優勝"}]]
+    [image "/img/shichiteisen.jpg"  "第５８回全国七大学総合体育大会相撲競技団体優勝"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
      "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
      "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
    [:div
     [:h2 "合宿紹介"]
-    [:> ui/Card {:style {:width "100%"}}
-     [:img {:src "/img/gassyuku.jpg" :className "ui image" :alt "合宿紹介"}]]
+    [image "/img/gassyuku.jpg" "合宿紹介"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
      "入部を検討している方向けに相撲部での生活がイメージできるように、2019年の合宿の様子をまとめました。"
      "合宿は部員同士は元より、他大学とも交流し絆を深める場です。\n"
@@ -64,11 +74,11 @@
       (fn []
         [:> ui/Grid.Column {:mobile 16 :computer 8}
          [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
-          (if (nil? @load)
-            [:> ui/Segment {:basic true :style {:margin 0 :height "258px"}}
-             [:> ui/Dimmer {:active true}
-              [:> ui/Loader]]]
-            (when image-path
+          (when image-path
+            (if (nil? @load)
+              [:> ui/Segment {:basic true :style {:margin 0 :height "258px"}}
+               [:> ui/Dimmer {:active true}
+                [:> ui/Loader]]]
               [:img {:src image-path :className "ui fluid image" :alt name}]))
           [:> ui/Card.Content
            [:> ui/Card.Header name]
