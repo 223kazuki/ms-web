@@ -56,18 +56,25 @@
 (defn member-card [member]
   (let [{:keys [member/id member/name member/image member/introduction1 member/introduction2
                 member/introduction3]} member
-        image-path (str "/img/member/" image)
-        image (new js/Image)]
+        image-path (when image (str "/img/member/" image))
+        image      (new js/Image)]
     (aset image "src" image-path)
-    [:> ui/Grid.Column {:mobile 16 :computer 8}
-     [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
-      (when image
-        [:img {:src image-path :className "ui fluid image" :alt name}])
-      [:> ui/Card.Content
-       [:> ui/Card.Header name]
-       [:> ui/Card.Meta introduction1]
-       (when introduction2 [:> ui/Card.Description introduction2])
-       (when introduction3 [:> ui/Card.Description introduction3])]]]))
+    (let [load (r/atom nil)]
+      (aset image "onload" (fn [o] (reset! load o)))
+      (fn []
+        [:> ui/Grid.Column {:mobile 16 :computer 8}
+         [:> ui/Card {:style {:whiteSpace "pre-line" :width "100%"}}
+          (if (nil? @load)
+            [:> ui/Segment {:basic true :style {:margin 0 :height "258px"}}
+             [:> ui/Dimmer {:active true}
+              [:> ui/Loader]]]
+            (when image-path
+              [:img {:src image-path :className "ui fluid image" :alt name}]))
+          [:> ui/Card.Content
+           [:> ui/Card.Header name]
+           [:> ui/Card.Meta introduction1]
+           (when introduction2 [:> ui/Card.Description introduction2])
+           (when introduction3 [:> ui/Card.Description introduction3])]]]))))
 
 (defn member-panel []
   (let [members @(re-frame/subscribe [::subs/members])
@@ -85,7 +92,7 @@
          [:h3 (:name (get grades grade))]]
         (for [member  members]
           ^{:key (:member/id member)}
-          (member-card member))])]))
+          [member-card member])])]))
 
 (defn schedule-panel []
   (let [modal-content (r/atom nil)]
