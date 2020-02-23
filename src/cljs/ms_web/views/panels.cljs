@@ -117,6 +117,21 @@
             [:> ui/Modal.Content
              [:> twitter/TwitterTweetEmbed
               {:tweetId tweet-id}]]])
+         [:h2 "稽古"]
+         "下記の曜日に行ってます。"
+         [:> ui/List {:bulleted true}
+          (for [k keiko]
+            ^{:key k}
+            [:> ui/List.Item k])]
+         [:h3 "稽古場所"]
+         [:p "名古屋大学相撲部道場"]
+         [:p "名古屋大学東山キャンパス北西端、体育館と武道場の間にあります。見学はいつでも受け付けていますので、気軽に道場を訪ねて下さい。"]
+         [:iframe {:src "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.103562152197!2d136.95911871514335!3d35.15403788032058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037b809397c643%3A0x2b0022cf00051e20!2z55u45pKy5aC0!5e0!3m2!1sja!2sjp!4v1578043838702!5m2!1sja!2sjp"
+                   :frameBorder 0
+                   :style {:border 0
+                           :width "100%"
+                           :height "300px"}
+                   :allowFullScreen true}]
          [:h2 "年間予定(2020)"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
@@ -150,22 +165,7 @@
                  [:a {:onClick #(reset! modal-content s)
                       :style {:cursor "pointer"}} event]
                  :else
-                 event)]])]]
-         [:h2 "稽古"]
-         "下記の曜日に行ってます。"
-         [:> ui/List {:bulleted true}
-          (for [k keiko]
-            ^{:key k}
-            [:> ui/List.Item k])]
-         [:h3 "稽古場所"]
-         [:p "名古屋大学相撲部道場"]
-         [:p "名古屋大学東山キャンパス北西端、体育館と武道場の間にあります。見学はいつでも受け付けていますので、気軽に道場を訪ねて下さい。"]
-         [:iframe {:src "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.103562152197!2d136.95911871514335!3d35.15403788032058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037b809397c643%3A0x2b0022cf00051e20!2z55u45pKy5aC0!5e0!3m2!1sja!2sjp!4v1578043838702!5m2!1sja!2sjp"
-                   :frameBorder 0
-                   :style {:border 0
-                           :width "100%"
-                           :height "300px"}
-                   :allowFullScreen true}]]))))
+                 event)]])]]]))))
 
 (defn record-panel []
   [:<>
