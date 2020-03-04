@@ -33,6 +33,7 @@
                        {:key "all" :name "全て"}]}
            {:name "稽古・年間予定" :key "schedule" :icon "calendar"}
            #_{:name "戦績" :key "record" :icon "book"}
+           {:name "メディア" :key "media" :icon "tv"}
            {:name "問い合わせ" :key "inquiry" :icon "mail"}])
 
 (defn footer []

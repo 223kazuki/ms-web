@@ -43,5 +43,7 @@
     (re-frame/dispatch [::events/set-active-panel :ozoracho-gassyuku-2019-panel]))
   (defroute "/toshijima-gassyuku-2019" []
     (re-frame/dispatch [::events/set-active-panel :toshijima-gassyuku-2019-panel]))
+  (defroute "/media" []
+    (re-frame/dispatch [::events/set-active-panel :media-panel]))
 
   (pushy/start! history))
