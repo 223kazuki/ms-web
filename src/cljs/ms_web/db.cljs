@@ -329,11 +329,23 @@
 
                             {:year "2020" :date "1/5" :event "初稽古"}
                             {:year "2020" :date "1/18~2/10" :event "テスト休み"}
-                            {:year "2020" :date "2/18" :event "推薦の細道"}
-                            {:year "2020" :date "2/19~25" :event "津別合宿"}
+                            {:year "2020" :date "2/18" :event "推薦の細道" :tweet-id "1229568381319184384"}
+                            {:year "2020" :date "2/19~25" :event "津別合宿" :tweet-id "1232276702430023686"}
                             {:year "2020" :date "2/25~3/10" :event "部活OFF"}
                             {:year "2020" :date "3/12, 13" :event "地獄の細道"}
-                            {:year "2020" :date "3/16~26" :event "毎日稽古"}]
+                            {:year "2020" :date "3/16~26" :event "毎日稽古"}
+                            {:year "2020" :date "3/20~22" :event "土俵改修"}
+                            {:year "2020" :date "4/2, 3" :event "花見"}
+                            {:year "2020" :date "4/4" :event "ちゃんこパーティー"}
+                            {:year "2020" :date "4/5" :event "入学祭典、ESTでのカンパ"}
+                            {:year "2020" :date "4/6" :event "バケツ企画"}
+                            {:year "2020" :date "4/9" :event "ちゃんこ炊き出し"}
+                            {:year "2020" :date "4/14" :event "武道系新歓"}
+                            {:year "2020" :date "4/15" :event "素人相撲大会"}
+                            {:year "2020" :date "4/20" :event "パンケーキパーティー"}
+                            {:year "2020" :date "4/24" :event "ぎょうざパーティー"}
+                            {:year "2020" :date "5/3" :event "東海近畿"}
+                            {:year "2020" :date "5/4" :event "BBQ"}]
                  :keiko ["毎週火曜5時～"
                          "毎週木曜5時～"
                          "毎週土曜9時半～"]})

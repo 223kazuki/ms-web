@@ -6,23 +6,35 @@
             ["semantic-ui-react" :as ui]
             ["react-twitter-embed" :as twitter]))
 
-(defn image [image-path alt]
-  (let [image (new js/Image)]
-    (aset image "src" image-path)
-    (let [load (r/atom nil)]
-      (aset image "onload" (fn [o] (reset! load o)))
-      (fn []
-        [:> ui/Card {:className "image" :style {:width "100%"}}
-         (if (nil? @load)
-           [:> ui/Segment {:className "imageLoader" :basic true}
-            [:> ui/Dimmer {:active true}
-             [:> ui/Loader]]]
-           [:img {:src image-path :className "ui image" :alt alt}])]))))
+(defn image
+  ([image-path alt]
+   (image image-path alt nil))
+  ([image-path alt url]
+   (let [image (new js/Image)]
+     (aset image "src" image-path)
+     (let [load (r/atom nil)]
+       (aset image "onload" (fn [o] (reset! load o)))
+       (fn []
+         [:> ui/Card {:className "image" :style {:width "100%"}}
+          (if (nil? @load)
+            [:> ui/Segment {:className "imageLoader" :basic true}
+             [:> ui/Dimmer {:active true}
+              [:> ui/Loader]]]
+            (if url
+              [:a {:href url} [:img {:src image-path :className "ui image" :alt alt}]]
+              [:img {:src image-path :className "ui image" :alt alt}]))])))))
 
 (defn home-panel []
   [:<>
-   [:div
-    [:h2 "新入部員募集中！！"]
+   [:div {:style {:margin-bottom "25px"}}
+    [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
+     "2020年新入生歓迎イベント予定追加"]
+    [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+     [:a {:href "/schedule"} "稽古・年間予定"] " に今年の新入生歓迎イベント予定を追加しました。"
+     "今年の新入生以外でも歓迎しますので、是非ご参加下さい。"
+     "各イベントの詳細はTwitterにて報知していきます。"]]
+   [:div {:style {:margin-bottom "25px"}}
+    [:h2  "新入部員募集中！！"]
     [image "/img/bosyu.jpg" "新入部員募集中"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
      "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
@@ -30,13 +42,13 @@
      "どんな人も歓迎します。\n"
      "殆どの現役部員、OB/OGがそうであったように未経験者大歓迎です。\n"
      "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
-   [:div
+   [:div {:style {:margin-bottom "25px"}}
     [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
     [image "/img/shichiteisen.jpg"  "第５８回全国七大学総合体育大会相撲競技団体優勝"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
      "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
      "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
-   [:div
+   [:div {:style {:margin-bottom "25px"}}
     [:h2 "合宿紹介"]
     [image "/img/gassyuku.jpg" "合宿紹介"]
     [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
@@ -133,6 +145,7 @@
                            :height "300px"}
                    :allowFullScreen true}]
          [:h2 "年間予定(2020)"]
+         [:p "※コロナウィルスの影響により予定は変更となる可能性があります。最新の予定についてはTwitterをご確認下さい。"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
            (for [{:keys [date event link tweet-id] :as s} (filter #(= "2020" (:year %))  schedule)]
@@ -453,10 +466,58 @@
 
 (defn media-panel []
   [:<>
-   [:h2 "メディア情報"]
-   [:> ui/Card {:style {:width "100%"}}
-    [:a {:href "https://mainichi.jp/articles/20170427/ddh/041/100/002000c"}
-     "名古屋大 相撲部、苦境うっちゃれ！！！！ 部員減、仲間求む"]]])
+   [:h2 "メディア・出演情報"]
+   [:br]
+   [:> ui/Grid
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2017年 毎日新聞"]
+      [:a {:href "https://mainichi.jp/articles/20170427/ddh/041/100/002000c"}
+       "名古屋大 相撲部、苦境うっちゃれ！！！！ 部員減、仲間求む"]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2017年 中日新聞"]
+      [:a {:href "https://www.facebook.com/NUSUMOCLUB/posts/1567295713364302?__tn__=-R"}
+       "人情交差点"]
+      #_[:iframe {:src "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNUSUMOCLUB%2Fposts%2F1567295713364302&width=350"
+                  :width "330" :height "600" :style {:border "none" :overflow "scroll"}
+                  :scrolling "no" :frameborder "0" :allowTransparency "true" :allow "encrypted-media"}]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2013年 オードリーさん、ぜひ会ってほしい人がいるんです。"]
+      [:p [:a {:href "https://www.youtube.com/watch?v=D-L2jg46wbU"}
+           "名古屋大学相撲部 相撲嫌いな後輩"]]
+      [image "http://img.youtube.com/vi/D-L2jg46wbU/0.jpg" "名古屋大学相撲部 相撲嫌いな後輩"
+       "https://www.youtube.com/watch?v=D-L2jg46wbU"]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2011年 スポニチ"]
+      [:a {:href "https://www.sponichi.co.jp/sports/news/2011/03/02/kiji/K20110302000347350.html?feature=related"}
+       "名古屋大出身・舛名大が引退…何と相撲記者に"]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2009年 名駅経済新聞"]
+      [:a {:href "https://meieki.keizai.biz/headline/923/"}
+       "アマチュア相撲とクラブ音楽のコラボイベント－今年も名古屋城で開催へ"]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "2008年 どすこい!!名古屋城RAVE2008"]
+      [:p [:a {:href "https://www.youtube.com/watch?v=xX8qpvD0GfI"}
+           "どすこい!!名古屋城RAVE2008 PV"]]
+      [image "http://img.youtube.com/vi/xX8qpvD0GfI/0.jpg" "どすこい!!名古屋城RAVE2008 PV"
+       "https://www.youtube.com/watch?v=xX8qpvD0GfI"]]]
+
+    [:> ui/Grid.Column {:mobile 16 :computer 8}
+     [:> ui/Segment {:style {:whiteSpace "pre-line"}}
+      [:h3 "舛名大周一"]
+      [:p "名大相撲部より、旧帝大出身者初の大相撲力士として舛名大が誕生しました。"]
+      [:a {:href "https://ja.wikipedia.org/wiki/%E8%88%9B%E5%90%8D%E5%A4%A7%E5%91%A8%E4%B8%80"}
+       "Wikipedia: 舛名大"]]]]])
 
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
