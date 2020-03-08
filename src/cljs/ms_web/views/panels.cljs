@@ -4,7 +4,8 @@
             [re-frame.core :as re-frame]
             [reagent.core :as r]
             ["semantic-ui-react" :as ui]
-            ["react-twitter-embed" :as twitter]))
+            ["react-twitter-embed" :as twitter]
+            ["react-pdf" :as pdf]))
 
 (defn image
   ([image-path alt]
@@ -25,41 +26,77 @@
               [:img {:src image-path :className "ui image" :alt alt}]))])))))
 
 (defn home-panel []
-  [:<>
-   [:div {:style {:margin-bottom "25px"}}
-    [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
-     "2020年新入生歓迎イベント予定追加"]
-    [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-     [:a {:href "/schedule"} "稽古・年間予定"] " に今年の新入生歓迎イベント予定を追加しました。"
-     "今年の新入生以外でも歓迎しますので、是非ご参加下さい。"
-     "各イベントの詳細はTwitterにて報知していきます。"]]
-   [:div {:style {:margin-bottom "25px"}}
-    [:h2  "新入部員募集中！！"]
-    [image "/img/bosyu.jpg" "新入部員募集中"]
-    [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-     "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
-     "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
-     "どんな人も歓迎します。\n"
-     "殆どの現役部員、OB/OGがそうであったように未経験者大歓迎です。\n"
-     "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
-   [:div {:style {:margin-bottom "25px"}}
-    [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
-    [image "/img/shichiteisen.jpg"  "第５８回全国七大学総合体育大会相撲競技団体優勝"]
-    [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-     "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
-     "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
-   [:div {:style {:margin-bottom "25px"}}
-    [:h2 "合宿紹介"]
-    [image "/img/gassyuku.jpg" "合宿紹介"]
-    [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-     "入部を検討している方向けに相撲部での生活がイメージできるように、2019年の合宿の様子をまとめました。"
-     "合宿は部員同士は元より、他大学とも交流し絆を深める場です。\n"
-     "2019年は北海道、三重県で３つの合宿を行いました。"
-     [:br]
-     [:> ui/List {:bulleted true}
-      [:> ui/List.Item [:a {:href "/monbetsu-gassyuku-2019"} "紋別合宿"]]
-      [:> ui/List.Item [:a {:href "/ozoracho-gassyuku-2019"} "大空町合宿"]]
-      [:> ui/List.Item [:a {:href "/toshijima-gassyuku-2019"} "答志島合宿"]]]]]])
+  (let [modal-content (r/atom nil)]
+    (fn []
+      [:<>
+       (when-let [{:keys [title pdf]} @modal-content]
+         [:<>
+          [:> ui/Responsive {:minWidth 1201}
+           [:> ui/Modal {:open (some? @modal-content)
+                         :onClose #(reset! modal-content nil)
+                         :style {:width "750px"}}
+            [:> ui/Modal.Header title]
+            [:> ui/Modal.Content
+             [:> pdf/Document {:file pdf}
+              [:> pdf/Page {:pageNumber 1 :width 700}]]]]]
+          [:> ui/Responsive {:maxWidth 1200}
+           [:> ui/Modal {:open (some? @modal-content)
+                         :onClose #(reset! modal-content nil)
+                         :style {:width "350px"}}
+            [:> ui/Modal.Header title]
+            [:> ui/Modal.Content
+             [:> pdf/Document {:file pdf}
+              [:> pdf/Page {:pageNumber 1 :width 300}]]]]]])
+       [:div#a {:style {:margin-bottom "25px"}}
+        [:h2 "2020年新歓ビラ"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         [:p "今年の新歓用ビラを公開します。"]
+         [:> ui/Grid
+          [:> ui/Grid.Column {:mobile 16 :computer 8
+                              :onClick #(reset! modal-content
+                                                {:title "新入部員募集中"
+                                                 :pdf "/img/pamphlet_2020.pdf"})}
+           [image "/img/pamphlet_2020.jpg" "新入部員募集中"]]
+          [:> ui/Grid.Column {:mobile 16 :computer 8
+                              :onClick #(reset! modal-content
+                                                {:title "新入部員募集中"
+                                                 :pdf "/img/pamphlet_2020.pdf"})}
+           [image "/img/pamphlet_2020_reverse.jpg" "新入部員募集中"]]]]]
+
+       [:div {:style {:margin-bottom "25px"}}
+        [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
+         "2020年新入生歓迎イベント予定追加"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         [:a {:href "/schedule"} "稽古・年間予定"] " に今年の新入生歓迎イベント予定を追加しました。"
+         "今年の新入生以外でも歓迎しますので、是非ご参加下さい。"
+         "各イベントの詳細はTwitterにて報知していきます。"]]
+       [:div {:style {:margin-bottom "25px"}}
+        [:h2  "新入部員募集中！！"]
+        [image "/img/bosyu.jpg" "新入部員募集中"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
+         "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
+         "どんな人も歓迎します。\n"
+         "殆どの現役部員、OB/OGがそうであったように未経験者大歓迎です。\n"
+         "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
+       [:div {:style {:margin-bottom "25px"}}
+        [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
+        [image "/img/shichiteisen.jpg"  "第５８回全国七大学総合体育大会相撲競技団体優勝"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
+         "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
+       [:div {:style {:margin-bottom "25px"}}
+        [:h2 "合宿紹介"]
+        [image "/img/gassyuku.jpg" "合宿紹介"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         "入部を検討している方向けに相撲部での生活がイメージできるように、2019年の合宿の様子をまとめました。"
+         "合宿は部員同士は元より、他大学とも交流し絆を深める場です。\n"
+         "2019年は北海道、三重県で３つの合宿を行いました。"
+         [:br]
+         [:> ui/List {:bulleted true}
+          [:> ui/List.Item [:a {:href "/monbetsu-gassyuku-2019"} "紋別合宿"]]
+          [:> ui/List.Item [:a {:href "/ozoracho-gassyuku-2019"} "大空町合宿"]]
+          [:> ui/List.Item [:a {:href "/toshijima-gassyuku-2019"} "答志島合宿"]]]]]])))
 
 (def grades {"grade4" {:name "四回生" :order 0}
              "grade3" {:name "三回生" :order 1}

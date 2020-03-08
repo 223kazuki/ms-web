@@ -4,7 +4,13 @@
             [ms-web.routes :as routes]
             [ms-web.views :as views]
             [reagent.core :as reagent]
-            [re-frame.core :as re-frame]))
+            [re-frame.core :as re-frame]
+            ["react-pdf" :as pdf]))
+
+(set! (.. pdf/pdfjs
+          -GlobalWorkerOptions
+          -workerSrc)
+      "///cdnjs.cloudflare.com/ajax/libs/pdf.js/2.1.266/pdf.worker.js")
 
 (defn dev-setup []
   (when config/debug?
