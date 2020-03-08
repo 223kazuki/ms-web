@@ -1,14 +1,15 @@
 {
-  "devDependencies": {
-    "shadow-cljs": "2.8.69"
-  },
-  "dependencies": {
-    "create-react-class": "15.6.3",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "semantic-ui-react": "0.88.1",
-    "react-transition-group": "4.3.0",
-    "react-twitter-embed": "3.0.3",
-    "react-facebook": "8.1.2"
-  }
+    "devDependencies": {
+        "shadow-cljs": "2.8.69"
+    },
+    "dependencies": {
+        "create-react-class": "15.6.3",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "semantic-ui-react": "0.88.1",
+        "react-transition-group": "4.3.0",
+        "react-twitter-embed": "3.0.3",
+        "react-facebook": "8.1.2",
+        "react-pdf": "4.1.0"
+    }
 }
