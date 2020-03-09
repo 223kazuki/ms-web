@@ -80,6 +80,11 @@ footer {
     margin-right: 0!important;
 }
 
+table.ibukioroshi > tbody > tr {
+    vertical-align: top;
+    line-height: 30px;
+}
+
 /* Web, Mobile向け */
 @media only screen and (max-width: 1200px) {
     h1 > a {
