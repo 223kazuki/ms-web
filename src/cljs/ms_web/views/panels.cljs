@@ -58,7 +58,7 @@
           [:> ui/Grid.Column {:mobile 16 :computer 8
                               :onClick #(reset! modal-content
                                                 {:title "新入部員募集中"
-                                                 :pdf "/img/pamphlet_2020.pdf"})}
+                                                 :pdf "/img/pamphlet_2020_reverse.pdf"})}
            [image {:image-path "/img/pamphlet_2020_reverse.jpg" :alt "新入部員募集中"}]]]]]
 
        [:div {:style {:margin-bottom "25px"}}
