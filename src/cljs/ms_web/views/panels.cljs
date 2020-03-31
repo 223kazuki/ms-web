@@ -8,22 +8,20 @@
             ["react-pdf" :as pdf]))
 
 (defn image
-  ([image-path alt]
-   (image image-path alt nil))
-  ([image-path alt url]
-   (let [image (new js/Image)]
-     (aset image "src" image-path)
-     (let [load (r/atom nil)]
-       (aset image "onload" (fn [o] (reset! load o)))
-       (fn []
-         [:> ui/Card {:className "image" :style {:width "100%"}}
-          (if (nil? @load)
-            [:> ui/Segment {:className "imageLoader" :basic true}
-             [:> ui/Dimmer {:active true}
-              [:> ui/Loader]]]
-            (if url
-              [:a {:href url} [:img {:src image-path :className "ui image" :alt alt}]]
-              [:img {:src image-path :className "ui image" :alt alt}]))])))))
+  [{:keys [image-path alt url]}]
+  (let [image (new js/Image)]
+    (aset image "src" image-path)
+    (let [load (r/atom nil)]
+      (aset image "onload" (fn [o] (reset! load o)))
+      (fn []
+        [:> ui/Card {:className "image" :style {:width "100%"}}
+         (if (nil? @load)
+           [:> ui/Segment {:className "imageLoader" :basic true}
+            [:> ui/Dimmer {:active true}
+             [:> ui/Loader]]]
+           (if url
+             [:a {:href url} [:img {:src image-path :className "ui image" :alt alt}]]
+             [:img {:src image-path :className "ui image" :alt alt}]))]))))
 
 (defn home-panel []
   (let [modal-content (r/atom nil)]
@@ -56,12 +54,12 @@
                               :onClick #(reset! modal-content
                                                 {:title "新入部員募集中"
                                                  :pdf "/img/pamphlet_2020.pdf"})}
-           [image "/img/pamphlet_2020.jpg" "新入部員募集中"]]
+           [image {:image-path "/img/pamphlet_2020.jpg" :alt "新入部員募集中"}]]
           [:> ui/Grid.Column {:mobile 16 :computer 8
                               :onClick #(reset! modal-content
                                                 {:title "新入部員募集中"
-                                                 :pdf "/img/pamphlet_2020.pdf"})}
-           [image "/img/pamphlet_2020_reverse.jpg" "新入部員募集中"]]]]]
+                                                 :pdf "/img/pamphlet_2020_reverse.pdf"})}
+           [image {:image-path "/img/pamphlet_2020_reverse.jpg" :alt "新入部員募集中"}]]]]]
 
        [:div {:style {:margin-bottom "25px"}}
         [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
@@ -72,7 +70,7 @@
          "各イベントの詳細はTwitterにて報知していきます。"]]
        [:div {:style {:margin-bottom "25px"}}
         [:h2  "新入部員募集中！！"]
-        [image "/img/bosyu.jpg" "新入部員募集中"]
+        [image {:image-path "/img/bosyu.jpg" :alt "新入部員募集中"}]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          "名大相撲部では新入生に限らず、常に新入部員を募集してます。"
          "相撲が好き。相撲が嫌い。何か格闘技がやりたい。大学がつまらない。大学に誇りを感じたい。とにかく面白いことがしたい...。"
@@ -81,13 +79,13 @@
          "入部希望者は" [:a {:href "/inquiry"} "連絡先"] "までご連絡いただくか、" [:a {:href "/schedule"} "稽古日に直接道場"] "を訪ねて下さい。"]]
        [:div {:style {:margin-bottom "25px"}}
         [:h2 "第５８回全国七大学総合体育大会相撲競技団体優勝"]
-        [image "/img/shichiteisen.jpg"  "第５８回全国七大学総合体育大会相撲競技団体優勝"]
+        [image {:image-path "/img/shichiteisen.jpg" :alt "第５８回全国七大学総合体育大会相撲競技団体優勝"}]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          "皆様の応援のお陰で名大相撲部は第５８回全国七大学総合体育大会相撲部の部で七年ぶりの団体優勝を果たしました。"
          "かつて七連覇を達成した当部としては、これを古豪復活の狼煙として来年度以降の活躍に繋げたいと思います。"]]
        [:div {:style {:margin-bottom "25px"}}
         [:h2 "合宿紹介"]
-        [image "/img/gassyuku.jpg" "合宿紹介"]
+        [image {:image-path "/img/gassyuku.jpg" :alt "合宿紹介"}]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          "入部を検討している方向けに相撲部での生活がイメージできるように、2019年の合宿の様子をまとめました。"
          "合宿は部員同士は元より、他大学とも交流し絆を深める場です。\n"
@@ -335,7 +333,7 @@
    [:h2 "名大相撲部ちゃんこ"]
    [:span "名大相撲部のオリジナルちゃんこを紹介します。週末の稽古で作り、皆で食べています。"]
    [:> ui/Card {:style {:width "100%" :maxWidth "500px"}}
-    [image "/img/chanko.jpg" "ちゃんこ"]]
+    [image {:image-path "/img/chanko.jpg" :alt "ちゃんこ"}]]
    [:h3 "材料"]
    [:> ui/List {:bulleted true}
     [:> ui/List.Item "昆布"]
@@ -410,7 +408,7 @@
       [:td
        "杳(よう)靄(あい)融(と)けし丘の上に   いづくともなく春をよぶ\n"
        "歌やすらかに流れ来る   紺青(こんじょう)の月影濃けれ"]]]]
-   [image "/img/ibukioroshi.jpg" "伊吹おろし"]])
+   [image {:image-path "/img/ibukioroshi.jpg" :alt "伊吹おろし"}]])
 
 (defn monbetsu-gassyuku-2019-panel []
   [:<>
@@ -545,7 +543,7 @@
       [:h3 "2013年 オードリーさん、ぜひ会ってほしい人がいるんです。"]
       [:p [:a {:href "https://www.youtube.com/watch?v=D-L2jg46wbU"}
            "名古屋大学相撲部 相撲嫌いな後輩"]]
-      [image "http://img.youtube.com/vi/D-L2jg46wbU/0.jpg" "名古屋大学相撲部 相撲嫌いな後輩"
+      [image {:image-path "http://img.youtube.com/vi/D-L2jg46wbU/0.jpg" :alt "名古屋大学相撲部 相撲嫌いな後輩"}
        "https://www.youtube.com/watch?v=D-L2jg46wbU"]]]
 
     [:> ui/Grid.Column {:mobile 16 :computer 8}
@@ -565,7 +563,7 @@
       [:h3 "2008年 どすこい!!名古屋城RAVE2008"]
       [:p [:a {:href "https://www.youtube.com/watch?v=xX8qpvD0GfI"}
            "どすこい!!名古屋城RAVE2008 PV"]]
-      [image "http://img.youtube.com/vi/xX8qpvD0GfI/0.jpg" "どすこい!!名古屋城RAVE2008 PV"
+      [image {:image-path "http://img.youtube.com/vi/xX8qpvD0GfI/0.jpg" :alt "どすこい!!名古屋城RAVE2008 PV"}
        "https://www.youtube.com/watch?v=xX8qpvD0GfI"]]]
 
     [:> ui/Grid.Column {:mobile 16 :computer 8}
