@@ -45,29 +45,33 @@
             [:> ui/Modal.Content
              [:> pdf/Document {:file pdf}
               [:> pdf/Page {:pageNumber 1 :width 300}]]]]]])
-       [:div#a {:style {:margin-bottom "25px"}}
-        [:h2 "2020年新歓ビラ"]
-        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-         [:p "今年の新歓用ビラを公開します。"]
-         [:> ui/Grid
-          [:> ui/Grid.Column {:mobile 16 :computer 8
-                              :onClick #(reset! modal-content
-                                                {:title "新入部員募集中"
-                                                 :pdf "/img/pamphlet_2020.pdf"})}
-           [image {:image-path "/img/pamphlet_2020.jpg" :alt "新入部員募集中"}]]
-          [:> ui/Grid.Column {:mobile 16 :computer 8
-                              :onClick #(reset! modal-content
-                                                {:title "新入部員募集中"
-                                                 :pdf "/img/pamphlet_2020_reverse.pdf"})}
-           [image {:image-path "/img/pamphlet_2020_reverse.jpg" :alt "新入部員募集中"}]]]]]
-
        [:div {:style {:margin-bottom "25px"}}
-        [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
-         "2020年新入生歓迎イベント予定追加"]
+        [:h2 "新型コロナウィルスの影響と今後の活動につきまして"]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-         [:a {:href "/schedule"} "稽古・年間予定"] " に今年の新入生歓迎イベント予定を追加しました。"
-         "今年の新入生以外でも歓迎しますので、是非ご参加下さい。"
-         "各イベントの詳細はTwitterにて報知していきます。"]]
+         "新型コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"]]
+       #_[:div {:style {:margin-bottom "25px"}}
+          [:h2 "2020年新歓ビラ"]
+          [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+           [:p "今年の新歓用ビラを公開します。"]
+           [:> ui/Grid
+            [:> ui/Grid.Column {:mobile 16 :computer 8
+                                :onClick #(reset! modal-content
+                                                  {:title "新入部員募集中"
+                                                   :pdf "/img/pamphlet_2020.pdf"})}
+             [image {:image-path "/img/pamphlet_2020.jpg" :alt "新入部員募集中"}]]
+            [:> ui/Grid.Column {:mobile 16 :computer 8
+                                :onClick #(reset! modal-content
+                                                  {:title "新入部員募集中"
+                                                   :pdf "/img/pamphlet_2020_reverse.pdf"})}
+             [image {:image-path "/img/pamphlet_2020_reverse.jpg" :alt "新入部員募集中"}]]]]]
+
+       #_[:div {:style {:margin-bottom "25px"}}
+          [:h2 [:> ui/Icon {:name "calendar alternate outline" :style {:margin-right "5px"}}]
+           "2020年新入生歓迎イベント予定追加"]
+          [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+           [:a {:href "/schedule"} "稽古・年間予定"] " に今年の新入生歓迎イベント予定を追加しました。"
+           "今年の新入生以外でも歓迎しますので、是非ご参加下さい。"
+           "各イベントの詳細はTwitterにて報知していきます。"]]
        [:div {:style {:margin-bottom "25px"}}
         [:h2  "新入部員募集中！！"]
         [image {:image-path "/img/bosyu.jpg" :alt "新入部員募集中"}]
@@ -165,14 +169,16 @@
              [:> twitter/TwitterTweetEmbed
               {:tweetId tweet-id}]]])
          [:h2 "稽古"]
-         "下記の曜日に行ってます。"
-         [:> ui/List {:bulleted true}
-          (for [k keiko]
-            ^{:key k}
-            [:> ui/List.Item k])]
+         "コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"
+         #_"下記の曜日に行ってます。"
+         #_[:> ui/List {:bulleted true}
+            (for [k keiko]
+              ^{:key k}
+              [:> ui/List.Item k])]
          [:h3 "稽古場所"]
          [:p "名古屋大学相撲部道場"]
-         [:p "名古屋大学東山キャンパス北西端、体育館と武道場の間にあります。見学はいつでも受け付けていますので、気軽に道場を訪ねて下さい。"]
+         #_[:p "名古屋大学東山キャンパス北西端、体育館と武道場の間にあります。見学はいつでも受け付けていますので、気軽に道場を訪ねて下さい。"]
+         [:p "名古屋大学東山キャンパス北西端、体育館と武道場の間にあります。"]
          [:iframe {:src "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.103562152197!2d136.95911871514335!3d35.15403788032058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037b809397c643%3A0x2b0022cf00051e20!2z55u45pKy5aC0!5e0!3m2!1sja!2sjp!4v1578043838702!5m2!1sja!2sjp"
                    :frameBorder 0
                    :style {:border 0
@@ -180,7 +186,7 @@
                            :height "300px"}
                    :allowFullScreen true}]
          [:h2 "年間予定(2020)"]
-         [:p "※コロナウィルスの影響により予定は変更となる可能性があります。最新の予定についてはTwitterをご確認下さい。"]
+         [:p "※コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
            (for [{:keys [date event link tweet-id] :as s} (filter #(= "2020" (:year %))  schedule)]

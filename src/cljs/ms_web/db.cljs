@@ -335,17 +335,17 @@
                             #_{:year "2020" :date "3/12, 13" :event "地獄の細道"}
                             #_{:year "2020" :date "3/16~26" :event "毎日稽古"}
                             #_{:year "2020" :date "3/20~22" :event "土俵改修"}
-                            {:year "2020" :date "4/2, 3" :event "花見"}
-                            {:year "2020" :date "4/4" :event "ちゃんこパーティー"}
-                            {:year "2020" :date "4/5" :event "入学祭典、ESTでのカンパ"}
-                            {:year "2020" :date "4/6" :event "バケツ企画"}
-                            {:year "2020" :date "4/9" :event "ちゃんこ炊き出し"}
-                            {:year "2020" :date "4/14" :event "武道系新歓"}
-                            {:year "2020" :date "4/15" :event "素人相撲大会"}
-                            {:year "2020" :date "4/20" :event "パンケーキパーティー"}
-                            {:year "2020" :date "4/24" :event "ぎょうざパーティー"}
-                            {:year "2020" :date "5/3" :event "東海近畿"}
-                            {:year "2020" :date "5/4" :event "BBQ"}]
+                            #_{:year "2020" :date "4/2, 3" :event "花見"}
+                            #_{:year "2020" :date "4/4" :event "ちゃんこパーティー"}
+                            #_{:year "2020" :date "4/5" :event "入学祭典、ESTでのカンパ"}
+                            #_{:year "2020" :date "4/6" :event "バケツ企画"}
+                            #_{:year "2020" :date "4/9" :event "ちゃんこ炊き出し"}
+                            #_{:year "2020" :date "4/14" :event "武道系新歓"}
+                            #_{:year "2020" :date "4/15" :event "素人相撲大会"}
+                            #_{:year "2020" :date "4/20" :event "パンケーキパーティー"}
+                            #_{:year "2020" :date "4/24" :event "ぎょうざパーティー"}
+                            #_{:year "2020" :date "5/3" :event "東海近畿"}
+                            #_{:year "2020" :date "5/4" :event "BBQ"}]
                  :keiko ["毎週火曜5時～"
                          "毎週木曜5時～"
                          "毎週土曜9時半～"]})
