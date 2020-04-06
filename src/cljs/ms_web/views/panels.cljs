@@ -49,17 +49,17 @@
         [:h2 "新型コロナウィルスの影響と今後の活動につきまして"]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          "新型コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"]]
-       #_[:div {:style {:margin-bottom "25px"}}
-          [:h2 "2020年新歓ビラ"]
-          [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
-           [:p "今年の新歓用ビラを公開します。"]
-           [:> ui/Grid
-            [:> ui/Grid.Column {:mobile 16 :computer 8
-                                :onClick #(reset! modal-content
-                                                  {:title "新入部員募集中"
-                                                   :pdf "/img/pamphlet_2020.pdf"})}
-             [image {:image-path "/img/pamphlet_2020.jpg" :alt "新入部員募集中"}]]
-            [:> ui/Grid.Column {:mobile 16 :computer 8
+       [:div {:style {:margin-bottom "25px"}}
+        [:h2 "2020年新歓ビラ"]
+        [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
+         [:p "今年の新歓用ビラを公開します。"]
+         [:> ui/Grid
+          [:> ui/Grid.Column {:mobile 16 :computer 16
+                              :onClick #(reset! modal-content
+                                                {:title "新入部員募集中"
+                                                 :pdf "/img/pamphlet_2020.pdf"})}
+           [image {:image-path "/img/pamphlet_2020.jpg" :alt "新入部員募集中"}]]
+          #_[:> ui/Grid.Column {:mobile 16 :computer 8
                                 :onClick #(reset! modal-content
                                                   {:title "新入部員募集中"
                                                    :pdf "/img/pamphlet_2020_reverse.pdf"})}
