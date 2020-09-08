@@ -23,3 +23,8 @@ Wait a bit, then browse to [http://localhost:8280](http://localhost:8280).
 
 ## Production Build
 
+```
+lein deps
+npm i
+lein prod
+```
