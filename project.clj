@@ -1,11 +1,11 @@
 (defproject ms-web "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/clojurescript "1.10.520"
+                 [org.clojure/clojurescript "1.10.741"
                   :exclusions [com.google.javascript/closure-compiler-unshaded
                                org.clojure/google-closure-library]]
-                 [thheller/shadow-cljs "2.8.69"]
-                 [reagent "0.8.1"]
-                 [re-frame "0.10.9"]
+                 [thheller/shadow-cljs "2.11.2"]
+                 [reagent "0.10.0"]
+                 [re-frame "1.1.1"]
                  [clj-commons/secretary "1.2.4"]
                  [kibu/pushy "0.3.8"]]
   :plugins [[lein-shell "0.5.0"]]
@@ -32,5 +32,5 @@
                             ["shell" "karma" "start" "--single-run" "--reporters" "junit,dots"]]}
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "0.9.10"]]}
+   {:dependencies [[binaryage/devtools "1.0.2"]]}
    :prod {}})

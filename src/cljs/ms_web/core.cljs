@@ -4,6 +4,7 @@
             [ms-web.routes :as routes]
             [ms-web.views :as views]
             [reagent.core :as reagent]
+            [reagent.dom :as reagent.dom]
             [re-frame.core :as re-frame]
             ["react-pdf" :as pdf]))
 
@@ -18,7 +19,7 @@
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
-  (reagent/render [views/main-container]
+  (reagent.dom/render [views/main-container]
                   (.getElementById js/document "app")))
 
 (defn init []
