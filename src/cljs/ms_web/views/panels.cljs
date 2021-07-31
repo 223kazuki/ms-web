@@ -105,8 +105,8 @@
              "grade2" {:name "二回生" :order 2}
              "grade1" {:name "一回生" :order 3}
              "managers" {:name "首脳陣" :order 4}
-             "obg2017" {:name "2020年度卒業生" :order 5}
-             "obg2017" {:name "2019年度卒業生" :order 6}
+             "obg2020" {:name "2020年度卒業生" :order 5}
+             "obg2019" {:name "2019年度卒業生" :order 6}
              "obg2017" {:name "2017年度卒業生" :order 7}
              "obg2016" {:name "2016年度卒業生" :order 8}
              "obg2015" {:name "2015年度卒業生" :order 9}
@@ -187,8 +187,27 @@
                            :width "100%"
                            :height "300px"}
                    :allowFullScreen true}]
-         [:h2 "年間予定(2020)"]
+
+         [:h2 "年間予定(2021)"]
          [:p "※コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"]
+         [:> ui/Table {:celled true}
+          [:> ui/Table.Body
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2021" (:year %))  schedule)]
+             ^{:key date}
+             [:> ui/Table.Row {:style {:textAlign "left"}}
+              [:> ui/Table.Cell date]
+              [:> ui/Table.Cell
+               (cond
+                 (some? link)
+                 [:a {:href link
+                      :style {:cursor "pointer"}} event]
+                 (some? tweet-id)
+                 [:a {:onClick #(reset! modal-content s)
+                      :style {:cursor "pointer"}} event]
+                 :else
+                 event)]])]]
+
+         [:h2 "年間予定(2020)"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
            (for [{:keys [date event link tweet-id] :as s} (filter #(= "2020" (:year %))  schedule)]
