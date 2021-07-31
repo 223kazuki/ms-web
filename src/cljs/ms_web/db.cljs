@@ -2,104 +2,62 @@
 
 (def default-db {:menu-open? false
                  :sub-menu nil
-                 :members [{:member/id 30
-                            :member/name "飯島琢臣"
-                            :member/image "ijima.jpg"
-                            :member/introduction1 "主将\n工学部環境土木建築学科\n出身：埼玉県蓮田市"
-                            :member/introduction2 "何に対しても積極的に取り組む。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
-                           {:member/id 31
-                            :member/name "細川大我"
-                            :member/image "hosokawa.jpg"
-                            :member/introduction1 "経済学部経営学科\n出身：東京都大田区"
-                            :member/introduction2 "イベントの手伝いを積極的に手伝ってくれる。。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
-                           {:member/id 32
-                            :member/name "打江泰介"
-                            :member/image "uchie.jpg"
-                            :member/introduction1 "副将\n経済学部経営学科\n出身：岐阜県高山市"
-                            :member/introduction2 "国公立チャンピオン。"
-                            :member/grade "3年"
-                            :member/grade-id "grade3"}
-                           {:member/id 33
-                            :member/name "清水貴大"
-                            :member/image "shimizu.jpg"
-                            :member/introduction1 "情報学部自然情報学科\n出身：愛知県名古屋市"
-                            :member/introduction2 "ポケモンが好き。"
-                            :member/grade "3年"
-                            :member/grade-id "grade3"}
-                           {:member/id 34
-                            :member/name "杉浦晴海"
-                            :member/image "sugiura.jpg"
-                            :member/introduction1 "情報学部自然情報学科\n出身：愛知県名古屋市"
-                            :member/introduction2 "バイト命。"
-                            :member/grade "3年"
-                            :member/grade-id "grade3"}
-                           {:member/id 35
-                            :member/name "岡竜大"
-                            :member/image "oka.jpg"
-                            :member/introduction1 "主務\n経済学部経営学科\n出身：三重県いなべ市"
-                            :member/introduction2 "場を盛り上げてくれるムードメーカー。"
-                            :member/grade "3年"
-                            :member/grade-id "grade3"}
-                           {:member/id 36
+                 :members [{:member/id 36
                             :member/name "加藤春奈"
                             :member/image "kato.jpg"
                             :member/introduction1 "マネージャー\n工学部機械航空宇宙工学科\n出身：神奈川県横浜市"
                             :member/introduction2 "しっかり者で、同期のまとめ役。"
-                            :member/grade "2年"
-                            :member/grade-id "grade2"}
-                           {:member/id 37
-                            :member/name "花井駿佑"
-                            :member/image "hanai.jpg"
-                            :member/introduction1 "工学部物理工学科\n出身：愛知県名古屋市"
-                            :member/introduction2 "サークルと部活を両立している。"
-                            :member/grade "2年"
-                            :member/grade-id "grade2"}
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
+                           #_{:member/id 37
+                              :member/name "花井駿佑"
+                              :member/image "hanai.jpg"
+                              :member/introduction1 "工学部物理工学科\n出身：愛知県名古屋市"
+                              :member/introduction2 "サークルと部活を両立している。"
+                              :member/grade "4年"
+                              :member/grade-id "grade4"}
                            {:member/id 38
                             :member/name "中川悠太"
                             :member/image "nakagawa.jpg"
                             :member/introduction1 "農学部生物環境科学科\n出身：東京都世田谷区"
                             :member/introduction2 "麻雀好きのギャンブラー。"
-                            :member/grade "2年"
-                            :member/grade-id "grade2"}
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
                            {:member/id 39
                             :member/name "高橋純輝"
                             :member/image "takahashi.jpg"
                             :member/introduction1 "理学部物理学科\n出身：岐阜県岐阜市"
                             :member/introduction2 "真面目に見えて実はポンコツ。"
-                            :member/grade "2年"
-                            :member/grade-id "grade2"}
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
                            {:member/id 40
                             :member/name "尾田駿太"
                             :member/image "oda.jpg"
                             :member/introduction1 "工学部物理工学科\n出身：愛知県名古屋市"
                             :member/introduction2 "手足が長く、廻しを取るのが上手い。"
-                            :member/grade "2年"
-                            :member/grade-id "grade2"}
-                           {:member/id 41
-                            :member/name "朴相雄"
-                            :member/image "paku.jpg"
-                            :member/introduction1 "文学部\n出身：韓国ソウル"
-                            :member/introduction2 "韓国人留学生で、マイペース。"
-                            :member/grade "1年"
-                            :member/grade-id "grade1"}
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
+                           #_{:member/id 41
+                              :member/name "朴相雄"
+                              :member/image "paku.jpg"
+                              :member/introduction1 "文学部\n出身：韓国ソウル"
+                              :member/introduction2 "韓国人留学生で、マイペース。"
+                              :member/grade "3年"
+                              :member/grade-id "grade3"}
                            {:member/id 42
                             :member/name "青山遼太郎"
                             :member/image "aoyama.jpg"
                             :member/introduction1 "工学部機械航空宇宙工学科\n出身：愛知県一宮市"
                             :member/introduction2 "先輩のことが好き。"
-                            :member/grade "1年"
-                            :member/grade-id "grade1"}
+                            :member/grade "3年"
+                            :member/grade-id "grade3"}
                            {:member/id 43
                             :member/name "土屋英貴"
                             :member/image "tsuchiya.jpg"
                             :member/introduction1 "工学部機械航空宇宙工学科\n出身：静岡県浜松市"
                             :member/introduction2 "料理が好きで、いろいろな料理を作れる。"
-                            :member/grade "1年"
-                            :member/grade-id "grade1"}
+                            :member/grade "3年"
+                            :member/grade-id "grade3"}
                            {:member/id 1
                             :member/name "加藤 延夫"
                             :member/introduction1 "総長"
@@ -161,6 +119,48 @@
                             :member/introduction1 "コーチ"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
+                           {:member/id 32
+                            :member/name "打江泰介"
+                            :member/image "uchie.jpg"
+                            :member/introduction1 "副将\n経済学部経営学科\n出身：岐阜県高山市"
+                            :member/introduction2 "国公立チャンピオン。"
+                            :member/grade "卒業生（2020年度卒）"
+                            :member/grade-id "obg2020"}
+                           {:member/id 33
+                            :member/name "清水貴大"
+                            :member/image "shimizu.jpg"
+                            :member/introduction1 "情報学部自然情報学科\n出身：愛知県名古屋市"
+                            :member/introduction2 "ポケモンが好き。"
+                            :member/grade "卒業生（2020年度卒）"
+                            :member/grade-id "obg2020"}
+                           {:member/id 34
+                            :member/name "杉浦晴海"
+                            :member/image "sugiura.jpg"
+                            :member/introduction1 "情報学部自然情報学科\n出身：愛知県名古屋市"
+                            :member/introduction2 "バイト命。"
+                            :member/grade "卒業生（2020年度卒）"
+                            :member/grade-id "obg2020"}
+                           {:member/id 35
+                            :member/name "岡竜大"
+                            :member/image "oka.jpg"
+                            :member/introduction1 "主務\n経済学部経営学科\n出身：三重県いなべ市"
+                            :member/introduction2 "場を盛り上げてくれるムードメーカー。"
+                            :member/grade "卒業生（2020年度卒）"
+                            :member/grade-id "obg2020"}
+                           {:member/id 30
+                            :member/name "飯島琢臣"
+                            :member/image "ijima.jpg"
+                            :member/introduction1 "主将\n工学部環境土木建築学科\n出身：埼玉県蓮田市"
+                            :member/introduction2 "何に対しても積極的に取り組む。"
+                            :member/grade "卒業生（2019年度卒）"
+                            :member/grade-id "obg2019"}
+                           {:member/id 31
+                            :member/name "細川大我"
+                            :member/image "hosokawa.jpg"
+                            :member/introduction1 "経済学部経営学科\n出身：東京都大田区"
+                            :member/introduction2 "イベントの手伝いを積極的に手伝ってくれる。。"
+                            :member/grade "卒業生（2019年度卒）"
+                            :member/grade-id "obg2019"}
                            {:member/id 11
                             :member/name "西田 拓矢"
                             :member/image "nishida.jpg"
@@ -300,7 +300,12 @@
                             :member/introduction2 "最近はまっているもの　オーガニック製品\n最近したいこと①　玉ねぎとかの草木染め\n最近したいこと②　沖縄の三線"
                             :member/grade "卒業生（2010年度卒）"
                             :member/grade-id "obg2010"}]
-                 :schedule [{:year "2019" :date "1/6" :event "初稽古"}
+                 :schedule [{:year "2021" :date "8/1" :event "西日本インカレ"}
+                            {:year "2021" :date "9/5" :event "西日本体重別"}
+                            {:year "2020" :date "9/1" :event "コロナ自粛明け稽古再開"}
+                            {:year "2020" :date "10/4" :event "西日本インカレ"}
+                            {:year "2020" :date "11/7,8" :event "全国学生相撲選手権大会(インカレ)"}
+                            {:year "2019" :date "1/6" :event "初稽古"}
                             {:year "2019" :date "1/22 - 2/5" :event "オフ"}
                             {:year "2019" :date "3/3 - 12" :event "紋別合宿"
                              :link "/monbetsu-gassyuku-2019" :tweet-id "1103286860267180034"}
