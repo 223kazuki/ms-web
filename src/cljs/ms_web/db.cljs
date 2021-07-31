@@ -300,7 +300,12 @@
                             :member/introduction2 "最近はまっているもの　オーガニック製品\n最近したいこと①　玉ねぎとかの草木染め\n最近したいこと②　沖縄の三線"
                             :member/grade "卒業生（2010年度卒）"
                             :member/grade-id "obg2010"}]
-                 :schedule [{:year "2019" :date "1/6" :event "初稽古"}
+                 :schedule [{:year "2021" :date "8/1" :event "西日本インカレ"}
+                            {:year "2021" :date "9/5" :event "西日本体重別"}
+                            {:year "2020" :date "9/1" :event "コロナ自粛明け稽古再開"}
+                            {:year "2020" :date "10/4" :event "西日本インカレ"}
+                            {:year "2020" :date "11/7,8" :event "全国学生相撲選手権大会(インカレ)"}
+                            {:year "2019" :date "1/6" :event "初稽古"}
                             {:year "2019" :date "1/22 - 2/5" :event "オフ"}
                             {:year "2019" :date "3/3 - 12" :event "紋別合宿"
                              :link "/monbetsu-gassyuku-2019" :tweet-id "1103286860267180034"}
