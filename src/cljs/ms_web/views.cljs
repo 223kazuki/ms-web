@@ -22,8 +22,8 @@
                        {:key "grade2" :name "二回生"}
                        {:key "grade1" :name "一回生"}
                        {:key "managers" :name "首脳陣"}
-                       {:key "obg2017" :name "2020年度卒業生"}
-                       {:key "obg2017" :name "2019年度卒業生"}
+                       {:key "obg2020" :name "2020年度卒業生"}
+                       {:key "obg2019" :name "2019年度卒業生"}
                        {:key "obg2017" :name "2017年度卒業生"}
                        {:key "obg2016" :name "2016年度卒業生"}
                        {:key "obg2015" :name "2015年度卒業生"}
