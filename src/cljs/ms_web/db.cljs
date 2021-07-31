@@ -7,15 +7,15 @@
                             :member/image "ijima.jpg"
                             :member/introduction1 "主将\n工学部環境土木建築学科\n出身：埼玉県蓮田市"
                             :member/introduction2 "何に対しても積極的に取り組む。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
+                            :member/grade "卒業生（2019年度卒）"
+                            :member/grade-id "obg2019"}
                            {:member/id 31
                             :member/name "細川大我"
                             :member/image "hosokawa.jpg"
                             :member/introduction1 "経済学部経営学科\n出身：東京都大田区"
                             :member/introduction2 "イベントの手伝いを積極的に手伝ってくれる。。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
+                            :member/grade "卒業生（2019年度卒）"
+                            :member/grade-id "obg2019"}
                            {:member/id 32
                             :member/name "打江泰介"
                             :member/image "uchie.jpg"
