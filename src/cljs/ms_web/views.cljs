@@ -84,7 +84,8 @@
           [:h2 "新着情報（Twitter）"]
           [:> ui/Segment {:basic true}
            [:> twitter/TwitterTimelineEmbed {:sourceType "profile" :userId 1922508294
-                                             :options {:height 550}}]]]]]]]
+                                             :options {:id "profile:TwitterDev"
+                                                       :height 550}}]]]]]]]
      [footer]]))
 
 (defn pc-container []
