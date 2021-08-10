@@ -2,39 +2,39 @@
 
 (def default-db {:menu-open? false
                  :sub-menu nil
-                 :members [{:member/id 36
-                            :member/name "加藤春奈"
-                            :member/image "kato.jpg"
-                            :member/introduction1 "マネージャー\n工学部機械航空宇宙工学科\n出身：神奈川県横浜市"
-                            :member/introduction2 "しっかり者で、同期のまとめ役。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
-                           #_{:member/id 37
+                 :members [#_{:member/id 37
                               :member/name "花井駿佑"
                               :member/image "hanai.jpg"
                               :member/introduction1 "工学部物理工学科\n出身：愛知県名古屋市"
                               :member/introduction2 "サークルと部活を両立している。"
                               :member/grade "4年"
                               :member/grade-id "grade4"}
-                           {:member/id 38
-                            :member/name "中川悠太"
-                            :member/image "nakagawa.jpg"
-                            :member/introduction1 "農学部生物環境科学科\n出身：東京都世田谷区"
-                            :member/introduction2 "麻雀好きのギャンブラー。"
-                            :member/grade "4年"
-                            :member/grade-id "grade4"}
-                           {:member/id 39
-                            :member/name "高橋純輝"
-                            :member/image "takahashi.jpg"
-                            :member/introduction1 "理学部物理学科\n出身：岐阜県岐阜市"
-                            :member/introduction2 "真面目に見えて実はポンコツ。"
+                           {:member/id 36
+                            :member/name "加藤春奈"
+                            :member/image "kato.jpg"
+                            :member/introduction1 "マネージャー\n工学部機械航空宇宙工学科\n出身：神奈川県横浜市"
+                            :member/introduction2 "しっかり者で、同期のまとめ役。"
                             :member/grade "4年"
                             :member/grade-id "grade4"}
                            {:member/id 40
                             :member/name "尾田駿太"
                             :member/image "oda.jpg"
-                            :member/introduction1 "工学部物理工学科\n出身：愛知県名古屋市"
+                            :member/introduction1 "主将\n工学部物理工学科\n出身：愛知県名古屋市"
                             :member/introduction2 "手足が長く、廻しを取るのが上手い。"
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
+                           {:member/id 39
+                            :member/name "高橋純輝"
+                            :member/image "takahashi.jpg"
+                            :member/introduction1 "副主将\n理学部物理学科\n出身：岐阜県岐阜市"
+                            :member/introduction2 "真面目に見えて実はポンコツ。"
+                            :member/grade "4年"
+                            :member/grade-id "grade4"}
+                           {:member/id 38
+                            :member/name "中川悠太"
+                            :member/image "nakagawa.jpg"
+                            :member/introduction1 "主務\n農学部生物環境科学科\n出身：東京都世田谷区"
+                            :member/introduction2 "麻雀好きのギャンブラー。"
                             :member/grade "4年"
                             :member/grade-id "grade4"}
                            #_{:member/id 41
@@ -58,6 +58,20 @@
                             :member/introduction2 "料理が好きで、いろいろな料理を作れる。"
                             :member/grade "3年"
                             :member/grade-id "grade3"}
+                           {:member/id 44
+                            :member/name "杉本空良"
+                            :member/image "sugimoto.jpg"
+                            :member/introduction1 "教育学部\n出身: 静岡県浜松市"
+                            :member/introduction2 "ゲームが好き。オールジャンルでいける。"
+                            :member/grade "2年"
+                            :member/grade-id "grade2"}
+                           {:member/id 45
+                            :member/name "神山智恵"
+                            :member/image "kamiyama.jpg"
+                            :member/introduction1 "文学部\n出身:長野県木曽町"
+                            :member/introduction2 "相撲歴10年のマネージャー。"
+                            :member/grade "1年"
+                            :member/grade-id "grade1"}
                            {:member/id 1
                             :member/name "加藤 延夫"
                             :member/introduction1 "総長"
@@ -122,7 +136,7 @@
                            {:member/id 32
                             :member/name "打江泰介"
                             :member/image "uchie.jpg"
-                            :member/introduction1 "副将\n経済学部経営学科\n出身：岐阜県高山市"
+                            :member/introduction1 "元副将\n経済学部経営学科\n出身：岐阜県高山市"
                             :member/introduction2 "国公立チャンピオン。"
                             :member/grade "卒業生（2020年度卒）"
                             :member/grade-id "obg2020"}
@@ -143,14 +157,14 @@
                            {:member/id 35
                             :member/name "岡竜大"
                             :member/image "oka.jpg"
-                            :member/introduction1 "主務\n経済学部経営学科\n出身：三重県いなべ市"
+                            :member/introduction1 "元主務\n経済学部経営学科\n出身：三重県いなべ市"
                             :member/introduction2 "場を盛り上げてくれるムードメーカー。"
                             :member/grade "卒業生（2020年度卒）"
                             :member/grade-id "obg2020"}
                            {:member/id 30
                             :member/name "飯島琢臣"
                             :member/image "ijima.jpg"
-                            :member/introduction1 "主将\n工学部環境土木建築学科\n出身：埼玉県蓮田市"
+                            :member/introduction1 "元主将\n工学部環境土木建築学科\n出身：埼玉県蓮田市"
                             :member/introduction2 "何に対しても積極的に取り組む。"
                             :member/grade "卒業生（2019年度卒）"
                             :member/grade-id "obg2019"}
@@ -164,7 +178,7 @@
                            {:member/id 11
                             :member/name "西田 拓矢"
                             :member/image "nishida.jpg"
-                            :member/introduction1 "副将\n工学研究科　電子情報システム\n172cm\n83kg\n可児高校"
+                            :member/introduction1 "元副将\n工学研究科　電子情報システム\n172cm\n83kg\n可児高校"
                             :member/introduction2 "剣道部を引退した後、相撲部にやってきた。\n相撲部に入った途端に筋トレに目覚める。\nそして無類の筋トレ好きになる。人生で後悔していることは剣道部時代に筋トレしてこなかったことらしい。\nそんな彼も今や相撲部のムードメーカー。\nちなみに彼には立派な生きがいがあるようだが…それを知るのは入部してからになるだろう。\n紹介者　舘"
                             :member/grade "卒業生（2017年度卒）"
                             :member/grade-id "obg2017"}
@@ -185,14 +199,14 @@
                            {:member/id 12
                             :member/name "棚橋 義和"
                             :member/image "tanahashi.jpg"
-                            :member/introduction1 "主将\n農学部\n175cm\n85kg\n鳴海高校"
+                            :member/introduction1 "元主将\n農学部\n175cm\n85kg\n鳴海高校"
                             :member/introduction2 "いつも部員の想像のはるか上を行く。だけど、ほんとは部活のことを一生懸命考えてる頑張り屋さん。\n空回りしちゃう時もあるよね、わかるよ！\n皆ツンデレだから伝わってないかもしれないけど、そんな棚橋が大好きです∩^ω^∩\n紹介者　魚形"
                             :member/grade "卒業生（2016年度卒）"
                             :member/grade-id "obg2016"}
                            {:member/id 13
                             :member/name "右田 雄基"
                             :member/image "migita.jpg"
-                            :member/introduction1 "主務\n法学部\n東筑高校"
+                            :member/introduction1 "元主務\n法学部\n東筑高校"
                             :member/introduction2 "名前\nミギタユウキ\nタイプ\nどく・かくとう\nとくせい\n笑ってごまかす\n何か起こると　とりあえず笑う\nわざ\nはきだす　　食事中に口から何かをよく飛ばす\nさきおくり　物事に対して優柔不断\nオウムがえし　会話のリアクションがワンパターン\nぜったいれいど　ギャグを言うと必ず失敗する\nおくびょうな　性格\n九州地方からはるばるやってきたようだ\nなんでもそつなくこなす相撲部きっての働き者、上記の特徴から罵倒の対象としての座に君臨している。本人はまんざ らでもないようだ。紹介者とコンビを組ませると最強のムードブレイカーとして機能する。\n紹介者　棚橋"
                             :member/grade "卒業生（2016年度卒）"
                             :member/grade-id "obg2016"}
