@@ -118,7 +118,7 @@
              "grade2" {:name "二回生" :order 2}
              "grade1" {:name "一回生" :order 3}
              "managers" {:name "首脳陣" :order 4}
-             "obg2020" {:name "2020年度卒業生" :order 5}
+             "obg2021" {:name "2021年度卒業生" :order 5}
              "obg2020" {:name "2020年度卒業生" :order 6}
              "obg2019" {:name "2019年度卒業生" :order 7}
              "obg2017" {:name "2017年度卒業生" :order 8}
