@@ -118,16 +118,17 @@
              "grade2" {:name "二回生" :order 2}
              "grade1" {:name "一回生" :order 3}
              "managers" {:name "首脳陣" :order 4}
-             "obg2020" {:name "2020年度卒業生" :order 5}
-             "obg2019" {:name "2019年度卒業生" :order 6}
-             "obg2017" {:name "2017年度卒業生" :order 7}
-             "obg2016" {:name "2016年度卒業生" :order 8}
-             "obg2015" {:name "2015年度卒業生" :order 9}
-             "obg2014" {:name "2014年度卒業生" :order 10}
-             "obg2013" {:name "2013年度卒業生" :order 11}
-             "obg2012" {:name "2012年度卒業生" :order 12}
-             "obg2011" {:name "2011年度卒業生" :order 13}
-             "obg2010" {:name "2010年度卒業生" :order 14}})
+             "obg2021" {:name "2021年度卒業生" :order 5}
+             "obg2020" {:name "2020年度卒業生" :order 6}
+             "obg2019" {:name "2019年度卒業生" :order 7}
+             "obg2017" {:name "2017年度卒業生" :order 8}
+             "obg2016" {:name "2016年度卒業生" :order 9}
+             "obg2015" {:name "2015年度卒業生" :order 10}
+             "obg2014" {:name "2014年度卒業生" :order 11}
+             "obg2013" {:name "2013年度卒業生" :order 12}
+             "obg2012" {:name "2012年度卒業生" :order 13}
+             "obg2011" {:name "2011年度卒業生" :order 14}
+             "obg2010" {:name "2010年度卒業生" :order 15}})
 
 (defn member-card [member]
   (let [{:keys [member/id member/name member/image member/introduction1 member/introduction2
