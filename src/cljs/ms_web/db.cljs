@@ -80,29 +80,40 @@
                               :member/introduction2 "第６代名大相撲部主将で、現在は助監督。\n主将時は、先輩曰く「とても怖かった。」らしいが、その怖さを知る現役部員はいない。\n今でも稽古に来て胸を出し、僕自身も多くの技術指導していただいた。\nただ、最近、彼女さんと相撲部の稽古に来ていただいたのだが、彼女さんの目の前で現役部員に惨敗していた。\nそのときばかりは、本気で八百長しろと思った。\n紹介者：近藤"
                               :member/grade "首脳陣"
                               :member/grade-id "managers"}
-                           {:member/id 7
-                            :member/name "新美 将平"
-                            :member/image "niimi.jpg"
-                            :member/introduction1 "監督"
-                            :member/introduction2 "一般人とさほど変わらない体格に、相撲部歴代でも憧れＮo.1の筋肉を備えるコーチ。\n現役時代には最終学年での怪我による不本意な引退もあったが、自分にも他人にも厳しい名主将として知られ、今はそのストイックさを生かして街を守る仕事をしている。\n写真の通り、某プロ野球選手に酷似しているが、バックボーンはサッカーである。\n紹介者：堤"
-                            :member/grade "首脳陣"
-                            :member/grade-id "managers"}
-                           {:member/id 8
-                            :member/name "近藤 弘章"
-                            :member/image "kondou.jpg"
-                            :member/introduction1 "コーチ"
-                            :member/grade "首脳陣"
-                            :member/grade-id "managers"}
+                           #_{:member/id 7
+                              :member/name "新美 将平"
+                              :member/image "niimi.jpg"
+                              :member/introduction1 "監督"
+                              :member/introduction2 "一般人とさほど変わらない体格に、相撲部歴代でも憧れＮo.1の筋肉を備えるコーチ。\n現役時代には最終学年での怪我による不本意な引退もあったが、自分にも他人にも厳しい名主将として知られ、今はそのストイックさを生かして街を守る仕事をしている。\n写真の通り、某プロ野球選手に酷似しているが、バックボーンはサッカーである。\n紹介者：堤"
+                              :member/grade "首脳陣"
+                              :member/grade-id "managers"}
+                           #_{:member/id 8
+                              :member/name "近藤 弘章"
+                              :member/image "kondou.jpg"
+                              :member/introduction1 "コーチ"
+                              :member/grade "首脳陣"
+                              :member/grade-id "managers"}
                            {:member/id 9
                             :member/name "岩田 将誉"
-                            :member/image "iwata.jpg"
-                            :member/introduction1 "コーチ"
+                            :member/image "iwata_manager.jpg"
+                            :member/introduction1 "監督"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
                            {:member/id 10
                             :member/name "長合 誠也"
-                            :member/image "nagou.jpg"
+                            :member/image "nagou_manager.jpg"
+                            :member/introduction1 "助監督"
+                            :member/grade "首脳陣"
+                            :member/grade-id "managers"}
+                           {:member/id 46
+                            :member/name "打江泰介"
+                            :member/image "uchie.jpg"
                             :member/introduction1 "コーチ"
+                            :member/grade "首脳陣"
+                            :member/grade-id "managers"}
+                           {:member/id 47
+                            :member/name "福井 高信"
+                            :member/introduction1 "特別コーチ"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
                            {:member/id 36
