@@ -79,7 +79,7 @@
                             :member/grade-id "managers"}
                            {:member/id 3
                             :member/name "高見秀樹"
-                            :member/introduction1 "部長\n名古屋大学医学部附属病院助教"
+                            :member/introduction1 "部長\n名古屋大学医学部附属病院講師"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
                            #_{:member/id 4
@@ -129,6 +129,11 @@
                            {:member/id 46
                             :member/name "打江泰介"
                             :member/image "uchie.jpg"
+                            :member/introduction1 "コーチ"
+                            :member/grade "首脳陣"
+                            :member/grade-id "managers"}
+                           {:member/id 51
+                            :member/name "壹岐 英明"
                             :member/introduction1 "コーチ"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
@@ -384,6 +389,12 @@
 
                             {:year "2021" :date "8/1" :event "西日本インカレ"}
                             {:year "2021" :date "9/5" :event "西日本体重別"}
+
+                            {:year "2022" :date "5/29" :event "全国国公立大会"}
+                            {:year "2022" :date "6/5" :event "西日本インカレ"}
+                            {:year "2022" :date "9/4" :event "西日本体重別"}
+                            {:year "2022" :date "9/11" :event "七帝戦"}
+                            {:year "2022" :date "9/13~19" :event "北海道・紋別合宿"}
 
                             #_{:year "2020" :date "3/12, 13" :event "地獄の細道"}
                             #_{:year "2020" :date "3/16~26" :event "毎日稽古"}

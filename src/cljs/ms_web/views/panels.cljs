@@ -56,7 +56,12 @@
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          [:p "今年の新歓用ビラを公開します。"]
          [:> ui/Grid
-          [image {:image-path "/img/pamphlet_2021.jpg" :alt "新入部員募集中"}]
+          [:> ui/Grid.Column {:mobile 16 :computer 8
+                              #_#_:onClick #(reset! modal-content
+                                                    {:title "新入部員募集中"
+                                                     :pdf "/img/pamphlet_2020_reverse.pdf"})}
+           [image {:image-path "/img/pamphlet_2022_reverse.jpg" :alt "新入部員募集中"}]]
+          #_[image {:image-path "/img/pamphlet_2021.jpg" :alt "新入部員募集中"}]
           #_[:> ui/Grid.Column {:mobile 16 :computer 8
                                 :onClick #(reset! modal-content
                                                   {:title "新入部員募集中"
