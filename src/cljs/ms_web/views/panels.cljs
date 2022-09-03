@@ -60,12 +60,12 @@
                               :onClick #(reset! modal-content
                                                 {:title "新入部員募集中"
                                                  :pdf "/img/pamphlet_2022.pdf"})}
-           [image {:image-path "/img/pamphlet_2022.jpg" :alt "新入部員募集中" :style {:width "100%"}}]]
+           [image {:image-path "/img/pamphlet_2022.jpg" :alt "新入部員募集中"}]]
           [:> ui/Grid.Column {:mobile 16 :computer 8
                               :onClick #(reset! modal-content
                                                 {:title "新入部員募集中"
                                                  :pdf "/img/pamphlet_2022_reverse.pdf"})}
-           [image {:image-path "/img/pamphlet_2022_reverse.jpg" :alt "新入部員募集中" :style {:width "100%"}}]]]]]
+           [image {:image-path "/img/pamphlet_2022_reverse.jpg" :alt "新入部員募集中"}]]]]]
        #_[:div {:style {:margin-bottom "25px"}}
           [:h2 "2020年新歓ビラ"]
           [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
