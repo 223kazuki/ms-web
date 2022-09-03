@@ -226,6 +226,42 @@
                  :else
                  event)]])]]
 
+         [:h2 "年間予定(2022)"]
+         [:> ui/Table {:celled true}
+          [:> ui/Table.Body
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2022" (:year %))  schedule)]
+             ^{:key date}
+             [:> ui/Table.Row {:style {:textAlign "left"}}
+              [:> ui/Table.Cell date]
+              [:> ui/Table.Cell
+               (cond
+                 (some? link)
+                 [:a {:href link
+                      :style {:cursor "pointer"}} event]
+                 (some? tweet-id)
+                 [:a {:onClick #(reset! modal-content s)
+                      :style {:cursor "pointer"}} event]
+                 :else
+                 event)]])]]
+
+         [:h2 "年間予定(2021)"]
+         [:> ui/Table {:celled true}
+          [:> ui/Table.Body
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2021" (:year %))  schedule)]
+             ^{:key date}
+             [:> ui/Table.Row {:style {:textAlign "left"}}
+              [:> ui/Table.Cell date]
+              [:> ui/Table.Cell
+               (cond
+                 (some? link)
+                 [:a {:href link
+                      :style {:cursor "pointer"}} event]
+                 (some? tweet-id)
+                 [:a {:onClick #(reset! modal-content s)
+                      :style {:cursor "pointer"}} event]
+                 :else
+                 event)]])]]
+
          [:h2 "年間予定(2020)"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
