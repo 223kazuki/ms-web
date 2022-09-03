@@ -19,21 +19,21 @@
                            {:member/id 42
                             :member/name "青山遼太郎"
                             :member/image "aoyama.jpg"
-                            :member/introduction1 "工学部機械航空宇宙工学科\n出身：愛知県一宮市"
+                            :member/introduction1 "主将\n工学部機械航空宇宙工学科\n出身：愛知県一宮市"
                             :member/introduction2 "先輩のことが好き。"
                             :member/grade "4年"
                             :member/grade-id "grade4"}
                            {:member/id 43
                             :member/name "土屋英貴"
                             :member/image "tsuchiya.jpg"
-                            :member/introduction1 "工学部機械航空宇宙工学科\n出身：静岡県浜松市"
+                            :member/introduction1 "主務\n工学部機械航空宇宙工学科\n出身：静岡県浜松市"
                             :member/introduction2 "料理が好きで、いろいろな料理を作れる。"
                             :member/grade "4年"
                             :member/grade-id "grade4"}
                            {:member/id 44
                             :member/name "杉本空良"
                             :member/image "sugimoto.jpg"
-                            :member/introduction1 "教育学部\n出身: 静岡県浜松市"
+                            :member/introduction1 "副主将\n教育学部\n出身: 静岡県浜松市"
                             :member/introduction2 "ゲームが好き。オールジャンルでいける。"
                             :member/grade "3年"
                             :member/grade-id "grade3"}
@@ -44,6 +44,27 @@
                             :member/introduction2 "相撲歴10年のマネージャー。"
                             :member/grade "2年"
                             :member/grade-id "grade2"}
+                           {:member/id 48
+                            :member/name "アルベスネベスエゴンルカス"
+                            :member/image "egon.jpg"
+                            :member/introduction1 "人文学研究科言語学専攻\n研究生\n出身:ブラジル"
+                            :member/introduction2 "身長196cmの大型部員。"
+                            :member/grade "1年"
+                            :member/grade-id "grade1"}
+                           {:member/id 49
+                            :member/name "横井睦己"
+                            :member/image "yokoi.jpg"
+                            :member/introduction1 "理学部\n出身:愛知県一宮市"
+                            :member/introduction2 "ポケモン go で図鑑完成を目指す。"
+                            :member/grade "1年"
+                            :member/grade-id "grade1"}
+                           {:member/id 50
+                            :member/name "大西悠太"
+                            :member/image "onishi.jpg"
+                            :member/introduction1 "文学部\n出身:愛知県一宮市"
+                            :member/introduction2 "教科書書き込みガチ勢。"
+                            :member/grade "1年"
+                            :member/grade-id "grade1"}
                            {:member/id 1
                             :member/name "加藤 延夫"
                             :member/introduction1 "総長"
@@ -58,7 +79,7 @@
                             :member/grade-id "managers"}
                            {:member/id 3
                             :member/name "高見秀樹"
-                            :member/introduction1 "部長\n名古屋大学医学部附属病院助教"
+                            :member/introduction1 "部長\n名古屋大学医学部附属病院講師"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
                            #_{:member/id 4
@@ -111,6 +132,11 @@
                             :member/introduction1 "コーチ"
                             :member/grade "首脳陣"
                             :member/grade-id "managers"}
+                           {:member/id 51
+                            :member/name "壹岐 英明"
+                            :member/introduction1 "コーチ"
+                            :member/grade "首脳陣"
+                            :member/grade-id "managers"}
                            {:member/id 47
                             :member/name "福井 高信"
                             :member/introduction1 "特別コーチ"
@@ -126,21 +152,21 @@
                            {:member/id 40
                             :member/name "尾田駿太"
                             :member/image "oda.jpg"
-                            :member/introduction1 "主将\n工学部物理工学科\n出身：愛知県名古屋市"
+                            :member/introduction1 "元主将\n工学部物理工学科\n出身：愛知県名古屋市"
                             :member/introduction2 "手足が長く、廻しを取るのが上手い。"
                             :member/grade "卒業生（2021年度卒）"
                             :member/grade-id "obg2021"}
                            {:member/id 39
                             :member/name "高橋純輝"
                             :member/image "takahashi.jpg"
-                            :member/introduction1 "副主将\n理学部物理学科\n出身：岐阜県岐阜市"
+                            :member/introduction1 "元副主将\n理学部物理学科\n出身：岐阜県岐阜市"
                             :member/introduction2 "真面目に見えて実はポンコツ。"
                             :member/grade "卒業生（2021年度卒）"
                             :member/grade-id "obg2021"}
                            {:member/id 38
                             :member/name "中川悠太"
                             :member/image "nakagawa.jpg"
-                            :member/introduction1 "主務\n農学部生物環境科学科\n出身：東京都世田谷区"
+                            :member/introduction1 "元主務\n農学部生物環境科学科\n出身：東京都世田谷区"
                             :member/introduction2 "麻雀好きのギャンブラー。"
                             :member/grade "卒業生（2021年度卒）"
                             :member/grade-id "obg2021"}
@@ -363,6 +389,12 @@
 
                             {:year "2021" :date "8/1" :event "西日本インカレ"}
                             {:year "2021" :date "9/5" :event "西日本体重別"}
+
+                            {:year "2022" :date "5/29" :event "全国国公立大会"}
+                            {:year "2022" :date "6/5" :event "西日本インカレ"}
+                            {:year "2022" :date "9/4" :event "西日本体重別"}
+                            {:year "2022" :date "9/11" :event "七帝戦"}
+                            {:year "2022" :date "9/13~19" :event "北海道・紋別合宿"}
 
                             #_{:year "2020" :date "3/12, 13" :event "地獄の細道"}
                             #_{:year "2020" :date "3/16~26" :event "毎日稽古"}

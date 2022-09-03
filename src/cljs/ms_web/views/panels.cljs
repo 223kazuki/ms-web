@@ -52,16 +52,20 @@
          [:a {:href "https://twitter.com/nu_sumo"} "Twitter"]
          "をご確認下さい。"]]
        [:div {:style {:margin-bottom "25px"}}
-        [:h2 "2021年新歓ビラ"]
+        [:h2 "2022年新歓ビラ"]
         [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
          [:p "今年の新歓用ビラを公開します。"]
          [:> ui/Grid
-          [image {:image-path "/img/pamphlet_2021.jpg" :alt "新入部員募集中"}]
-          #_[:> ui/Grid.Column {:mobile 16 :computer 8
-                                :onClick #(reset! modal-content
-                                                  {:title "新入部員募集中"
-                                                   :pdf "/img/pamphlet_2020_reverse.pdf"})}
-             [image {:image-path "/img/pamphlet_2020_reverse.jpg" :alt "新入部員募集中"}]]]]]
+          [:> ui/Grid.Column {:mobile 16 :computer 8
+                              :onClick #(reset! modal-content
+                                                {:title "新入部員募集中"
+                                                 :pdf "/img/pamphlet_2022.pdf"})}
+           [image {:image-path "/img/pamphlet_2022.jpg" :alt "新入部員募集中"}]]
+          [:> ui/Grid.Column {:mobile 16 :computer 8
+                              :onClick #(reset! modal-content
+                                                {:title "新入部員募集中"
+                                                 :pdf "/img/pamphlet_2022_reverse.pdf"})}
+           [image {:image-path "/img/pamphlet_2022_reverse.jpg" :alt "新入部員募集中"}]]]]]
        #_[:div {:style {:margin-bottom "25px"}}
           [:h2 "2020年新歓ビラ"]
           [:> ui/Segment {:basic true :style {:whiteSpace "pre-line"}}
@@ -202,8 +206,26 @@
                            :height "300px"}
                    :allowFullScreen true}]
 
-         [:h2 "年間予定(2021)"]
+         [:h2 "年間予定(2022)"]
          [:p "※コロナウィルスの影響により現在活動を自粛しております。最新の活動状況についてはTwitterをご確認下さい。"]
+         [:> ui/Table {:celled true}
+          [:> ui/Table.Body
+           (for [{:keys [date event link tweet-id] :as s} (filter #(= "2022" (:year %))  schedule)]
+             ^{:key date}
+             [:> ui/Table.Row {:style {:textAlign "left"}}
+              [:> ui/Table.Cell date]
+              [:> ui/Table.Cell
+               (cond
+                 (some? link)
+                 [:a {:href link
+                      :style {:cursor "pointer"}} event]
+                 (some? tweet-id)
+                 [:a {:onClick #(reset! modal-content s)
+                      :style {:cursor "pointer"}} event]
+                 :else
+                 event)]])]]
+
+         [:h2 "年間予定(2021)"]
          [:> ui/Table {:celled true}
           [:> ui/Table.Body
            (for [{:keys [date event link tweet-id] :as s} (filter #(= "2021" (:year %))  schedule)]
